@@ -4,11 +4,13 @@ This Model is Spatial Information Queensland's model for Address data and also a
 
 This model's document is auto-built from the source file `model.adoc` and viewable online at:
 
-* https://nicholascar.com/anz-nat-addr-model-candidate/model.html
+* link:https://spatial-information-qld.github.io/address-model/model.html[ANZ National Address Model - Candidate]
 
 The repository is at:
 
-* https://github.com/nicholascar/anz-nat-addr-model-candidate/
+* https://github.com/Spatial-Information-QLD/address-model
+
+To contribute to this document, see link:https://github.com/Spatial-Information-QLD/address-model/blob/main/editing.adoc[editing.adoc] on how to set up the editing environment.
 
 == Rights and License
 
