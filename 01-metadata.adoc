@@ -13,7 +13,7 @@
 |**Provenance** | This ontology was made for the Queensland Department of Resources, Spatial Information unit to assist with future Address database design. It is informed by the ICSM's Addressing 2035: Addressing Reform and Innovation for Australia and New Zealand, published in late 2021 and is based primarilty on the ISO19160-1 Addressing Part 1: Conceptual model with additional elements from a small set of well-regarded Semantic Web models such as GeoSPARQL and SKOS. It is also informed by the relational databalse model used for the G-NAF, Australia's Geocoded National Address File, and CSIRO work in 2018 to characterise the GNAF in Sematic Web form, the ontlogy for which is online at https://linked.data.gov.au/def/gnaf.
 |**Status** | Early draft
 |**Version** | `addr:0.0.1`
-|**Code Repository** | https://nicholascar.com/anz-nat-addr-model-candidate
+|**Code Repository** | https://github.com/Spatial-Information-QLD/address-model
 |**License** | https://creativecommons.org/licenses/by/4.0/[Creative Commons Attribution 4.0 International (CC BY 4.0)]
 |**Copyright** | &copy; Nicholas J. Car, 2022
 |**Machine-readable form (RDF)** | https://w3id.org/profile/anz-address.ttl

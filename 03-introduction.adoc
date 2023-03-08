@@ -33,11 +33,11 @@ This document is this model's "Specification" which is its authoratitive, human-
 |===
 | Resource | Role | Notes
 
-| https://nicholascar.com/anz-nat-addr-model-candidate/model.ttl[Ontology] | _Schema_ | The technical, machine-readable, version of this model
+| https://spatial-information-qld.github.io/address-model/model.ttl[Ontology] | _Schema_ | The technical, machine-readable, version of this model
 | <<Supporting Vocabularies>> | _Vocabulary_ | The codelist vocabularies developed for this model and links to others  defined elsewhere but used by this model
-| <<Annex A: Validators>> & https://nicholascar.com/anz-nat-addr-model-candidate/validator.shacl.ttl[Validator] | _Validation_ | The machine-readable validator file used to validate data claiming conformance to this model
+| <<Annex A: Validators>> & https://github.com/Spatial-Information-QLD/address-model/blob/main/validator.ttl[Validator] | _Validation_ | The machine-readable validator file used to validate data claiming conformance to this model
 | <<Annex B: Extended Examples>>
 &
-https://github.com/nicholascar/anz-nat-addr-model-candidate/tree/main/extended-examples[Extended example data files] | _Example_ | Examples of data conforming, and some not conforming, to this model
+https://github.com/Spatial-Information-QLD/address-model/tree/main/extended-examples[Extended example data files] | _Example_ | Examples of data conforming, and some not conforming, to this model
 | <<Annex C: Demo Implementations>> | _Example_ | Demonstration implementations of this model in various database forms
 |===

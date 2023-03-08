@@ -26,7 +26,6 @@ jobs:
         asciidoctor README.adoc -o docs/index.html
         echo "Add model to docs/"
         asciidoctor 00-master.adoc -o docs/model.html
-        sed -i 's#img src="#img src="https://nicholascar.com/anz-nat-addr-model-candidate/#' docs/model.html        
         echo "Add model RDF to docs/"
         cp model.ttl docs/             
         echo "Add images to docs/"
