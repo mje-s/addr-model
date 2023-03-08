@@ -6,7 +6,7 @@ Several demonstration implementations of this Address model are given in the cod
 
 The 15 or so extended examples data files within the code repository (see above Annex for details) represent an implementation of this model for they are formulated in RDF data and are thus able to be loaded into an RDF database (often called a "triplestore") and queried.
 
-To demonstrate this, the multiple example files can be loaded directly into such tools as Apache's https://jena.apache.org/documentation/fuseki2/[Fuseki] database. They can also be combined into one file using RDF tooling and that uploaded. The script `_compound_example.py` in the examples directory compounds all the examples into the single file https://github.com/nicholascar/anz-nat-addr-model-candidate/blob/main/extended-examples/_all.ttl[_all.ttl].
+To demonstrate this, the multiple example files can be loaded directly into such tools as Apache's https://jena.apache.org/documentation/fuseki2/[Fuseki] database. They can also be combined into one file using RDF tooling and that uploaded. The script `_compound_example.py` in the examples directory compounds all the examples into the single file https://github.com/Spatial-Information-QLD/address-model/blob/main/extended-examples/_all.ttl[_all.ttl].
 
 Once loaded into a triplestore, https://www.w3.org/TR/sparql11-query/[SPARQL] queries can be used to interrogate the data similarly to how SQL queries are used for relational databases. Some example SPARQL queries for the examples data are:
 
@@ -146,7 +146,7 @@ The 15 or so extended examples within the code repository (see above Annex for d
 [NOTE]
 To be fully functional, the https://www.gaia-gis.it/fossil/libspatialite/index[SpatiaLite] extension to SQLite need to be enabled so spatial functions may be performed. This extension is _NOT_ enabled for this demonstration database to keep the geometry data human-readable (text) rather than implementing it as binary data types.
 
-* https://github.com/nicholascar/anz-nat-addr-model-candidate/tree/main/implementations/relational/qld-scenarios[Source SQL files and loaded .sqlite database]
+* https://github.com/Spatial-Information-QLD/address-model/tree/main/implementations/relational/qld-scenarios[Source SQL files and loaded .sqlite database]
 
 The database consists of 21 tables that together store:
 
@@ -246,7 +246,7 @@ In the query above, a 4-table join is performed to obtain Address, Address Compo
 
 A simple string templating function in a programming language such as Python may be used to convert those results into RDF or an RDF toolkit, such as Python's https://pypi.org/project/rdflib/[RDFLib] or Java's https://jena.apache.org/[Jena], may be used.
 
-The file https://github.com/nicholascar/anz-nat-addr-model-candidate/tree/main/implementations/relational/qld-scenarios/rdf_converter.py[rdf_converter.py] is a Python script that:
+The file https://github.com/Spatial-Information-QLD/address-model/tree/main/implementations/relational/qld-scenarios/rdf_converter.py[rdf_converter.py] is a Python script that:
 
 * reads the Relational Database Demo file
 * utilises the _pid_prefixes_ to map prefixed data to full IRIs

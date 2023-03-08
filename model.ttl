@@ -17,7 +17,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     owl:versionInfo "0.0.1" ;
     skos:definition "This model is a Semantic Web data model used for address information. It caters specifically for Australian & New Zealand's address modelling needs."@en ;
     skos:prefLabel "ANZ National Address Model - Candidate"@en ;
-    sdo:codeRespository "https://github.com/nicholascar/anz-nat-addr-model-candidate/"^^xsd:anyURI ;
+    sdo:codeRespository "https://github.com/Spatial-Information-QLD/address-model/"^^xsd:anyURI ;
     sdo:copyrightHolder <https://orcid.org/0000-0002-8742-7730> ;
     sdo:copyrightNotice "(c) Nicholas J. Car, 2022" ;
     sdo:creator <https://orcid.org/0000-0002-8742-7730> ;

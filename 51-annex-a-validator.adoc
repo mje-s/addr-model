@@ -2,7 +2,7 @@
 == Annex A: Validators
 
 === A.1 Description
-Two validators to test data claiming conformance to this model are provided as resources within this profile. The first, https://github.com/nicholascar/anz-nat-addr-model-candidate/blob/main/validator.ttl[validator.ttl] is the canonical validator for this model. The second, https://github.com/nicholascar/anz-nat-addr-model-candidate/blob/main/validator-qld.ttl[validator-qld.ttl] is a demonstration validator for Queensland that includes extended validator rules building on validator.ttl.
+Two validators to test data claiming conformance to this model are provided as resources within this profile. The first, https://github.com/Spatial-Information-QLD/address-model/validator.ttl[validator.ttl] is the canonical validator for this model. The second, https://github.com/Spatial-Information-QLD/address-model/blob/main/validator-qld.ttl[validator-qld.ttl] is a demonstration validator for Queensland that includes extended validator rules building on validator.ttl.
 
 A summary of the canonical validator's elements ("shapes") is given in <<tbl-shapes, Table 1>>.
 

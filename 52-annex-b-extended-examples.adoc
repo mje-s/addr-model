@@ -2,7 +2,7 @@
 
 The extended examples for this model are a series of data files stored in this model's online code repository:
 
-* https://github.com/nicholascar/anz-nat-addr-model-candidate/tree/main/extended-examples
+* https://github.com/Spatial-Information-QLD/address-model/tree/main/extended-examples
 
 Each file there exemplifies a modelling situation or problem and the modelling within the data gives this model's solution. The particular situation/problem is explained at the start of each file. For example, in the file locan-01.ttl, we have:
 

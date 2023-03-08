@@ -17,7 +17,7 @@ addr:validator-qld
     owl:versionInfo "0.0.1" ;
     skos:definition "A SHACL validator for ANZ Address Model resources that checks for elements required by Queensland."@en ;
     skos:prefLabel "ANZ National Address Model Queensland Validator"@en ;
-    sdo:codeRespository "https://github.com/nicholascar/anz-nat-addr-model-candidate/"^^xsd:anyURI ;
+    sdo:codeRespository "https://github.com/Spatial-Information-QLD/address-model/"^^xsd:anyURI ;
     sdo:copyrightHolder <https://orcid.org/0000-0002-8742-7730> ;
     sdo:copyrightNotice "(c) Nicholas J. Car, 2022" ;
     sdo:creator <https://orcid.org/0000-0002-8742-7730> ;
