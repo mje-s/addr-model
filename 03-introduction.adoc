@@ -25,6 +25,14 @@ The only exception to this are addresses' geocodes which are modeled as direct p
 
 For example, an emergency services access address for a hospital might need a more precise location than the footprint of the hospital property with might be large. In this case, an address with the _emergency access_ role may be defined for the hospital with a precise point geocode which will likely be on or close to the hospital building's boundary.
 
+=== Feature Labelling Profile
+
+This model is a _profile_, that is a specialised version of, a general-purpose _Feature Labelling Model_ that is part of Queensland Spatial Information's https://spatial-information-qld.github.io/supermodel/supermodel.html[_Supermodel_] which is an enterprise data model for multi-model data integration.
+
+Feature labelling is the general form of the Address / Spatial object principle whereby other forms of labelling might be applied to spatial objects, such as Place Naming, road naming, Administrative Area naming and so on.
+
+This inheritance from the _Feature Labelling Model_ means that while this model may be used for address information in a stand-alone manner, it can also be easily integrated with models of Place Names and Admin Areas etc. data that also inherit from the _Feature Labelling Model_ as they share similar structures.
+
 === Model resources
 
 This document is this model's "Specification" which is its authoratitive, human-readable, definition document. This model also contains other resources with other roles:

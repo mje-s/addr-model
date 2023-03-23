@@ -1,10 +1,10 @@
-= Spatial Information Queensland Address Model
+= Spatial Information Queensland - Address Model
 
 This Model is Spatial Information Queensland's model for Address data and also a candidate model for all Australian & New Zealand addresses.
 
-This model's document is auto-built from the source file `model.adoc` and viewable online at:
+This model's document is auto-built from the source file `00-master.adoc` and is viewable online at:
 
-* link:https://spatial-information-qld.github.io/address-model/model.html[ANZ National Address Model - Candidate]
+* link:https://spatial-information-qld.github.io/address-model/model.html[QSI Address Model]
 
 The repository is at:
 
@@ -37,7 +37,7 @@ For further information, please visit:
 https://www.resources.qld.gov.au/data-mapping +  
 https://qldspatial.information.qld.gov.au/
 
-For technical vocabulary implementation questions, contact:
+For technical model implementation questions, contact:
 
 *Nicholas Car* +
 nick@kurrawong.ai +
