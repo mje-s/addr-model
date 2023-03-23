@@ -35,7 +35,7 @@ This inheritance from the _Feature Labelling Model_ means that while this model 
 
 === Model resources
 
-This document is this model's "Specification" which is its authoratitive, human-readable, definition document. This model also contains other resources with other roles:
+This document is this model's "Specification" which is its authoritative, human-readable, definition document. This model also contains other resources with other roles:
 
 [width="75%", cols="2,1,4"]
 |===
