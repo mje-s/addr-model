@@ -1,0 +1,38 @@
+[[AnnexA]]
+== Annex A: Requirements
+
+the 10 major requirements for Ausralian and New Zealand address models, as per the https://www.icsm.gov.au/[Intergovernmental Committee on Surveying and Mapping] established an https://www.icsm.gov.au/publications/addressing-2035[Addressing 2035 Strategy]'s https://www.icsm.gov.au/publications/addressing-strategy-information-addendum[Addendum] are:
+
+. Better complex / multi address representation
+. Shared addressable object / address conception
+. Model interoperability
+. Model profiling and mapping
+. International model uptake
+. New address dimensions
+. Enhanced address life-cycle management
+. Address validation at creation point
+. Verifiable model conformance
+. Multi-lingual and alternate name addressing
+
+Next follows a description per Requirement as to how this Model addresses it.
+
+=== Better complex / multi address representation
+
+=== Shared addressable object / address conception
+
+=== Model interoperability
+
+=== Model profiling and mapping
+
+=== International model uptake
+
+=== New address dimensions
+
+=== Enhanced address life-cycle management
+
+=== Address validation at creation point
+
+=== Verifiable model conformance
+
+=== Multi-lingual and alternate name addressing
+

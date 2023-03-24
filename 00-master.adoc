@@ -23,10 +23,12 @@ include::05-supporting-vocabularies.adoc[]
 
 :sectnums!:
 
-include::51-annex-a-validator.adoc[]
+include::50-annex-a-requirments.adoc[]
 
-include::52-annex-b-extended-examples.adoc[]
+include::51-annex-b-validator.adoc[]
 
-include::53-annex-c-demo-implementations.adoc[]
+include::52-annex-c-extended-examples.adoc[]
+
+include::53-annex-d-demo-implementations.adoc[]
 
 include::99-bibliography.adoc[]

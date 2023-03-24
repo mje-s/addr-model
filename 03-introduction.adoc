@@ -1,37 +1,61 @@
 == Introduction
 
-In 2021, the https://www.icsm.gov.au/[Intergovernmental Committee on Surveying and Mapping] established an https://www.icsm.gov.au/publications/addressing-2035[Addressing 2035] strategy that aimed to "provide leadership, coordination and standards for assembling, delivering and maintaining address datasets". The Strategy listed "Strategic Pillars", such as "Jurisdictional
-flexibility" - things for Strategy implementers to aim for - "Guiding Principles", "Overarching Pain Points" and other system/model/situation requirements. It did not present an address model.
+The model represents address components and objects addresses relate to using structures informed by the international addressing standard, <<ISO19160-1>>. However, this model is expressed in Semantic Web form, rather than ISO19160-1's UML and XML, and this model also conforms to several generic Semantic Web models for the labelling of geospatial features, feature/geometry representation and so on. Thus, while it conceptually aligns with ISO19160-1, content must be deliberately exported via a mapping from this model to XML documents for testable ISO19160-1 conformance.
 
-This model is created with alignment to the Addressing 2035 Strategy as a high priority, so it's use aims to address Pain Points identified in the Strategy.
+Data from made according to this model, when stored in one of the <<RDF>> serialization formats such as <<TTL>>, is directly validatable according to a series of Semantic Web validators, see <<AnnexB>>.
 
-The model is mostly based on the structures of International Addressing standard, ISO19160-1, but this model is expressed in Semantic Web form. Unlike ISO19160-1, this model also re-uses elements from other, well-known, Semantic Web models, as is the Semantic Web norm.
+This model does not model _all_ possible address data managers' concerns: it leaves things like the detailed modelling of spatial information to other models or extensions to this model. Also, by reusing elements from well-known Semantic Web models, this model has many "pick-up" points that can be used to join other information on to. For example, the `Resource` indicated as an `Address Component` value, may be a locally-defined simple value type - a number or string - but it may also be a complex object defined elsewhere, such as a `Locality`.
 
-This model does not model _all_ of address data managers' concerns: it leaves things like the detailed modelling of spatial information to other models or extensions to this model. Also, by reusing elements from well-known Semantic Web models, this model has many "pick-up" points that can be used to join other information on to. For example, the `Resource` indicated as an `Address Component` value, may be a locally-defined simple value type - a number or string - but it may also be a complex object defined elsewhere, such as a `Locality`.
+=== Sources of Requirements
 
-=== Address / Spatial object principle
+In 2021, the Australia and New Zealand https://www.icsm.gov.au/[Intergovernmental Committee on Surveying and Mapping] established an https://www.icsm.gov.au/publications/addressing-2035[Addressing 2035 Strategy] that aimed to "provide leadership, coordination and standards for assembling, delivering and maintaining address datasets". The Strategy listed "Strategic Pillars", such as "Jurisdictional flexibility" - things for Strategy implementers to aim for - "Guiding Principles", "Overarching Pain Points" and other system/model/situation requirements. While the Strategy did not present an address model, it had an addendum that listed 10 requirements for a future address data model: https://www.icsm.gov.au/publications/addressing-strategy-information-addendum[Addendum to the Strategy]. These 10 requirements are a major source of this Address Models requirements.
 
-This model details the elements of an _address_ but not details of the spatial objects that addresses are assigned to. The general conceptual split of address/spatial object follows the Address/AddressableObject split in ISO19160-1 <<ISO19160-1>> with some further integration of the AddressableObject concpet with general-purpose spatial models, in particular GeoSPARQL <<GEO>>.
+These ICSM requirements include both specific requirements, for example to cater for "Multi-lingual and alternate name addressing", and also requirements to align with other address-related initiative which might be a source of multiple individual requirements, for example "Model interoperability" which, in its detailed description, indicates a requirement for an address model to align with a baseline set of spatial data standards that ICSM might create.
 
-The following figure overviews this model's address / spatial object split.
+<<AnnexA>> lists the ICSM Addressing 2035 Strategy Addendum's 10 requirements and indicates how this model implements solutions for them.
+
+=== Major Modelling Principles
+
+Major modelling principles present in this model are:
+
+. Feature / Feature Labelling differentiation
+. Feature / Geometry differentiation
+. Geocodes
+. Profile Views
+
+These principles are explained in the following sub-sections and the first two reference the following figure.
 
 [[fig-address-spatial]]
-.Address / spatial object relation overview
+.Address / Addressable Object and Feature / Geometry differentiation overview
 image::img/address-spatial.png[]
 
-In the figure above, the spatial object that is the target of an address, an _addressable object_, is a subclass of (special type of) the GeoSPARQL model's `Feature` class, which is really any geospatial feature. Spatial relations between addresses and other objects and spatial projects of objects (their geometries) are then modelled as spatial concerns within GeoSPARQL's general spatial modelling.
+==== Feature / Feature Labelling differentiation
 
-The only exception to this are addresses' geocodes which are modeled as direct properties of (related geometries of) addresses. This is because while an address might be for a spatial object with a certain geometry, the geocode for the address might not be directly inherited from that spatial object but might be manually or otherwise defined.
+This model details the elements of an _address_ but not details of the spatial objects that addresses are assigned to. The general conceptual split of address/spatial object follows the Address/AddressableObject split in ISO19160-1 <<ISO19160-1>>. Addresses are seen as a form of complex, multi-part, label - Feature Label - for a spatial Feature.
 
-For example, an emergency services access address for a hospital might need a more precise location than the footprint of the hospital property with might be large. In this case, an address with the _emergency access_ role may be defined for the hospital with a precise point geocode which will likely be on or close to the hospital building's boundary.
+This allows for the representation, and ultimately the management, of labels - text, numbers, identifiers, references - separately to the management of spatial objects.
 
-=== Feature Labelling Profile
+This Feature / Feature Labelling separation applies to Place Names, Roads and Administrative Areas as well as Addresses and this expression of Feature / Feature Labelling separation for addressing is a formal profile of the more general _Feature Labelling Model_ <<FLM>>. There are other profiles for those other domains. The FLM, this model and the other FLM profiles are all pat of Queensland Spatial Information's https://spatial-information-qld.github.io/supermodel/supermodel.html[_Supermodel_] which is an enterprise data model for multi-model data integration.
 
-This model is a _profile_, that is a specialised version of, a general-purpose _Feature Labelling Model_ that is part of Queensland Spatial Information's https://spatial-information-qld.github.io/supermodel/supermodel.html[_Supermodel_] which is an enterprise data model for multi-model data integration.
+==== Feature / Geometry differentiation
 
-Feature labelling is the general form of the Address / Spatial object principle whereby other forms of labelling might be applied to spatial objects, such as Place Naming, road naming, Administrative Area naming and so on.
+(Geo)spatial objects referenced by this model are not geometries but conceptual spatial objects that have as an expression of their spatial projection one or more geometries. This conceptual object - Feature - and spatial expression - Geometry - split is based on fundamental spatial modelling in standards such as <<ISO19101-1>> and their expression in the Semantic Web spatial standard <<GEO>>.
 
-This inheritance from the _Feature Labelling Model_ means that while this model may be used for address information in a stand-alone manner, it can also be easily integrated with models of Place Names and Admin Areas etc. data that also inherit from the _Feature Labelling Model_ as they share similar structures.
+This Feature / Geometry distinction allows individual spatial objects to have multiple Geometries: different resolutions, in different coordinate systems and even sets of Geometries that have different roles or that show variation over time.
+
+==== Geocodes
+
+Geocodes are point geometries associated with an address that can be used by mapping applications to locate the address, or part of an addressable object, on a map.
+
+Since geocodes are directly related to an Address and are only indirectly related to an Addressable Object, in this model they are modelled as a specialised form of Features with a Geometry used to indicate the point location. The Address relates to the Geocode in a similar way to an Address relating to an Addressable Object however the Address isn't the address _for_ the Addressable Object but rather the Geocode is another kind of object associated with the Address with a _role_ indicated, e.g. a particular Geocode might indicate the "property centroid" or perhaps it's the "deliveries point" of a large building address.
+
+=== Profile Views
+
+Addresses have multiple roles: they indicate places with names (or Features with Labels), they are things to be managed by data holders, and they have statuses, lifecycles and so on. Sometimes we are only interested in one of these aspects of an Address or one _profile_ and not the total Address information held. We may also be interested only in a reduced set of properties of an Address even when others within that role are present, e.g. the current status, not all the statues an Address has ever had. Finally, different implementers of this model may want to implement different jurisdictional profiles of the entire model that, for example, mandate records for that jurisdiction's system's use of Addresses that would be meaningless outside that jurisdiction.
+
+All of these sorts of _profiles_ of Addresses are handled in a similar way in this model: they are declared Profiles of the model that may implement additional ruls and/or requirements on data, however they must always conform to the main Address Model itself.
+
+Profile modelling is given in <<PROF>> and requesting profiles from data conforming to a model is given in <<CONNEGP>>.
 
 === Model resources
 
@@ -43,9 +67,10 @@ This document is this model's "Specification" which is its authoritative, human-
 
 | https://spatial-information-qld.github.io/address-model/model.ttl[Ontology] | _Schema_ | The technical, machine-readable, version of this model
 | <<Supporting Vocabularies>> | _Vocabulary_ | The codelist vocabularies developed for this model and links to others  defined elsewhere but used by this model
-| <<Annex A: Validators>> & https://github.com/Spatial-Information-QLD/address-model/blob/main/validator.ttl[Validator] | _Validation_ | The machine-readable validator file used to validate data claiming conformance to this model
-| <<Annex B: Extended Examples>>
+| <<AnnexA>> | _Guidance_ | The Requirements addressed by this model
+| <<AnnexB>> & https://github.com/Spatial-Information-QLD/address-model/blob/main/validator.ttl[Validator] | _Validation_ | The machine-readable validator file used to validate data claiming conformance to this model
+| <<AnnexC>>
 &
 https://github.com/Spatial-Information-QLD/address-model/tree/main/extended-examples[Extended example data files] | _Example_ | Examples of data conforming, and some not conforming, to this model
-| <<Annex C: Demo Implementations>> | _Example_ | Demonstration implementations of this model in various database forms
+| <<AnnexD>> | _Example_ | Demonstration implementations of this model in various database forms
 |===
