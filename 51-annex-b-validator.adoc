@@ -1,7 +1,7 @@
-[[AnnexA]]
-== Annex A: Validators
+[[AnnexB]]
+== Annex B: Validators
 
-=== A.1 Description
+=== B.1 Description
 Two validators to test data claiming conformance to this model are provided as resources within this profile. The first, https://github.com/Spatial-Information-QLD/address-model/validator.ttl[validator.ttl] is the canonical validator for this model. The second, https://github.com/Spatial-Information-QLD/address-model/blob/main/validator-qld.ttl[validator-qld.ttl] is a demonstration validator for Queensland that includes extended validator rules building on validator.ttl.
 
 A summary of the canonical validator's elements ("shapes") is given in <<tbl-shapes, Table 1>>.
@@ -28,7 +28,7 @@ A summary of the canonical validator's elements ("shapes") is given in <<tbl-sha
 
 NOTE: The canonical validator's list of elements will almost certainly grow as use of this model fleshes out model element needs.
 
-=== A.2 Use
+=== B.2 Use
 
 These validators are implemented using the Shapes Constraint Language (SHACL) and any tool that support SHACL validation may be used to apply them to data to be validated.
 

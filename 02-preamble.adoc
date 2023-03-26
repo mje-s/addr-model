@@ -3,9 +3,9 @@
 === Abstract
 
 [NOTE]
-This Model is a candidate model for Australian & New Zealand address information. It is currently an unofficial model that is not yet published as a standard.
+This Model is under test by Queensland Government and is a candidate model for Australian & New Zealand address information. It is currently an unofficial model that is not yet published as a standard.
 
-This model is a Semantic Web data model used for address information. It caters specifically for Australian & New Zealand's address modelling needs. It was originally was made for the Queensland Department of Resources, Spatial Information unit, to assist with future Address database design. It is informed by the ICSM's Addressing 2035: Addressing Reform and Innovation for Australia and New Zealand, published in late 2021 and is based primarilty on the ISO19160-1 _Addressing Part 1: Conceptual model_ <<ISO19160-1>> with additional elements from a small set of well-regarded Semantic Web models such as GeoSPARQL <<GEO>> and SKOS <<SKOS>>. It is also informed by the relational databalse model used for the https://data.gov.au/data/dataset/d4631917-14d7-4c49-830c-555ad63adf9d[G-NAF, Australia's Geocoded National Address File], and CSIRO work in 2018 to characterise the GNAF in Sematic Web form, the ontlogy for which is online at https://linked.data.gov.au/def/gnaf.
+A Semantic Web data model of address information. It caters specifically for Australian & New Zealand's address modelling needs. It was made in 2022 for Queensland Spatial Information, a unit of the Queensland Department of Resources, to assist with their future address database design. It is informed by the ICSM's Addressing 2035: Addressing Reform and Innovation for Australia and New Zealand, published in late 2021 and is based primarily on the ISO19160-1 _Addressing Part 1: Conceptual model_ <<ISO19160-1>> with additional elements from a small set of well-regarded Semantic Web models such as GeoSPARQL <<GEO>> and SKOS <<SKOS>>. It is also informed by the relational database model used for the https://data.gov.au/data/dataset/d4631917-14d7-4c49-830c-555ad63adf9d[G-NAF, Australia's Geocoded National Address File], and CSIRO work in 2018 to characterise the GNAF in Semantic Web form, the ontology for which is online at https://linked.data.gov.au/def/gnaf.
 
 === Namespaces
 
