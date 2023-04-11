@@ -12,7 +12,7 @@ ANZ vocabulary of Address Status Types that convey the authority of the Address
 
 [cols="1,3"]
 |===
-| IRI | `+https://w3id.org/profile/anz-address/AnzAddressStatusTypes+`
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressStatusTypes+`
 | identifier | AnzAddressStatusTypes
 | preferred label | ANZ Address Status Types
 | definition | ANZ vocabulary of Address Status Types that convey the authority of the Address
@@ -26,7 +26,7 @@ _to be changed when accepted by a standards body_
 | license | https://creativecommons.org/licenses/by/4.0/[Creative Commons BY 4.0]
 | rights | &copy; Nicholas J. Car, 2022
 | provenance | Developed for the ANZ National Address Model using the table AddressLifecycleStage from ISO19160-1 as a partial source
-| version IRI | https://w3id.org/profile/anz-address/AnzAddressStatusTypes/1.0.0
+| version IRI | https://linked.data.gov.au/def/addr/AnzAddressStatusTypes/1.0.0
 | version info | 1.0.0 - first issue
 |===
 

@@ -1,5 +1,5 @@
-PREFIX ast: <https://w3id.org/profile/anz-address/AnzAddressStatusTypes/>
-PREFIX cs: <https://w3id.org/profile/anz-address/AnzAddressStatusTypes>
+PREFIX ast: <https://linked.data.gov.au/def/addr/AnzAddressStatusTypes/>
+PREFIX cs: <https://linked.data.gov.au/def/addr/AnzAddressStatusTypes>
 PREFIX astiso: <http://def.isotc211.org/iso19160/-1/2015/Address/code/AnzAddressStatusTypes/>
 PREFIX astisocs: <http://def.isotc211.org/iso19160/-1/2015/Address/code/AnzAddressStatusTypes>
 PREFIX dcterms: <http://purl.org/dc/terms/>

@@ -1,6 +1,6 @@
 @prefix a: <https://linked.data.gov.au/dataset/gnaf/address/> .
 @prefix aat: <https://linked.data.gov.au/dataset/gnaf/code/addressAliasType/> .
-@prefix addr: <https://w3id.org/profile/anz-address/> .
+@prefix addr: <https://linked.data.gov.au/def/addr/> .
 @prefix as: <https://linked.data.gov.au/dataset/gnaf/addressSite/> .
 @prefix cad: <https://w3id.org/profile/cad/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .

@@ -12,7 +12,7 @@ Address Component Types are kinds of Address Components. The kind is used to val
 
 [cols="1,3"]
 |===
-| IRI | `+https://w3id.org/profile/anz-address/AnzAddressComponentTypes+`
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes+`
 | identifier | AnzAddressComponentTypes
 | preferred label |  ANZ Address Component Types
 | definition | Address Component Types are kinds of Address Components. The kind is used to validate Address Component values and to order Address Components for address printing.
@@ -26,7 +26,7 @@ _to be changed when accepted by a standards body_
 | license | https://creativecommons.org/licenses/by/4.0/[Creative Commons BY 4.0]
 | rights | &copy; Nicholas J. Car, 2022
 | provenance | Developed for the ANZ National Address Model using the codelist AnzAddressComponentTypes from ISO19160-1 and Address Detail fields from the G-NAF data model as a partial sources
-| version IRI | https://w3id.org/profile/anz-address/AnzAddressComponentTypes/1.0.0
+| version IRI | https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/1.0.0
 | version info | 1.0.0 - first issue
 |===
 
@@ -67,11 +67,11 @@ _to be changed when accepted by a standards body_
 
 == Collections
 
-=== https://w3id.org/profile/anz-address/AnzAddressComponentTypes/iso19160-1-concepts[ISO19160-1 Address Components]
+=== https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/iso19160-1-concepts[ISO19160-1 Address Components]
 
 [cols="1,3"]
 |===
-| IRI | `+https://w3id.org/profile/anz-address/AnzAddressComponentTypes/iso19160-1-concepts+`
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/iso19160-1-concepts+`
 | identifier | iso19160-1-components
 | preferred label |  ISO19160-1 Address Components
 | definition | Address Component Types presented in the original ISO19160-1 standard's codelist
@@ -86,11 +86,11 @@ _to be changed when accepted by a standards body_
 * <<thoroughfare name>>
 |===
 
-=== https://w3id.org/profile/anz-address/AnzAddressComponentTypes/anz-concepts[ANZ Address Model Address Components]
+=== https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/anz-concepts[ANZ Address Model Address Components]
 
 [cols="1,3"]
 |===
-| IRI | `+https://w3id.org/profile/anz-address/AnzAddressComponentTypes/anz-concepts+`
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/anz-concepts+`
 | identifier | anz-concepts
 | preferred label |  ANZ Address Model Address Components
 | definition | Address Component Types created for and recommended for use with the ANZ Address Model
@@ -240,11 +240,11 @@ _to be changed when accepted by a standards body_
 
 [cols="1,3"]
 |===
-| IRI | `+https://w3id.org/profile/anz-address/AnzAddressComponentTypes/buildingName+`
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/buildingName+`
 | identifier | buildingName
 | preferred label | building name
 | definition | The name of a building
-| is defined by | https://w3id.org/profile/anz-address/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
+| is defined by | https://linked.data.gov.au/def/addr/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
 | scope note | Use
 | status | http://def.isotc211.org/iso19135/-1/2015/CoreModel/code/RE_ItemStatus/original[original]
 | provenance | Created for the ANZ Address Model
@@ -254,11 +254,11 @@ _to be changed when accepted by a standards body_
 
 [cols="1,3"]
 |===
-| IRI | `+https://w3id.org/profile/anz-address/AnzAddressComponentTypes/lotNumberPrefix+`
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/lotNumberPrefix+`
 | identifier | lotNumberPrefix
 | preferred label | lot number prefix
 | definition | A prefix for the lot number of the address
-| is defined by | https://w3id.org/profile/anz-address/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
+| is defined by | https://linked.data.gov.au/def/addr/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
 | scope note | Use
 | status | http://def.isotc211.org/iso19135/-1/2015/CoreModel/code/RE_ItemStatus/original[original]
 | provenance | Created for the ANZ Address Model
@@ -268,11 +268,11 @@ _to be changed when accepted by a standards body_
 
 [cols="1,3"]
 |===
-| IRI | `+https://w3id.org/profile/anz-address/AnzAddressComponentTypes/lotNumber+`
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/lotNumber+`
 | identifier | lotNumber
 | preferred label | lot number
 | definition | The lot's number
-| is defined by | https://w3id.org/profile/anz-address/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
+| is defined by | https://linked.data.gov.au/def/addr/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
 | scope note | Use
 | status | http://def.isotc211.org/iso19135/-1/2015/CoreModel/code/RE_ItemStatus/original[original]
 | provenance | Created for the ANZ Address Model
@@ -282,11 +282,11 @@ _to be changed when accepted by a standards body_
 
 [cols="1,3"]
 |===
-| IRI | `+https://w3id.org/profile/anz-address/AnzAddressComponentTypes/lotNumberSuffix+`
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/lotNumberSuffix+`
 | identifier | lotNumberSuffix
 | preferred label | lot number suffix
 | definition | A suffix for the lot number of the address
-| is defined by | https://w3id.org/profile/anz-address/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
+| is defined by | https://linked.data.gov.au/def/addr/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
 | scope note | Use
 | status | http://def.isotc211.org/iso19135/-1/2015/CoreModel/code/RE_ItemStatus/original[original]
 | provenance | Created for the ANZ Address Model
@@ -296,11 +296,11 @@ _to be changed when accepted by a standards body_
 
 [cols="1,3"]
 |===
-| IRI | `+https://w3id.org/profile/anz-address/AnzAddressComponentTypes/flatTypeCode+`
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/flatTypeCode+`
 | identifier | flatTypeCode
 | preferred label | flat type code
 | definition | A code representing the flat type
-| is defined by | https://w3id.org/profile/anz-address/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
+| is defined by | https://linked.data.gov.au/def/addr/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
 | scope note | Use
 | status | http://def.isotc211.org/iso19135/-1/2015/CoreModel/code/RE_ItemStatus/original[original]
 | provenance | Created for the ANZ Address Model
@@ -310,11 +310,11 @@ _to be changed when accepted by a standards body_
 
 [cols="1,3"]
 |===
-| IRI | `+https://w3id.org/profile/anz-address/AnzAddressComponentTypes/flatNumberPrefix+`
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/flatNumberPrefix+`
 | identifier | flatNumberPrefix
 | preferred label | flat number prefix
 | definition | A prefix for the flat number of the address
-| is defined by | https://w3id.org/profile/anz-address/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
+| is defined by | https://linked.data.gov.au/def/addr/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
 | scope note | Use
 | status | http://def.isotc211.org/iso19135/-1/2015/CoreModel/code/RE_ItemStatus/original[original]
 | provenance | Created for the ANZ Address Model
@@ -324,11 +324,11 @@ _to be changed when accepted by a standards body_
 
 [cols="1,3"]
 |===
-| IRI | `+https://w3id.org/profile/anz-address/AnzAddressComponentTypes/flatNumber+`
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/flatNumber+`
 | identifier | flatNumber
 | preferred label | flat number
 | definition | The flat's number
-| is defined by | https://w3id.org/profile/anz-address/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
+| is defined by | https://linked.data.gov.au/def/addr/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
 | scope note | Use
 | status | http://def.isotc211.org/iso19135/-1/2015/CoreModel/code/RE_ItemStatus/original[original]
 | provenance | Created for the ANZ Address Model
@@ -338,11 +338,11 @@ _to be changed when accepted by a standards body_
 
 [cols="1,3"]
 |===
-| IRI | `+https://w3id.org/profile/anz-address/AnzAddressComponentTypes/flatNumberSuffix+`
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/flatNumberSuffix+`
 | identifier | flatNumberSuffix
 | preferred label | flat number suffix
 | definition | A suffix for the flat number of the address
-| is defined by | https://w3id.org/profile/anz-address/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
+| is defined by | https://linked.data.gov.au/def/addr/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
 | scope note | Use
 | status | http://def.isotc211.org/iso19135/-1/2015/CoreModel/code/RE_ItemStatus/original[original]
 | provenance | Created for the ANZ Address Model
@@ -352,11 +352,11 @@ _to be changed when accepted by a standards body_
 
 [cols="1,3"]
 |===
-| IRI | `+https://w3id.org/profile/anz-address/AnzAddressComponentTypes/levelTypeCode+`
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/levelTypeCode+`
 | identifier | levelTypeCode
 | preferred label | level type code
 | definition | A code representing the level type
-| is defined by | https://w3id.org/profile/anz-address/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
+| is defined by | https://linked.data.gov.au/def/addr/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
 | scope note | Use
 | status | http://def.isotc211.org/iso19135/-1/2015/CoreModel/code/RE_ItemStatus/original[original]
 | provenance | Created for the ANZ Address Model
@@ -366,11 +366,11 @@ _to be changed when accepted by a standards body_
 
 [cols="1,3"]
 |===
-| IRI | `+https://w3id.org/profile/anz-address/AnzAddressComponentTypes/levelNumberPrefix+`
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/levelNumberPrefix+`
 | identifier | levelNumberPrefix
 | preferred label | level number prefix
 | definition | A prefix for the level number of the address
-| is defined by | https://w3id.org/profile/anz-address/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
+| is defined by | https://linked.data.gov.au/def/addr/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
 | scope note | Use
 | status | http://def.isotc211.org/iso19135/-1/2015/CoreModel/code/RE_ItemStatus/original[original]
 | provenance | Created for the ANZ Address Model
@@ -380,11 +380,11 @@ _to be changed when accepted by a standards body_
 
 [cols="1,3"]
 |===
-| IRI | `+https://w3id.org/profile/anz-address/AnzAddressComponentTypes/levelNumber+`
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/levelNumber+`
 | identifier | levelNumber
 | preferred label | level number
 | definition | The level number
-| is defined by | https://w3id.org/profile/anz-address/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
+| is defined by | https://linked.data.gov.au/def/addr/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
 | scope note | Use
 | status | http://def.isotc211.org/iso19135/-1/2015/CoreModel/code/RE_ItemStatus/original[original]
 | provenance | Created for the ANZ Address Model
@@ -394,11 +394,11 @@ _to be changed when accepted by a standards body_
 
 [cols="1,3"]
 |===
-| IRI | `+https://w3id.org/profile/anz-address/AnzAddressComponentTypes/levelNumberSuffix+`
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/levelNumberSuffix+`
 | identifier | levelNumberSuffix
 | preferred label | level number suffix
 | definition | A suffix for the level number of the address
-| is defined by | https://w3id.org/profile/anz-address/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
+| is defined by | https://linked.data.gov.au/def/addr/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
 | scope note | Use
 | status | http://def.isotc211.org/iso19135/-1/2015/CoreModel/code/RE_ItemStatus/original[original]
 | provenance | Created for the ANZ Address Model
@@ -408,11 +408,11 @@ _to be changed when accepted by a standards body_
 
 [cols="1,3"]
 |===
-| IRI | `+https://w3id.org/profile/anz-address/AnzAddressComponentTypes/numberFirstPrefix+`
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/numberFirstPrefix+`
 | identifier | numberFirstPrefix
 | preferred label | number first prefix
 | definition | A prefix for the first street number of the address
-| is defined by | https://w3id.org/profile/anz-address/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
+| is defined by | https://linked.data.gov.au/def/addr/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
 | scope note | Use
 | status | http://def.isotc211.org/iso19135/-1/2015/CoreModel/code/RE_ItemStatus/original[original]
 | provenance | Created for the ANZ Address Model
@@ -422,11 +422,11 @@ _to be changed when accepted by a standards body_
 
 [cols="1,3"]
 |===
-| IRI | `+https://w3id.org/profile/anz-address/AnzAddressComponentTypes/numberFirst+`
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/numberFirst+`
 | identifier | numberFirst
 | preferred label | number first
 | definition | The first street number of the address
-| is defined by | https://w3id.org/profile/anz-address/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
+| is defined by | https://linked.data.gov.au/def/addr/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
 | scope note | Use
 | status | http://def.isotc211.org/iso19135/-1/2015/CoreModel/code/RE_ItemStatus/original[original]
 | provenance | Created for the ANZ Address Model
@@ -436,11 +436,11 @@ _to be changed when accepted by a standards body_
 
 [cols="1,3"]
 |===
-| IRI | `+https://w3id.org/profile/anz-address/AnzAddressComponentTypes/numberFirstSuffix+`
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/numberFirstSuffix+`
 | identifier | numberFirstSuffix
 | preferred label | number first suffix
 | definition | A suffix for the first street number of the address
-| is defined by | https://w3id.org/profile/anz-address/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
+| is defined by | https://linked.data.gov.au/def/addr/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
 | scope note | Use
 | status | http://def.isotc211.org/iso19135/-1/2015/CoreModel/code/RE_ItemStatus/original[original]
 | provenance | Created for the ANZ Address Model
@@ -450,11 +450,11 @@ _to be changed when accepted by a standards body_
 
 [cols="1,3"]
 |===
-| IRI | `+https://w3id.org/profile/anz-address/AnzAddressComponentTypes/numberLastPrefix+`
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/numberLastPrefix+`
 | identifier | numberLastPrefix
 | preferred label | number last prefix
 | definition | A prefix for the last street number of the address
-| is defined by | https://w3id.org/profile/anz-address/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
+| is defined by | https://linked.data.gov.au/def/addr/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
 | scope note | Use
 | status | http://def.isotc211.org/iso19135/-1/2015/CoreModel/code/RE_ItemStatus/original[original]
 | provenance | Created for the ANZ Address Model
@@ -464,11 +464,11 @@ _to be changed when accepted by a standards body_
 
 [cols="1,3"]
 |===
-| IRI | `+https://w3id.org/profile/anz-address/AnzAddressComponentTypes/numberLast+`
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/numberLast+`
 | identifier | numberLast
 | preferred label | number last
 | definition | The last street number of the address
-| is defined by | https://w3id.org/profile/anz-address/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
+| is defined by | https://linked.data.gov.au/def/addr/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
 | scope note | Use
 | status | http://def.isotc211.org/iso19135/-1/2015/CoreModel/code/RE_ItemStatus/original[original]
 | provenance | Created for the ANZ Address Model
@@ -478,11 +478,11 @@ _to be changed when accepted by a standards body_
 
 [cols="1,3"]
 |===
-| IRI | `+https://w3id.org/profile/anz-address/AnzAddressComponentTypes/numberLastSuffix+`
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/numberLastSuffix+`
 | identifier | numberLastSuffix
 | preferred label | number last suffix
 | definition | A suffix for the last street number of the address
-| is defined by | https://w3id.org/profile/anz-address/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
+| is defined by | https://linked.data.gov.au/def/addr/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
 | scope note | Use
 | status | http://def.isotc211.org/iso19135/-1/2015/CoreModel/code/RE_ItemStatus/original[original]
 | provenance | Created for the ANZ Address Model
@@ -492,11 +492,11 @@ _to be changed when accepted by a standards body_
 
 [cols="1,3"]
 |===
-| IRI | `+https://w3id.org/profile/anz-address/AnzAddressComponentTypes/streetLocality+`
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/streetLocality+`
 | identifier | streetLocality
 | preferred label | street locality
 | definition | A street locality
-| is defined by | https://w3id.org/profile/anz-address/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
+| is defined by | https://linked.data.gov.au/def/addr/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
 | scope note | Use
 | status | http://def.isotc211.org/iso19135/-1/2015/CoreModel/code/RE_ItemStatus/original[original]
 | provenance | Created for the ANZ Address Model
@@ -507,11 +507,11 @@ _to be changed when accepted by a standards body_
 
 [cols="1,3"]
 |===
-| IRI | `+https://w3id.org/profile/anz-address/AnzAddressComponentTypes/locality+`
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/locality+`
 | identifier | locality
 | preferred label | locality
 | definition | A locality
-| is defined by | https://w3id.org/profile/anz-address/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
+| is defined by | https://linked.data.gov.au/def/addr/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
 | scope note | Use
 | status | http://def.isotc211.org/iso19135/-1/2015/CoreModel/code/RE_ItemStatus/original[original]
 | provenance | Created for the ANZ Address Model
@@ -521,11 +521,11 @@ _to be changed when accepted by a standards body_
 
 [cols="1,3"]
 |===
-| IRI | `+https://w3id.org/profile/anz-address/AnzAddressComponentTypes/stateOrTerritory+`
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/stateOrTerritory+`
 | identifier | stateOrTerritory
 | preferred label | state or territory
 | definition | The State or Territory of the address
-| is defined by | https://w3id.org/profile/anz-address/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
+| is defined by | https://linked.data.gov.au/def/addr/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
 | scope note | Use
 | status | http://def.isotc211.org/iso19135/-1/2015/CoreModel/code/RE_ItemStatus/original[original]
 | provenance | Created for the ANZ Address Model
@@ -535,11 +535,11 @@ _to be changed when accepted by a standards body_
 
 [cols="1,3"]
 |===
-| IRI | `+https://w3id.org/profile/anz-address/AnzAddressComponentTypes/propertyName+`
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/propertyName+`
 | identifier | propertyName
 | preferred label | property name
 | definition | The name of the property of the address
-| is defined by | https://w3id.org/profile/anz-address/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
+| is defined by | https://linked.data.gov.au/def/addr/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
 | scope note | Use
 | status | http://def.isotc211.org/iso19135/-1/2015/CoreModel/code/RE_ItemStatus/original[original]
 | provenance | Created for the ANZ Address Model
@@ -549,11 +549,11 @@ _to be changed when accepted by a standards body_
 
 [cols="1,3"]
 |===
-| IRI | `+https://w3id.org/profile/anz-address/AnzAddressComponentTypes/placeName+`
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/placeName+`
 | identifier | placeName
 | preferred label | place name
 | definition | The name of the place of the address
-| is defined by | https://w3id.org/profile/anz-address/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
+| is defined by | https://linked.data.gov.au/def/addr/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
 | scope note | Use
 | status | http://def.isotc211.org/iso19135/-1/2015/CoreModel/code/RE_ItemStatus/original[original]
 | provenance | Created for the ANZ Address Model
@@ -563,11 +563,11 @@ _to be changed when accepted by a standards body_
 
 [cols="1,3"]
 |===
-| IRI | `+https://w3id.org/profile/anz-address/AnzAddressComponentTypes/indigenousPlaceName+`
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/indigenousPlaceName+`
 | identifier | indigenousPlaceName
 | preferred label | indigenous place name
 | definition | A place name given by indigenous people
-| is defined by | https://w3id.org/profile/anz-address/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
+| is defined by | https://linked.data.gov.au/def/addr/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
 | scope note | Use
 | status | http://def.isotc211.org/iso19135/-1/2015/CoreModel/code/RE_ItemStatus/original[original]
 | provenance | Created for the ANZ Address Model

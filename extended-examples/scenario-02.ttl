@@ -12,7 +12,7 @@
 
 PREFIX a: <https://linked.data.gov.au/dataset/gnaf/address/>
 @prefix aat: <https://linked.data.gov.au/dataset/gnaf/code/addressAliasType/> .
-@prefix addr: <https://w3id.org/profile/anz-address/> .
+@prefix addr: <https://linked.data.gov.au/def/addr/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 

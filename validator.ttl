@@ -1,5 +1,5 @@
-PREFIX : <https://w3id.org/profile/anz-address/validator/>
-PREFIX addr: <https://w3id.org/profile/anz-address/>
+PREFIX : <https://linked.data.gov.au/def/addr/validator/>
+PREFIX addr: <https://linked.data.gov.au/def/addr/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX geo: <http://www.opengis.net/ont/geosparql#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -14,7 +14,7 @@ addr:validator
     dcterms:provenance "This model validator was made for the Queensland Department of Resources, Spatial Information unit to assist with future Address database design."@en ;
     owl:versionIRI addr:0.0.1 ;
     owl:versionInfo "0.0.1" ;
-    skos:definition "This validator is a Shapes Constraint Language (SHACL) resource that can be used to check the conformance of RDF data to the ANZ National Address Model (<https://w3id.org/profile/anz-address>)."@en ;
+    skos:definition "This validator is a Shapes Constraint Language (SHACL) resource that can be used to check the conformance of RDF data to the ANZ National Address Model (<https://linked.data.gov.au/def/addr>)."@en ;
     skos:prefLabel "ANZ National Address Model Validator"@en ;
     sdo:codeRespository "https://github.com/Spatial-Information-QLD/address-model/"^^xsd:anyURI ;
     sdo:copyrightHolder <https://orcid.org/0000-0002-8742-7730> ;

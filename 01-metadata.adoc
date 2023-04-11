@@ -2,7 +2,7 @@
 
 [width=75%, frame=none, grid=none, cols="1,5"]
 |===
-|**IRI** | `https://w3id.org/profile/anz-address`
+|**IRI** | `https://linked.data.gov.au/def/addr`
 |**Preferred Label** | ANZ National Address Model - Candidate
 |**Definition** | A Semantic Web data model of address information. It caters specifically for Australian & New Zealand's address modelling needs.
 |**Created** | 2021-12-16
@@ -16,5 +16,5 @@
 |**Code Repository** | https://github.com/Spatial-Information-QLD/address-model
 |**License** | https://creativecommons.org/licenses/by/4.0/[Creative Commons Attribution 4.0 International (CC BY 4.0)]
 |**Copyright** | &copy; The State of Queensland (Department of Resources) 2020-2023
-|**Machine-readable form (RDF)** | https://w3id.org/profile/anz-address.ttl
+|**Machine-readable form (RDF)** | https://linked.data.gov.au/def/addr.ttl
 |===

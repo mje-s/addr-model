@@ -4,7 +4,7 @@
 # 7SP294522 - 26-30 City Road Beenleigh QLD multiple units (but no floor types / unit types).
 
 PREFIX a: <https://linked.data.gov.au/dataset/gnaf/address/>
-PREFIX addr: <https://w3id.org/profile/anz-address/>
+PREFIX addr: <https://linked.data.gov.au/def/addr/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX geo: <http://www.opengis.net/ont/geosparql#>
 

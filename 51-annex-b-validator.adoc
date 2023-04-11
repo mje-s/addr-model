@@ -24,7 +24,7 @@ A summary of the canonical validator's elements ("shapes") is given in <<tbl-sha
 | Checks the mandatory properties of `LifecycleStage` instances: `dcterms:type` (1), `time:hasTime` (1)
 |===
 
-* `val` : `https://w3id.org/profile/anz-address/validator/`
+* `val` : `https://linked.data.gov.au/def/addr/validator/`
 
 NOTE: The canonical validator's list of elements will almost certainly grow as use of this model fleshes out model element needs.
 
