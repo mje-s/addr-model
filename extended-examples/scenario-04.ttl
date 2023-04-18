@@ -14,7 +14,7 @@
 # · Ungated should be addressed to internal road network (See universities, shopping centre, hospitals).
 
 PREFIX a: <https://linked.data.gov.au/dataset/gnaf/address/>
-PREFIX addr: <https://w3id.org/profile/anz-address/>
+PREFIX addr: <https://linked.data.gov.au/def/addr/>
 PREFIX cad: <https://w3id.org/profile/cad/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX geo: <http://www.opengis.net/ont/geosparql#>

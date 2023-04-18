@@ -1,4 +1,4 @@
-PREFIX addr: <https://w3id.org/profile/anz-address/>
+PREFIX addr: <https://linked.data.gov.au/def/addr/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX dwc: <http://rs.tdwg.org/dwc/terms/>
 PREFIX geo: <http://www.opengis.net/ont/geosparql#>
@@ -10,7 +10,7 @@ PREFIX skosxl: <http://www.w3.org/2008/05/skos-xl#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 
-<https://w3id.org/profile/anz-address>
+<https://linked.data.gov.au/def/addr>
     a owl:Ontology ;
     dcterms:provenance "This ontology was made for the Queensland Department of Resources, Spatial Information unit to assist with future Address database design. It is informed by the ICSM's Addressing 2035: Addressing Reform and Innovation for Australia and New Zealand, published in late 2021 and is based primarilty on the ISO19160-1 Addressing Part 1: Conceptual model with additional elements from a small set of well-regarded Semantic Web models such as GeoSPARQL and SKOS. It is also informed by the relational databalse model used for the G-NAF, Australia's Geocoded National Address File, and CSIRO work in 2018 to characterise the GNAF in Sematic Web form, the ontlogy for which is online at https:linked.data.gov.au/def/gnaf."@en ;
     owl:versionIRI addr:0.0.1 ;
@@ -36,7 +36,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 addr:Address
     a owl:Class ;
-    rdfs:isDefinedBy <https://w3id.org/profile/anz-address> ;
+    rdfs:isDefinedBy <https://linked.data.gov.au/def/addr> ;
     dcterms:provenance "Derived from ISO19160-1's Address class"@en ;
     skos:definition """The Address class represents structured information that allows unambiguous determination of an object for the purposes of identification and location"""@en ;
     skos:example """ex:addr-1
@@ -77,7 +77,7 @@ addr:Address
 
 addr:AddressableObject
     a owl:Class ;
-    rdfs:isDefinedBy <https://w3id.org/profile/anz-address> ;
+    rdfs:isDefinedBy <https://linked.data.gov.au/def/addr> ;
     rdfs:subClassOf geo:Feature ;
     dcterms:provenance "Derived from ISO19160-1's AddressableObject class and its associated codelist of subtypes"@en ;
     skos:definition """An object that is unambiguously determined by an address.
@@ -102,7 +102,7 @@ ex:addre-2 addr:isAddressFor ex:admin-area-z ."""@en ;
 
 addr:AddressComponent
     a owl:Class ;
-    rdfs:isDefinedBy <https://w3id.org/profile/anz-address> ;
+    rdfs:isDefinedBy <https://linked.data.gov.au/def/addr> ;
     rdfs:subClassOf rdfs:Resource ;
     dcterms:provenance "Derived from ISO19160-1's AddressComponent class"@en ;
     skos:definition """A component that is a constituent part of an address"""@en ;
@@ -137,7 +137,7 @@ Ordering of Address Components, for example for letter printing, is not fixed wi
 
 addr:AddressComponentType
     a owl:Class ;
-    rdfs:isDefinedBy <https://w3id.org/profile/anz-address> ;
+    rdfs:isDefinedBy <https://linked.data.gov.au/def/addr> ;
     rdfs:subClassOf skos:Concept ;
     dcterms:provenance "Derived from ISO19160-1's AddressComponent class" ;
     skos:definition "Code that specifies the kind of address component"@en ;
@@ -170,7 +170,7 @@ A SKOS vocabulary of Address Component Types is suplied with this ontology."""@e
 
 addr:AddressLifecycleStage
     a owl:Class ;
-    rdfs:isDefinedBy <https://w3id.org/profile/anz-address> ;
+    rdfs:isDefinedBy <https://linked.data.gov.au/def/addr> ;
     dcterms:provenance "Derived from ISO19160-1's AddressLifecycle class"@en ;
     skos:definition """Represents the different lifecycle stages of an Address"""@en ;
     skos:example """# An Address with two Lifecycle Stages indicated:
@@ -212,7 +212,7 @@ In this model, these Lifecycle Stages are defined for use with Addresses only, n
 
 addr:AddressLifecycleStageType
     a owl:Class ;
-    rdfs:isDefinedBy <https://w3id.org/profile/anz-address> ;
+    rdfs:isDefinedBy <https://linked.data.gov.au/def/addr> ;
     rdfs:subClassOf skos:Concept ;
     dcterms:provenance "Derived from ISO19160-1's AddressLifecycle class"@en ;
     skos:definition """Code that specifies the kind of Address Lifecycle Stage"""@en ;
@@ -233,7 +233,7 @@ A SKOS vocabulary of Address Lifecycle Stage Types is suplied with this ontology
 
 addr:AddressRole
     a owl:Class ;
-    rdfs:isDefinedBy <https://w3id.org/profile/anz-address> ;
+    rdfs:isDefinedBy <https://linked.data.gov.au/def/addr> ;
     rdfs:subClassOf skos:Concept ;
     dcterms:provenance "Derived from ISO19160-1's AddressPosition & AddressPositionType classes"@en ;
     skos:definition """AddressRole represents a task for which this Address may be used"""@en ;
@@ -250,7 +250,7 @@ ex:addr-1
 
 addr:isAddressFor
     a owl:ObjectProperty ;
-    rdfs:isDefinedBy <https://w3id.org/profile/anz-address> ;
+    rdfs:isDefinedBy <https://linked.data.gov.au/def/addr> ;
     rdfs:domain addr:Address ;
     rdfs:range addr:AddressableObject ;
     dcterms:provenance "Derived from ISO19160-1's object relations"@en ;
@@ -266,7 +266,7 @@ ex:addr-1
 
 addr:hasAddress
     a owl:ObjectProperty ;
-    rdfs:isDefinedBy <https://w3id.org/profile/anz-address> ;
+    rdfs:isDefinedBy <https://linked.data.gov.au/def/addr> ;
     rdfs:domain addr:AddressableObject ;
     rdfs:range addr:Address ;
     dcterms:provenance "Derived from ISO19160-1's object relations"@en ;
@@ -286,7 +286,7 @@ ex:addr-1
 
 addr:hasAddressComponent
     a owl:ObjectProperty ;
-    rdfs:isDefinedBy <https://w3id.org/profile/anz-address> ;
+    rdfs:isDefinedBy <https://linked.data.gov.au/def/addr> ;
     rdfs:domain addr:Address ;
     rdfs:range addr:AddressComponent ;
     dcterms:provenance "Derived from ISO19160-1's object relations"@en ;
@@ -304,7 +304,7 @@ ex:addr-1
 
 addr:hasAddressComponentType
     a owl:ObjectProperty ;
-    rdfs:isDefinedBy <https://w3id.org/profile/anz-address> ;
+    rdfs:isDefinedBy <https://linked.data.gov.au/def/addr> ;
     rdfs:domain addr:AddressComponent ;
     rdfs:range addr:AddressComponentType ;
     dcterms:provenance "Derived from ISO19160-1's object relations"@en ;
@@ -323,7 +323,7 @@ ex:addr-1
 
 addr:hasAddressRole
     a owl:ObjectProperty ;
-    rdfs:isDefinedBy <https://w3id.org/profile/anz-address> ;
+    rdfs:isDefinedBy <https://linked.data.gov.au/def/addr> ;
     rdfs:domain addr:Address ;
     rdfs:range addr:AddressRole ;
     dcterms:provenance "Derived from ISO19160-1's AddressPosition class and properties"@en ;
@@ -340,7 +340,7 @@ ex:addr-1
 
 addr:hasLifecycleStage
     a owl:ObjectProperty ;
-    rdfs:isDefinedBy <https://w3id.org/profile/anz-address> ;
+    rdfs:isDefinedBy <https://linked.data.gov.au/def/addr> ;
     rdfs:domain addr:Address ;
     rdfs:range addr:hasLifecycleStage ;
     dcterms:provenance "Derived from ISO19160-1's object relations"@en ;
@@ -370,7 +370,7 @@ ex:addr-1
 
 addr:hasGeocode
     a owl:ObjectProperty ;
-    rdfs:isDefinedBy <https://w3id.org/profile/anz-address> ;
+    rdfs:isDefinedBy <https://linked.data.gov.au/def/addr> ;
     rdfs:domain addr:Address ;
     rdfs:range geo:AddressGeocode ;
     dcterms:provenance "Derived from the G-NAF's expression of Address position"@en ;
@@ -390,7 +390,7 @@ addr:hasGeocode
 
 addr:hasValue
     a owl:ObjectProperty ;
-    rdfs:isDefinedBy <https://w3id.org/profile/anz-address> ;
+    rdfs:isDefinedBy <https://linked.data.gov.au/def/addr> ;
     rdfs:domain addr:AddressComponent ;
     rdfs:range rdfs:Resource ;
     dcterms:provenance "Derived from ISO19160-1's AddressComponent object's properties"@en ;
@@ -421,7 +421,7 @@ addr:hasValue
 
 addr:hasValueText
     a owl:ObjectProperty ;
-    rdfs:isDefinedBy <https://w3id.org/profile/anz-address> ;
+    rdfs:isDefinedBy <https://linked.data.gov.au/def/addr> ;
     rdfs:domain addr:AddressComponent ;
     rdfs:range xsd:string ;
     dcterms:provenance "Derived from ISO19160-1's AddressComponent object's properties"@en ;

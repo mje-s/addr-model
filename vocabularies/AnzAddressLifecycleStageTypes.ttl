@@ -1,6 +1,6 @@
-PREFIX als: <https://w3id.org/profile/anz-address/AnzAddressLifecycleStageTypes/>
-PREFIX alsoiso: <https://w3id.org/profile/anz-address/AnzAddressLifecycleStageTypes/>
-PREFIX cs: <https://w3id.org/profile/anz-address/AnzAddressLifecycleStageTypes>
+PREFIX als: <https://linked.data.gov.au/def/addr/AnzAddressLifecycleStageTypes/>
+PREFIX alsoiso: <https://linked.data.gov.au/def/addr/AnzAddressLifecycleStageTypes/>
+PREFIX cs: <https://linked.data.gov.au/def/addr/AnzAddressLifecycleStageTypes>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX reg: <http://purl.org/linked-data/registry#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>

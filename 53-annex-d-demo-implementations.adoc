@@ -16,7 +16,7 @@ Once loaded into a triplestore, https://www.w3.org/TR/sparql11-query/[SPARQL] qu
 For those Addresses that have components - not all in the example data - this query orders the components as per Queensland norms, including the new Property Name type component at the start.
 
 ```sparql
-PREFIX addr: <https://w3id.org/profile/anz-address/>
+PREFIX addr: <https://linked.data.gov.au/def/addr/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX actiso: <http://def.isotc211.org/iso19160/-1/2015/Address/code/AddressComponentType/>
 
@@ -63,7 +63,7 @@ This query selects only Address Components of the types given in the `VALUES` li
 The following query selects addresses from the examples that have a Geocode of type Property Access Point (PAP) and that are within the Bounding Box of 154 -27, 154 -28, 153 -28, 153 -27, 154 -27.
 
 ```sparql
-PREFIX addr: <https://w3id.org/profile/anz-address/>
+PREFIX addr: <https://linked.data.gov.au/def/addr/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX geo: <http://www.opengis.net/ont/geosparql#>
 PREFIX geof: <http://www.opengis.net/def/function/geosparql/>
@@ -112,7 +112,7 @@ SPARQL queries can select Addresses based on Address Component values which may 
 To get all the example Addresses within the Queensland locality of Shorncliffe:
 
 ```sparql
-PREFIX addr: <https://w3id.org/profile/anz-address/>
+PREFIX addr: <https://linked.data.gov.au/def/addr/>
 PREFIX loc: <https://linked.data.gov.au/dataset/gnaf/locality/>
 
 SELECT ?a ?val ?val_text
@@ -126,7 +126,7 @@ This query finds two results (the oxford-place examples) since they indicate the
 To find all of the Addresses in Queensland we could use the PID of Queensland given by the https://asgs.linked.fsdf.org.au/[Australian Statistical Geography Standard] since that's the object ID related to in this examples data
 
 ```sparql
-PREFIX addr: <https://w3id.org/profile/anz-address/>
+PREFIX addr: <https://linked.data.gov.au/def/addr/>
 PREFIX loc: <https://linked.data.gov.au/dataset/gnaf/locality/>
 
 SELECT ?a ?val ?val_text

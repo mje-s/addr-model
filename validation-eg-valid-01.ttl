@@ -1,8 +1,8 @@
-PREFIX addr: <https://w3id.org/profile/anz-address/>
+PREFIX addr: <https://linked.data.gov.au/def/addr/>
 PREFIX ex: <http://example.com/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX geo: <http://www.opengis.net/ont/geosparql#>
-PREFIX addrct: <https://w3id.org/profile/anz-address/AnzAddressComponentTypes/>
+PREFIX addrct: <https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/>
 
 ex:20-oxford-place
     a addr:Address ;

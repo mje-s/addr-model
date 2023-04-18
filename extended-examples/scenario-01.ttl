@@ -7,7 +7,7 @@
 # EXAMPLE - 1 Allonga Street (462C92812, 490C92815, 491C92812)
 
 PREFIX a: <https://linked.data.gov.au/dataset/gnaf/address/>
-PREFIX addr: <https://w3id.org/profile/anz-address/>
+PREFIX addr: <https://linked.data.gov.au/def/addr/>
 PREFIX cad: <https://w3id.org/profile/cad/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX geo: <http://www.opengis.net/ont/geosparql#>

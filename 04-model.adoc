@@ -32,7 +32,7 @@ image::img/upper-classes.png[]
 | IRI | `addr:Address`
 | Preferred Label | Address
 | Definition | The Address class represents structured information that allows unambiguous determination of an object for the purposes of identification and location
-| Is Defined By | https://w3id.org/profile/anz-address[ANZ National Address Model]
+| Is Defined By | https://linked.data.gov.au/def/addr[ANZ National Address Model]
 | Sub-class Of | https://opengeospatial.github.io/ogc-geosparql/geosparql11/spec.html#_class_geofeature[`geo:Feature`]
 | Provenance | Derived from <<ISO19160-1>>'s `Address` class
 | Expected Properties | <<isAddressFor>>, <<hasAddressComponent>>, <<hasAddressRole>>, <<hasLifecycleStage>>
@@ -87,7 +87,7 @@ ex:addr-1
 | Definition | An object that is unambiguously determined by an address.
 
 Examples of types of AddressableObjects are a building, a dwelling or a land parcel
-| Is Defined By | https://w3id.org/profile/anz-address[ANZ National Address Model]
+| Is Defined By | https://linked.data.gov.au/def/addr[ANZ National Address Model]
 | Sub-class Of | https://opengeospatial.github.io/ogc-geosparql/geosparql11/spec.html#_class_geofeature[`geo:Feature`]
 | Provenance | Derived from <<ISO19160-1>>'s `AddressableObject` class and its associated codelist of subtypes
 | Scope note | Judgement as to what makes for a permissable AddressableObject rests with the implementer. This model's technical requirements are only that the object is a legal `geo:Feature` object, thus implementers may make Addressable Objects of almost anything.
@@ -121,7 +121,7 @@ ex:addre-2 addr:isAddressFor ex:admin-area-z .
 | IRI | `addr:AddressComponent`
 | Preferred Label | Address Component
 | Definition | A component that is a constituent part of an address
-| Is Defined By | https://w3id.org/profile/anz-address[ANZ National Address Model]
+| Is Defined By | https://linked.data.gov.au/def/addr[ANZ National Address Model]
 | Sub-class Of | http://www.w3.org/2000/01/rdf-schema#Resource[`rdfs:Resource`]
 | Provenance | Derived from <<ISO19160-1>>'s `AddressComponent` class
 | Scope note | Address Components can be literals - numbers, words etc. - or complex ojects - Localities, districtes etc. If the Address Component is a complex object, a textual representation of it must be provided when a textual rendering of all of an Addresses' component are required, for example for letter printing. 
@@ -167,7 +167,7 @@ ex:addr-1
 | IRI | `addr:AddressComponentType`
 | Preferred Label | Address Component Type
 | Definition | Code that specifies the kind of address component
-| Is Defined By | https://w3id.org/profile/anz-address[ANZ National Address Model]
+| Is Defined By | https://linked.data.gov.au/def/addr[ANZ National Address Model]
 | Sub-class Of | http://www.w3.org/2004/02/skos/core#Concept[`skos:Concept`]
 | Provenance | Derived from <<ISO19160-1>>'s `AddressComponent` class
 | Scope note | An Address Component's type should be indicated with values from a controlled vocabulary - a code list. 
@@ -215,7 +215,7 @@ image::img/lifecycle-stages.png[]
 | IRI | `addr:AddressLifecycleStage`
 | Preferred Label | Address Lifecycle Stage
 | Definition | Represents the different lifecycle stages of an Address
-| Is Defined By | https://w3id.org/profile/anz-address[ANZ National Address Model]
+| Is Defined By | https://linked.data.gov.au/def/addr[ANZ National Address Model]
 | Provenance | Derived from <<ISO19160-1>>'s `AddressLifecycle` class
 | Scope note | An Address Lifecycle Stage's type should be indicated with values from a controlled vocabulary - a code list. 
 
@@ -268,7 +268,7 @@ addrls:proposed
 | IRI | `addr:AddressLifecycleStageType`
 | Preferred Label | Address Lifecycle Stage Type
 | Definition | Code that specifies the kind of Address Lifecycle Stage
-| Is Defined By | https://w3id.org/profile/anz-address[ANZ National Address Model]
+| Is Defined By | https://linked.data.gov.au/def/addr[ANZ National Address Model]
 | Sub-class Of | http://www.w3.org/2004/02/skos/core#Concept[`skos:Concept`]
 | Provenance | Derived from <<ISO19160-1>>'s `AddressLifecycle` class
 | Scope note | An Address Address Lifecycle Stage's type should be indicated with values from a controlled vocabulary - a code list. 
@@ -301,7 +301,7 @@ ex:addr-1
 | IRI | `addr:AddressRole`
 | Preferred Label | Address Role
 | Definition | AddressRole represents a task for which this Address may be used
-| Is Defined By | https://w3id.org/profile/anz-address[ANZ National Address Model]
+| Is Defined By | https://linked.data.gov.au/def/addr[ANZ National Address Model]
 | Sub-class Of | http://www.w3.org/2004/02/skos/core#Concept[`skos:Concept`]
 | Provenance | Derived from <<ISO19160-1>>'s `AddressPosition` & `AddressPositionType` classes
 | Scope note | ISO19160-1 does not contain an `AddressRole` class but instead an `AddressPosition` class with positioning and role properties. This Standard make role a direct property of `Address` instead and provides for a positional qualifier (qualified against the position of the `AddressableObject`) instead to allow whole addresses to carry role tasking.
@@ -329,7 +329,7 @@ ex:addr-1
 | IRI | `addr:Geocode`
 | Preferred Label | Geocode
 | Definition | A Feature used to position other Features and to carry typing or provenance of that position
-| Is Defined By | https://w3id.org/profile/anz-address[ANZ National Address Model]
+| Is Defined By | https://linked.data.gov.au/def/addr[ANZ National Address Model]
 | Sub-class Of | http://www.opengis.net/ont/geosparql#[`geo:Feature`]
 | Provenance | Derived from the G-NAF's expression of Address position
 | Scope note | Indicating a Geocode for an Address with the property hasGeocode is a direct method of locating the Address. Addresses either may or must also be located by ference to an Addressable Object which has a Geometry, depending on business rules.
@@ -362,7 +362,7 @@ ex:addr-1
 | IRI | `addr:GeocodeType`
 | Preferred Label | Geocode Type
 | Definition | The type of Geocode, typically determined by creation method
-| Is Defined By | https://w3id.org/profile/anz-address[ANZ National Address Model]
+| Is Defined By | https://linked.data.gov.au/def/addr[ANZ National Address Model]
 | Sub-class Of | http://www.w3.org/2004/02/skos/core#Concept[`skos:Concept`]
 | Provenance | Derived from the G-NAF's Geocode Type codelist
 | Expected Properties | Standard properties for a SKOS Concept
@@ -404,7 +404,7 @@ ex:addr-1
 | IRI | `addr:isAddressFor`
 | Preferred Label | is address for
 | Definition | Indicates an Addressable Object that an Address is allocated to
-| Is Defined By | https://w3id.org/profile/anz-address[ANZ National Address Model]
+| Is Defined By | https://linked.data.gov.au/def/addr[ANZ National Address Model]
 | Sub-property Of | http://www.w3.org/2000/01/rdf-schema#label[`rdfs:label`]
 | Inverse Of | <<hasAddress>>
 | Provenance | Derived from <<ISO19160-1>>'s object relations
@@ -432,7 +432,7 @@ ex:addr-1
 | IRI | `addr:hasAddress`
 | Preferred Label | has address
 | Definition | Indicates an Address has been allocated for an Addressable Object
-| Is Defined By | https://w3id.org/profile/anz-address[ANZ National Address Model]
+| Is Defined By | https://linked.data.gov.au/def/addr[ANZ National Address Model]
 | Inverse Of | <<isAddressFor>>
 | Provenance | Derived from <<ISO19160-1>>'s object relations
 | Domain | <<AddressableObject, Addressable Object>>
@@ -463,7 +463,7 @@ ex:addr-1
 | IRI | `addr:hasAddressComponent`
 | Preferred Label | has address component
 | Definition | Indicates an Address Component of an Address
-| Is Defined By | https://w3id.org/profile/anz-address[ANZ National Address Model]
+| Is Defined By | https://linked.data.gov.au/def/addr[ANZ National Address Model]
 | Provenance | Derived from <<ISO19160-1>>'s object relations
 | Domain | <<Address, Address>>
 | Range | <<AddressComponent, Address Component>>
@@ -491,7 +491,7 @@ ex:addr-1
 | IRI | `addr:hasAddressComponentType`
 | Preferred Label | has address component type
 | Definition | Indicates an Addresses Component's type
-| Is Defined By | https://w3id.org/profile/anz-address[ANZ National Address Model]
+| Is Defined By | https://linked.data.gov.au/def/addr[ANZ National Address Model]
 | Provenance | Derived from <<ISO19160-1>>'s object relations
 | Domain | <<AddressComponent, Address Component>>
 | Range | <<AddressComponentType, Address Component Type>>
@@ -520,7 +520,7 @@ ex:addr-1
 | IRI | `addr:hasAddressRole`
 | Preferred Label | has address component type
 | Definition | Indicates an Address Role for an Address
-| Is Defined By | https://w3id.org/profile/anz-address[ANZ National Address Model]
+| Is Defined By | https://linked.data.gov.au/def/addr[ANZ National Address Model]
 | Provenance | Derived from <<ISO19160-1>>'s AddressPosition class and properties
 | Domain | <<Address>>
 | Range | <<AddressRole, Address Role>>
@@ -547,7 +547,7 @@ ex:addr-1
 | IRI | `addr:hasGeocode`
 | Preferred Label | has geocode
 | Definition | Indicates a refined, that is a very accurate or specific, geometry, usually a point, for an Address qualified by the Geocode Type - how it was generated.
-| Is Defined By | https://w3id.org/profile/anz-address[ANZ National Address Model]
+| Is Defined By | https://linked.data.gov.au/def/addr[ANZ National Address Model]
 | Provenance | Derived from the G-NAF's expression of Address position
 | Scope Note | This property, along with hasRole, allows multiple Addresses with different locations to be allocated to Addressable Objects and for those addresses to be used for different purposes. The location indicated by this property should be within/on/next to the location of the Addressable Object this Address is for, within some acceptable tolerance.
 | Domain | <<Address>>
@@ -577,7 +577,7 @@ ex:addr-1
 | IRI | `addr:hasLifecycleStage`
 | Preferred Label | has lifecycle stage
 | Definition | Indicates an Addresses' Lifecycle Stage
-| Is Defined By | https://w3id.org/profile/anz-address[ANZ National Address Model]
+| Is Defined By | https://linked.data.gov.au/def/addr[ANZ National Address Model]
 | Provenance | Derived from <<ISO19160-1>>'s object relations
 | Domain | <<Address, Address>>
 | Range | <<AddressLifecycleStage, Address Lifecycle Stage>>
@@ -617,7 +617,7 @@ ex:addr-1
 | IRI | `addr:hasValue`
 | Preferred Label | has value
 | Definition | Indicates the value of an Address Component
-| Is Defined By | https://w3id.org/profile/anz-address[ANZ National Address Model]
+| Is Defined By | https://linked.data.gov.au/def/addr[ANZ National Address Model]
 | Provenance | Derived from <<ISO19160-1>>'s AddressComponent object's properties
 | Domain | <<AddressComponent, Address Component>>
 | Range | http://www.w3.org/2000/01/rdf-schema#Resource[`rdfs:Resource`] (IRI or literal)
@@ -659,7 +659,7 @@ ex:addr-1
 | Preferred Label | has value
 | Definition | Indicates the textual rendering of an Address Component
 | Scope note | This property is to be used to represent the textual value of Address Components that are literals and also complex objects. For a literal, the same value will be present for hasValue and hasValueText, e.g. a street number of 20 or a property name of "Bonnie Doon", however for a complex object, e.g. the locality `<http://example.com/lga/1234>`, a textual representation of it must be selected. Likely a simple name for the object will do, i.e. a Locality name or a Street Locality name.
-| Is Defined By | https://w3id.org/profile/anz-address[ANZ National Address Model]
+| Is Defined By | https://linked.data.gov.au/def/addr[ANZ National Address Model]
 | Provenance | Derived from <<ISO19160-1>>'s AddressComponent object's properties
 | Domain | <<AddressComponent, Address Component>>
 | Range | http://www.w3.org/2001/XMLSchema#string[`xsd:string`]

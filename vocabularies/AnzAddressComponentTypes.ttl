@@ -1,5 +1,5 @@
-PREFIX act: <https://w3id.org/profile/anz-address/AnzAddressComponentTypes/>
-PREFIX cs: <https://w3id.org/profile/anz-address/AnzAddressComponentTypes>
+PREFIX act: <https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/>
+PREFIX cs: <https://linked.data.gov.au/def/addr/AnzAddressComponentTypes>
 PREFIX actiso: <http://def.isotc211.org/iso19160/-1/2015/Address/code/AnzAddressComponentTypes/>
 PREFIX actisocs: <http://def.isotc211.org/iso19160/-1/2015/Address/code/AnzAddressComponentTypes>
 PREFIX dcterms: <http://purl.org/dc/terms/>

@@ -2,7 +2,7 @@ from pathlib import Path
 import sqlite3
 from rdflib import Graph, URIRef, Namespace, BNode, Literal
 from rdflib.namespace import DCTERMS, RDF
-ADDR = Namespace("https://w3id.org/profile/anz-address/")
+ADDR = Namespace("https://linked.data.gov.au/def/addr/")
 GEO = Namespace("http://www.opengis.net/ont/geosparql#")
 
 

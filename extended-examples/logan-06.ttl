@@ -4,7 +4,7 @@
 # Daisy Hill Conservation Park, multiple access points (Ford Road, Dennis Road) multiple potential geocodes across multiple lots 28RP173044, 552NPW752, 501SP217936
 
 PREFIX a: <https://linked.data.gov.au/dataset/gnaf/address/>
-PREFIX addr: <https://w3id.org/profile/anz-address/>
+PREFIX addr: <https://linked.data.gov.au/def/addr/>
 PREFIX cad: <https://w3id.org/profile/cad/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX geo: <http://www.opengis.net/ont/geosparql#>
