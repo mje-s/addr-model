@@ -19,7 +19,7 @@ This model is built on a small set of well-regarded Semantic Web models which us
 | `role` | `https://linked.data.gov.au/def/addr/AddressRoleType/` | Placeholder for the Address Roles Vocabulary
 | `asgsed3` | `https://linked.data.gov.au/dataset/asgsed3` | Australian Statistical Geographies Standard Dataset, Release 3
 | `dcterms` | `http://purl.org/dc/terms/` | Dublin Core Terms vocabulary namespace
-| `ex` | `http://example.com/thing` | Generic examples namespace
+| `ex` | `http://example.com/` | Generic examples namespace
 | `geo` | `http://www.opengis.net/ont/geosparql#` | OGC GeoSPARQL
 | `act` | `https://linked.data.gov.au/def/addr/AddressComponentType/` | This model's `AddressComponentType` vocabulary namespace
 | `actiso` | `http://def.isotc211.org/iso19160/-1/2015/Address/code/AddressComponentType/` | <<ISO19160-1>>'s `AddressComponentType` vocabulary namespace
