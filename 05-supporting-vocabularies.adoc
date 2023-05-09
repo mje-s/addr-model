@@ -2,7 +2,7 @@
 
 This model uses many vocabularies to give specific values to classification properties for `Address`, `AddressComponent` and to qualify relationships within the model. This section lists those vocabularies and summarises their content but not their full content which is instead linked to.
 
-Four vocabularies expected for use with this model are defined here, within the model. Others are defined elsewhere, mainly ICSM vocabularies derived from AS4189 or the G-NAF.
+Four of the vocabularies expected for use with this model are defined here - within the model itself. Others are defined elsewhere, mainly ICSM vocabularies derived from AS4189 or the G-NAF.
 
 Those defined here are:
 
@@ -13,7 +13,7 @@ Those defined here are:
 
 Three of these vocabularies are derived from vocabularies (codelists) within <<ISO19160-1>> but all are extended for use here. The remaining vocabulary - Address Role Types - is derived from the various elements of <<ISO19160-1>> but not directly from one vocabulary.
 
-Those defined as ICSM vocabularies:
+Those defined as ICSM vocabularies are:
 
 * Address Types
 * Address Alias Types
@@ -69,7 +69,10 @@ This vocabulary is an extended version of <<ISO19160-1>>'s `AddressComponentType
 | `act:streetLocality` | addition (G-NAF) | Use
 | `act:locality` | addition (G-NAF) | Use
 3+|
-| `act:stateOrTerritory` | addition | Use
+| `act:waterFeatureNumber` | addition (this model) | Use
+| `act:waterFeatureName` | addition (this model) | Use
+| `act:waterFeatureType` | addition (this model) | Use
+| `act:stateOrTerritory` | addition (this model) | Use
 | `act:propertyName` | addition (this model) | Use
 | `act:placeName` | addition (this model) | Use
 | `act:indigenousPlaceName` | addition (this model) | Use
