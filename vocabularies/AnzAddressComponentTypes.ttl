@@ -278,7 +278,7 @@ act:lotNumberSuffix
 
 act:flatTypeCode
     a skos:Concept ;
-    dcterms:identifier "flatNumberPrefix"^^xsd:token ;
+    dcterms:identifier "flatTypeCode"^^xsd:token ;
     rdfs:isDefinedBy cs: ;
     skos:definition "A code representing the flat type" ;
     skos:inScheme cs: ;
@@ -481,6 +481,45 @@ act:locality
     skos:topConceptOf cs: ;
     skos:scopeNote "Use"@en ;
     dcterms:provenance "Created for the ANZ Address Model, taken from the G-NAF data model"@en ;
+    reg:status status:addition ;
+.
+
+act:waterFeatureNumber
+    a skos:Concept ;
+    dcterms:identifier "waterFeatureNumber"^^xsd:token ;
+    rdfs:isDefinedBy cs: ;
+    skos:definition "The water feature type-dependent number of the Addressable Object. For numbering sequence logic, see jurisdictional water numbering guidelines." ;
+    skos:inScheme cs: ;
+    skos:prefLabel "water feature number" ;
+    skos:topConceptOf cs: ;
+    skos:scopeNote "Use"@en ;
+    dcterms:provenance "Created for the ANZ National Address Model"@en ;
+    reg:status status:addition ;
+.
+
+act:waterFeatureName
+    a skos:Concept ;
+    dcterms:identifier "waterFeatureName"^^xsd:token ;
+    rdfs:isDefinedBy cs: ;
+    skos:definition "The name of the water feature" ;
+    skos:inScheme cs: ;
+    skos:prefLabel "water feature name" ;
+    skos:topConceptOf cs: ;
+    skos:scopeNote "Use"@en ;
+    dcterms:provenance "Created for the ANZ National Address Model"@en ;
+    reg:status status:addition ;
+.
+
+act:waterFeatureType
+    a skos:Concept ;
+    dcterms:identifier "waterFeatureType"^^xsd:token ;
+    rdfs:isDefinedBy cs: ;
+    skos:definition "The type of the water feature, from a controlled list of feature types" ;
+    skos:inScheme cs: ;
+    skos:prefLabel "water feature type" ;
+    skos:topConceptOf cs: ;
+    skos:scopeNote "Use"@en ;
+    dcterms:provenance "Created for the ANZ National Address Model"@en ;
     reg:status status:addition ;
 .
 

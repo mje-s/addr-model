@@ -49,11 +49,27 @@ Geocodes are point geometries associated with an address that can be used by map
 
 Since geocodes are directly related to an Address and are only indirectly related to an Addressable Object, in this model they are modelled as a specialised form of Features with a Geometry used to indicate the point location. The Address relates to the Geocode in a similar way to an Address relating to an Addressable Object however the Address isn't the address _for_ the Addressable Object but rather the Geocode is another kind of object associated with the Address with a _role_ indicated, e.g. a particular Geocode might indicate the "property centroid" or perhaps it's the "deliveries point" of a large building address.
 
+=== Selecting Address Components
+
+TODO
+
+==== Water Addressing
+
+TODO
+
+==== Property Addressing
+
+TODO
+
+==== Geographic Names
+
+TODO
+
 === Profile Views
 
 Addresses have multiple roles: they indicate places with names (or Features with Labels), they are things to be managed by data holders, and they have statuses, lifecycles and so on. Sometimes we are only interested in one of these aspects of an Address or one _profile_ and not the total Address information held. We may also be interested only in a reduced set of properties of an Address even when others within that role are present, e.g. the current status, not all the statues an Address has ever had. Finally, different implementers of this model may want to implement different jurisdictional profiles of the entire model that, for example, mandate records for that jurisdiction's system's use of Addresses that would be meaningless outside that jurisdiction.
 
-All of these sorts of _profiles_ of Addresses are handled in a similar way in this model: they are declared Profiles of the model that may implement additional ruls and/or requirements on data, however they must always conform to the main Address Model itself.
+All of these sorts of _profiles_ of Addresses are handled in a similar way in this model: they are declared Profiles of the model that may implement additional rules and/or requirements on data, however they must always conform to the main Address Model itself.
 
 Profile modelling is given in <<PROF>> and requesting profiles from data conforming to a model is given in <<CONNEGP>>.
 

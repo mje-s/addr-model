@@ -60,6 +60,9 @@ _to be changed when accepted by a standards body_
 * <<number last suffix>>
 * <<street locality>>
 * <<locality>>
+* <<water feature number>>
+* <<water feature name>>
+* <<water feature type>>
 * <<state or territory>>
 * <<property name>>
 * <<place name>>
@@ -511,6 +514,48 @@ _to be changed when accepted by a standards body_
 | identifier | locality
 | preferred label | locality
 | definition | A locality
+| is defined by | https://linked.data.gov.au/def/addr/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
+| scope note | Use
+| status | http://def.isotc211.org/iso19135/-1/2015/CoreModel/code/RE_ItemStatus/original[original]
+| provenance | Created for the ANZ Address Model
+|===
+
+=== water feature number
+
+[cols="1,3"]
+|===
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/waterFeatureNumber+`
+| identifier | waterFeatureNumber
+| preferred label | water feature number
+| definition | The water feature type-dependent number of the Addressable Object. For numbering sequence logic, see jurisdictional water numbering guidelines.
+| is defined by | https://linked.data.gov.au/def/addr/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
+| scope note | Use
+| status | http://def.isotc211.org/iso19135/-1/2015/CoreModel/code/RE_ItemStatus/original[original]
+| provenance | Created for the ANZ Address Model
+|===
+
+=== water feature name
+
+[cols="1,3"]
+|===
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/waterFeatureName+`
+| identifier | waterFeatureName
+| preferred label | water feature name
+| definition | The name of the water feature
+| is defined by | https://linked.data.gov.au/def/addr/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
+| scope note | Use
+| status | http://def.isotc211.org/iso19135/-1/2015/CoreModel/code/RE_ItemStatus/original[original]
+| provenance | Created for the ANZ Address Model
+|===
+
+=== water feature type
+
+[cols="1,3"]
+|===
+| IRI | `+https://linked.data.gov.au/def/addr/AnzAddressComponentTypes/waterFeatureType+`
+| identifier | waterFeatureType
+| preferred label | water feature type
+| definition | The type of the water feature, from a controlled list of feature types
 | is defined by | https://linked.data.gov.au/def/addr/AnzAddressComponentTypes[ANZ Address Model's AnzAddressComponentTypes vocabulary]
 | scope note | Use
 | status | http://def.isotc211.org/iso19135/-1/2015/CoreModel/code/RE_ItemStatus/original[original]
