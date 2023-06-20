@@ -16,23 +16,64 @@ the 10 major requirements for Ausralian and New Zealand address models, as per t
 
 Next follows a description per Requirement as to how this Model addresses it.
 
-=== Better complex / multi address representation
+[[req-1]]
+=== A.1 Better complex / multi address representation
 
-=== Shared addressable object / address conception
+The Model allows for any number of levels of sub-addressing and anchors the Addressable Objects to items in other systems (e.g. Cadastral databases) so any form of complex address scenario can be represented via a combination of Address and/or Addressable Object relations
 
-=== Model interoperability
+[[req-2]]
+=== A.2 Shared addressable object / address conception
 
-=== Model profiling and mapping
+This Model inherits the Address / Addressable Object pattern from the Compound Naming Model <<CNM>> which it profiles.
 
-=== International model uptake
+[[req-3]]
+=== A.3 Model interoperability
 
-=== New address dimensions
+The Model is implemented in the general-purpose Web Ontology Language and is thus compatible with all RDF & SPARQL systems.
 
-=== Enhanced address life-cycle management
+The model profiles a number of common, general-purpose, Semantic Web models, such as GeoSPARQL (spatiality), OWL-TIME (temporality), PROV (provenance / process flow), schema.org (general-purpose description) and thus is compatible with other models that profile these too.
 
-=== Address validation at creation point
+Some of this Model’s key patterns are inherited from the stand-alone Compound Naming <<CNM>> and Lifecycle <<LM>> models which other models may also inherit from leading to interoperability on those patterns.
 
-=== Verifiable model conformance
+[[req-4]]
+=== A.4 Model profiling and mapping
 
-=== Multi-lingual and alternate name addressing
+The profiling mechanism this Model uses to inherit from well-known international standard models and also special-purpose models may be reused for other models to profile this model.
 
+The model is published as a Profiles Vocabulary profile with profile elements that assist with the development of profiles of this model, for example, separately-published codelists as vocabularies which may be extended or constrained.
+
+Due to this model inheriting from standard models, it may adopt mapping from them to others, for example, GeoSPARQL’s mapping to the ISO Simple Features model <<ISO19125-1>>.
+
+[[req-5]]
+=== A.5 International model uptake
+
+This Model profiles multiple international models – both general-purpose and domain-specific – in particular it profiles _ISO 19160-1: Addressing_ <<ISO19160-1>>.
+
+[[req-6]]
+=== A.6 New address dimensions
+
+This Model uses the modelling https://en.wikipedia.org/wiki/Open-world_assumption[_Open World Assumption_] within the context of the Semantic Web, meaning that the model may be extended in any direction, as long as the extension doesn’t invalidate existing model rules.
+
+[[req-7]]
+=== A.7 Enhanced address life-cycle management
+
+This Model inherits from the Lifecycles Model <<LM>> and allows lifecycles to be applied to any model class such as Address, Addressable Object, Address Component.
+
+The stages of the Lifecycle Model are defined by vocabularies thus any implementer may extend or constrain available stages to suite their purpose.
+
+[[req-8]]
+=== A.8 Address validation at creation point
+
+One resource within the set that make up this model is a canonical validator that can be used to ’validate any data claiming conformance to this Model. Additionally, further validators may be created for this model that either implementing special-purpose validators may be created, for example, for validation of partial addresses.
+
+[[req-9]]
+=== A.9 Verifiable model conformance
+
+As per A.8, an implementor may choose to implement multiple versions of conformance by implementing multiple validators.
+
+[[req-10]]
+=== A.10 Multi-lingual and alternate name addressing
+
+The Model allows for both the implementation of literal and complex objects’ annotations (names and descriptions) in language-specific model elements which may then be selected as appropriate.
+
+Additionally, addresses are exported from this model using templates that may both select specific language versions of address elements and implement further logic such as word contractions, as needed.
