@@ -31,9 +31,9 @@ image::img/upper-classes.png[]
 
 | IRI | `addr:Address`
 | Preferred Label | Address
-| Definition | The Address class represents structured information that allows unambiguous determination of an object for the purposes of identification and location
+| Definition | The Address class represents structured information that allows unambiguous identified of an object for the purposes of identification and location
 | Is Defined By | https://linked.data.gov.au/def/addr[ANZ National Address Model]
-| Sub-class Of | https://opengeospatial.github.io/ogc-geosparql/geosparql11/spec.html#_class_geofeature[`geo:Feature`]
+| Sub-class Of | https://linked.data.gov.au/def/fl/FeatureLabel[`fl:FeatureLabel`]
 | Provenance | Derived from <<ISO19160-1>>'s `Address` class
 | Expected Properties | <<isAddressFor>>, <<hasAddressComponent>>, <<hasAddressRole>>, <<hasLifecycleStage>>
 | Example 
@@ -84,13 +84,13 @@ ex:addr-1
 
 | IRI | `addr:AddressableObject`
 | Preferred Label | Addressable Object
-| Definition | An object that is unambiguously determined by an address.
+| Definition | An object that is unambiguously identified by an address.
 
 Examples of types of AddressableObjects are a building, a dwelling or a land parcel
 | Is Defined By | https://linked.data.gov.au/def/addr[ANZ National Address Model]
 | Sub-class Of | https://opengeospatial.github.io/ogc-geosparql/geosparql11/spec.html#_class_geofeature[`geo:Feature`]
 | Provenance | Derived from <<ISO19160-1>>'s `AddressableObject` class and its associated codelist of subtypes
-| Scope note | Judgement as to what makes for a permissable AddressableObject rests with the implementer. This model's technical requirements are only that the object is a legal `geo:Feature` object, thus implementers may make Addressable Objects of almost anything.
+| Scope note | Judgement as to what makes for a permissible AddressableObject rests with the implementer. This model's technical requirements are only that the object is a legal `geo:Feature` object, thus implementers may make Addressable Objects of almost anything.
 | Expected Properties | <<hasAddress>>, http://www.opengis.net/ont/geosparql#[`geo:hasGeometry`]
 | Example 
 a| [source,turtle]
@@ -172,7 +172,7 @@ ex:addr-1
 | Provenance | Derived from <<ISO19160-1>>'s `AddressComponent` class
 | Scope note | An Address Component's type should be indicated with values from a controlled vocabulary - a code list. 
 
-A SKOS vocabulary of Address Component Types is suplied with this ontology.
+A SKOS vocabulary of Address Component Types is supplied with this model.
 | Expected Properties | Standard properties for a SKOS Concept
 | Example 
 a| [source,turtle]
