@@ -12,11 +12,12 @@ is a form of name for the cadastral parcel that defines a particular property's 
 
 Addresses modelled according to this model do more than just name things though: they are linked to geocodes - spatial points - allowing for map-based locating and route planning, sometimes other addresses for the same spatial object, sometimes parent/child addresses for dwelling compounds and management information such as lifecycle stages.
 
-Overall, this model represents addresses, certain properties for them, including components, geocodes and the objects to which addresses are assigned in a conceptual manner similar to the international addressing standard, <<ISO19160-1>>. However, this model is expressed in Semantic Webfootnote:[See https://en.wikipedia.org/wiki/Semantic_Web for a general description of the Semantic Web] form, rather than ISO19160-1's UML and XML, and many aspects of the conceptual range that ISO19160 covers this model does not directly cover but instead delegates to other models which it imports, such as the representation of address and address component lifecycle information. This is done so that common things that this model does are available for use elsewhere via a series of mini-models that others may use without importing this whole model.
+Overall, this model represents addresses, certain properties for them, including address parts, geocodes and the objects to which addresses are assigned in a conceptual manner similar to the international addressing standard, <<ISO19160-1>>. However, this model is expressed in Semantic Webfootnote:[See https://en.wikipedia.org/wiki/Semantic_Web for a general description of the Semantic Web] form, rather than ISO19160-1's UML and XML, and many aspects of the conceptual range that ISO19160 covers this model does not directly cover but instead delegates to other models which it imports, such as the representation of address and address part lifecycle information. This is done so that common things that this model does are available for use elsewhere via a series of mini-models that others may use without importing this whole model.
 
-Additionally, this model relies on several specialised sub-models to handle specific types of address componentry, such as roads and geographical object naming. By doing this, those things many be modelled independently of addressing and roads and geographic object names datasets can be used with address data very easily.
+Additionally, this model relies on several specialised sub-models to handle specific types of address parts, such as roads and geographical object naming. By doing this, those things many be modelled independently of addressing and roads and geographic object names datasets can be used with address data very easily.
 
-This model makes no attempt to model the things to which addresses are assigned. In the example above, the address "72 Yundah St...." is mentioned as being a form of name for, or assigned to, a cadastral parcel or a 'lot'. This model doesn't know what those things are and leaves their modelling to other systems. This means that using this model alone, you cannot know what an address is for unless you implement a component to describe the type of object the address is assigned to. This decision has been made since there could be great complexity in spatial object / infrastructure modelling that isn't really core to addressing, so that's best left to other, likely sophisticated, models.
+This model makes no attempt to model the things to which addresses are assigned. In the example above, the address "72 Yundah St...." is mentioned as being a form of name for, or assigned to, a cadastral parcel or a 'lot'. This model doesn't know what those things are and leaves their modelling to other systems. This means that using this model alone, you cannot know what an address is for unless you implement an address part to describe the type of object the address is assigned to. This decision has been made since there could be great complexity in spatial object / infrastructure modelling that isn't really core to addressing, so that's best left to other, likely sophisticated, models.
+
 
 === Sources of Requirements
 
@@ -26,15 +27,20 @@ These ICSM requirements include both specific requirements, for example to cater
 
 <<AnnexA>> lists the ICSM Addressing 2035 Strategy Addendum's 10 requirements and indicates how this model implements solutions for them.
 
+
 === Major Modelling Principles
 
 Major modelling principles present in this model are:
 
+. <<Model Reuse>>
+. <<External Vocabularies>>
 . <<Feature / Feature Naming differentiation>>
 . <<Feature / Geometry differentiation>>
 . <<Geocodes>>
-. <<Road & Geographical Object Names>>
-. <<Address component grouping>>
+. <<Address Parts>>
+. <<Road & Geographical Names>>
+. <<Address part typing>>
+. <<Address part templating>>
 . <<Water Addressing>>
 . <<Related Addresses>>
 . <<Lifecycles>>
@@ -42,39 +48,97 @@ Major modelling principles present in this model are:
 
 These principles are explained in the following subsections and the first two reference the following figure.
 
-[[fig-address-spatial]]
-.Address / Addressable Object and Feature / Geometry differentiation overview
-image::img/address-spatial.png[]
+
+==== Model Reuse
+
+The Semantic Web contains many widely-used models and model reuse is a greatly favoured practice for Semantic Web modelling for, if models are reused, data created according to them is instantly compatible with other data. Additionally, many Semantic Web models have deep thought behind them that no single modelling initiative could hope to match easily.
+
+The well-known Semantic Web models that this model inherits from are:
+
+* Web Ontology Language <<OWL>>: a widely-used set theory-based general-purpose model that uses the <<RDF>> data structure
+* schema.org <<SDO>>: a general-purpose model of classes and properties used by many website publishers to present structured data to search engines
+* GeoSPARQL <<GEO>>: the Open Geospatial Consortium'sfootnote:[The OGC: https://www.ogc.org/] ontology for basic features and geometries modelling
+* Simple Knowledge Organization System <<SKOS>>: a simple OWL model for organizing taxonomies of concepts
+
+Some aspects of addressing that were originally modelled within this model at its first release in 2021 have been discovered to be generic in nature but yet not already modelled in a Semantic Web ontology appropriate for use here. For those aspects of addressing, a series of mini-models have been created to allow the generic parts to be published independently of addressing, allowing for independent and hopefully greater reuse. The main mini-models factored out of this model are:
+
+* Compound Naming Model <<CNM>>: modelling of names objects, parts of names, and the things names are assigned to
+* Lifecycles Model <<LM>>: modelling of lifecycles for anything - whole addresses, parts of addresses etc.
+
+
+==== External Vocabularies
+
+Some elements of addresses must be subclassified by, or in some other way associated with, terms from vocabularies. The most prominent example is the expression of the type of part of an address: is it a _street number_, a _flat type_ or a _postcode_?
+
+Where such vocabularies are used, they are not directly published _within_ this model but externally and this model is expected to be used with them. In this way, vocabularies may be extended without extending this model and different users may implement their own vocabularies to suite their business needs, for example, perhaps not all model users allow all address part types Queensland does, such as _water feature number_ so, they should use this model with a vocabulary that excludes that term.
+
+See the <<Supporting Vocabularies>> section for mode information.
+
 
 ==== Feature / Feature Naming differentiation
 
-This model details the elements of an _address_ but not details of the spatial objects that addresses are assigned to. The general conceptual split of address/spatial object follows the Address/AddressableObject split in ISO19160-1 <<ISO19160-1>>. Addresses are seen as a form of complex, multi-part, label - Feature Label - for a spatial Feature.
+This model details the elements of an _address_ but not details of the spatial objects that addresses are assigned to. The general conceptual split of address/spatial object follows the Address/AddressableObject split in ISO19160-1 <<ISO19160-1>>. Addresses are seen as a form of complex, multi-part, name for a spatial Feature.
 
-This allows for the representation, and ultimately the management, of labels - text, numbers, identifiers, references - separately to the management of spatial objects.
+This allows for the representation, and ultimately the management, of names - text, numbers, identifiers, references - separately to the management of spatial objects.
 
-This Feature / Feature Naming separation applies to Place Names, Roads and Administrative Areas as well as Addresses and this expression of Feature / Feature Naming separation for addressing is a formal profile of the more general _Compound Naming Model_ <<CNM>>. There are other profiles for those other domains. The FLM, this model and the other FLM profiles are all pat of Queensland Spatial Information's https://spatial-information-qld.github.io/supermodel/supermodel.html[_Supermodel_] which is an enterprise data model for multi-model data integration.
+This Feature / Feature Naming separation applies to Geographical objects, Roads and Administrative Areas as well as Addresses and the first two of those three objects have models similar to this one for their names, <<GN>> & <<ROADS>>.
+
+Some elements of this Feature / Feature Naming pattern, used by this and the two models mentioned above, are captured in the general-purpose _Compound Naming Model_ <<CNM>> which they all inherit from.
+
 
 ==== Feature / Geometry differentiation
 
-(Geo)spatial objects referenced by this model are not geometries but conceptual spatial objects that have as an expression of their spatial projection one or more geometries. This conceptual object - Feature - and spatial expression - Geometry - split is based on fundamental spatial modelling in standards such as <<ISO19101-1>> and their expression in the Semantic Web spatial standard <<GEO>>.
+(Geo)spatial objects referenced by this model are not geometries but conceptual spatial objects that may have as an expression of their spatial projection one or more geometries. This conceptual object / spatial expression differentiation, which we refer to as a Feature / Geometry split, is based on fundamental spatial modelling in standards such as <<ISO19101-1>> and their expression in the Semantic Web spatial standard <<GEO>>.
 
-This Feature / Geometry distinction allows individual spatial objects to have multiple Geometries: different resolutions, in different coordinate systems and even sets of Geometries that have different roles or that show variation over time.
+This Feature / Geometry split allows individual spatial objects to have multiple Geometries: different resolutions, in different coordinate systems and even sets of Geometries that have different roles or that show variation over time.
+
+While this model doesn't model spatial aspects of the object to which addresses are assigned - see the section above - this Feature / Geometry split and expressions of geometry are modelled for geocodes - see next section.
+
 
 ==== Geocodes
 
-Geocodes are point geometries associated with an address that can be used by mapping applications to locate the address, or part of an addressable object, on a map.
+Geocodes are spatial objects - Features - with point geometries that addresses may be associated with so that they can be used by mapping applications to locate the address, or part of an addressable object, on a map or on the earth.
 
-Since geocodes are directly related to an Address and are only indirectly related to an Addressable Object, in this model they are modelled as a specialised form of Features with a Geometry used to indicate the point location. The Address relates to the Geocode in a similar way to an Address relating to an Addressable Object however the Address isn't the address _for_ the Addressable Object but rather the Geocode is another kind of object associated with the Address with a _role_ indicated, e.g. a particular Geocode might indicate the "property centroid", or perhaps it's the "deliveries point" of a large building address.
+Geocodes may be only indirectly related to an Addressable Object: while they may be calculated from them, for example they could be the centroid of a lot, they may also not be, for example they could be a GPS-marked point indicating a property entrance point that is on or close to the Addressable Object but has been determined independently of its details.
 
-==== Road & Geographical Object Names
+For this reason, Geocodes are related to Addresses only in this model, not Addressable Objects, and any Geocode/Addressable Object relations are out-of-scope here.
 
-TODO
 
-==== Address component grouping
+=== Address Parts
+
+Addresses are complex things: they are all made of multiple parts with different roles, types ordering and so on. To handle this, this model has a generic notion of a part which may be a simple thing, e.g. a postcode or a street number, but it may also be a complex thing, e.g. a road name that includes a "given" name for the road as well as some type indication.
+
+This model inherits from the Compound Naming Model <<CNM>> which allows for Compound Names, such as Addresses, to link to parts which are also Compound Names which then link to other Compound Names. In this way, Addresses may be "built up" from compound names for a series of parts, such as road names, locality names and so on.
+
+==== Road & Geographical Names
+
+This model can be used to model all the parts of a street names - the 'given' part e.g. "Smith", a type indicator such as "Street" and perhaps a suffix, such as "South" - or it can be used to just indicate that a particular street or road is a part of an address and the name for that road is to be found in an independent road name object.
+
+This second form - delegation of name - is allowed to facilitate point-of-truth road names datasets which both provide names for roads in isolation and are also used by address datasets.
+
+Similarly, names for geographical objects, such as mountains, lakes, certain kinds of locality etc. may also be held independently of addressing data and just referred to as a complex object part of an address.
+
+A model of roads - both naming and some physical presentation of them - has been created in parallel to this model, as has a model of Geographical Names which is a replacement for the various Placenames models found in ANZ, such as the https://linked.data.gov.au/def/placenames[FSDF Placenames Ontology]. these models can be used independently as well as within this model. Their persistent web addresses are:
+
+* https://linked.data.gov.au/def/roads - Roads Model
+* https://linked.data.gov.au/def/gn - Geographical Names Model
+
+
+== Address part typing
+
+There are various given name parts of addresses which have previously been shoved into inappropriate data fields legacy address models and systems. For example, some models have contained _building_ but not _property_ names, so both types have been combined into the field for the former.
+
+In this model, all address parts are just parts with a specialised type indicated with a reference to a concept within a vocabulary such as the Address Parts vocabulary (see <<Supporting Vocabularies>>). Implementations _MUST_ allow for this type of "soft typing" (where a data object's type is selectable from an external list) so that no field limitations such as the above occur.
+
+Implementers can limit the part type vocabulary of course and will have to handel all the types they allow in the vocabulary, but implementers should not "make do" with inappropriate field (part type) reuse.
+
+
+==== Address part templating
 
 TODO
 
 // templating
+
 
 ==== Water Addressing
 
@@ -88,9 +152,11 @@ TODO
 // Aliases
 // Parent-child
 
+
 ==== Lifecycles
 
 TODO
+
 
 ==== Profile Views
 
@@ -99,6 +165,7 @@ Addresses have multiple roles: they indicate places with names (or Features with
 All of these sorts of _profiles_ of Addresses are handled in a similar way in this model: they are declared Profiles of the model that may implement additional rules and/or requirements on data, however they must always conform to the main Address Model itself.
 
 Profile modelling is given in <<PROF>> and requesting profiles from data conforming to a model is given in <<CONNEGP>>.
+
 
 === Model resources
 

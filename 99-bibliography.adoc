@@ -6,6 +6,8 @@
 
 [[GEO]] GEO:: Open Geospatial Consortium, _OGC GeoSPARQL - A Geographic Query Language for RDF Data, Version 1.1_ (2021). OGC Implementation Specification. http://www.opengis.net/doc/IS/geosparql/1.1
 
+[[GN]] GN:: Queensland Spatial Information. _Geographical Names Model_ (2023). https://linked.data.gov.au/def/gn
+
 [[ISO19101-1]] ISO19101-1:: International Organization for Standardization, _ISO 19101-1:2014 Geographic information — Reference model — Part 1: Fundamentals_ (2014)
 
 [[ISO19125-1]] ISO19125-1:: International Organization for Standardization, ISO 19125-1: Geographic information — Simple Feature Access - Part 1: Common Architecture (2004)
