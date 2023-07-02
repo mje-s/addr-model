@@ -5,40 +5,39 @@
 [NOTE]
 This Model is under test by Queensland Government and is a candidate model for Australian & New Zealand address information. It is currently an unofficial model that is not yet published as a standard.
 
-A Semantic Web data model of address information. It caters specifically for Australian & New Zealand's address modelling needs. It was made in 2022 for Queensland Spatial Information, a unit of the Queensland Department of Resources, to assist with their future address database design. It is informed by the ICSM's Addressing 2035: Addressing Reform and Innovation for Australia and New Zealand, published in late 2021 and is based primarily on the ISO19160-1 _Addressing Part 1: Conceptual model_ <<ISO19160-1>> with additional elements from a small set of well-regarded Semantic Web models such as GeoSPARQL <<GEO>> and SKOS <<SKOS>>. It is also informed by the relational database model used for the https://data.gov.au/data/dataset/d4631917-14d7-4c49-830c-555ad63adf9d[G-NAF, Australia's Geocoded National Address File], and CSIRO work in 2018 to characterise the GNAF in Semantic Web form, the ontology for which is online at https://linked.data.gov.au/def/gnaf.
+A Semantic Web data model of address information that caters specifically for Australian & New Zealand's address modelling needs.
+
+This model was originally developed between 2021 and 2023 for Queensland Spatial Information, a unit of the Queensland Department of Resources, to assist with their future address database design. It is informed by the ICSM's Addressing 2035: Addressing Reform and Innovation for Australia and New Zealand, published in late 2021, which listed 'pain points' with current ANZ address models and considered future address modelling needs. This model tries to address the 10 main Requirements established by the Strategy. This model is also informed by both the relational database model used for the G-NAF, Australia's Geocoded National Address File, and CSIRO work in 2018 to characterise the GNAF in Semantic Web form, the ontology for which is online at https://linked.data.gov.au/def/gnaf, as well as the ISO's ISO19160-1 Addressing Part 1: Conceptual model. In 2023, several parts of this model covering general modelling issues, such as lifecycle representation, were extracted out into a series of mini-models to allow other models to reuse them without importing this model. As a result, the 2023 version fo this model appears to be greatly reduced in complexity and coverage but coverage is unchanged with those mini-models are also used.
 
 === Namespaces
 
-This model is built on a small set of well-regarded Semantic Web models which use a variatey of namespaces. Prefixes for this namespaces, used throughout this document, are listed below.
+This model is built on a small set of well-regarded Semantic Web models which use a variety of namespaces. Additionally, this model is expected to be used with a series of mini-models which were created alongside it and they also used namespaces. Prefixes for these namespaces, used throughout this document, are listed below.
 
 [width=100%, frame=none, grid=none, cols="1,4,5"]
 |===
 |Prefix | Namespace | Description
 
-| `*addr*` | `*https://linked.data.gov.au/def/addr/*` | *Placeholder namespace for this model*
-| `role` | `https://linked.data.gov.au/def/addr/AddressRoleType/` | Placeholder for the Address Roles Vocabulary
-| `asgsed3` | `https://linked.data.gov.au/dataset/asgsed3` | Australian Statistical Geographies Standard Dataset, Release 3
-| `dcterms` | `http://purl.org/dc/terms/` | Dublin Core Terms vocabulary namespace
-| `ex` | `http://example.com/` | Generic examples namespace
-| `geo` | `http://www.opengis.net/ont/geosparql#` | OGC GeoSPARQL
+| `*addr*` | `*https://linked.data.gov.au/def/addr/*` | This model
 | `act` | `https://linked.data.gov.au/def/addr/AddressComponentType/` | This model's `AddressComponentType` vocabulary namespace
 | `actiso` | `http://def.isotc211.org/iso19160/-1/2015/Address/code/AddressComponentType/` | <<ISO19160-1>>'s `AddressComponentType` vocabulary namespace
 | `als` | `https://linked.data.gov.au/def/addr/AddressLifecycleStageType/` | This model's `AddressLifecycleStageType` vocabulary namespace
-| `alsiso` | `http://def.isotc211.org/iso19160/-1/2015/Address/code/AddressLifecycleStageType/` | <<ISO19160-1>>'s `AddressLifecycleStageType` vocabulary namespace
 | `ast` | `https://linked.data.gov.au/def/addr/AddressStatusType/` | This model's `AddressStatusType` vocabulary namespace
-| `astiso` | `http://def.isotc211.org/iso19160/-1/2015/Address/code/AddressStatusType/` | <<ISO19160-1>>'s `AddressStatusType` vocabulary namespace
+| `asgsed3` | `https://linked.data.gov.au/dataset/asgsed3` | Australian Statistical Geographies Standard Dataset, Release 3, in Linked Data form
+| `ex` | `http://example.com/` | Generic examples namespace
+| `cn` | `https://linked.data.gov.au/def/cn/` | Compound Name Model, <<CNM>>
+| `geo` | `http://www.opengis.net/ont/geosparql#` | The OGC's GeoSPARQL standard's ontology's namespace, see <<GEO>>
+| `lm` | `https://linked.data.gov.au/def/lifecycle/` | Lifecycle Model, <<LM>>
 | `owl` | `http://www.w3.org/2002/07/owl#` | Web Ontology Language ontology namespace
 | `rdfs` | `http://www.w3.org/2000/01/rdf-schema#` | RDF Schema ontology namespace
+| `roads` | `https://linked.data.gov.au/def/roads/*` | The Roads Model, <<ROADS>>
 | `sosa` | `http://www.w3.org/ns/sosa/` | Sensor, Observation, Sample, and Actuator ontology namespace
 | `skos` | `http://www.w3.org/2004/02/skos/core#` | Simple Knowledge Organization System (SKOS) ontology namespace
-| `time` | `http://www.w3.org/2006/time#` | Time Ontology in OWL namespace
-| `void` | `http://rdfs.org/ns/void#` | Vocabulary of Interlinked Data (VoID) ontology namespace
-| `xsd` | `http://www.w3.org/2001/XMLSchema#` | XML Schema Definitions ontology namespace
+| `xsd` | `http://www.w3.org/2001/XMLSchema#` | XML Schema Definitions ontology namespace, <<XSD>>
 |===
 
 === Conformance
 
-This model conforms to the https://w3id.org/profile/ontpub[OntPub Profile] which is a specification for ontology publication that mandates certain structural and metadata properties for the model as a whole and model elements. Metadata elements for the model as a whole - the ontology - are given in the <<Metadata>> section above.
+This model's specification conforms to the https://w3id.org/profile/ontpub[OntPub Profile] which is a standard for ontology publication that mandates certain structural and metadata properties for the model as a whole and model elements.
 
 ==== Figures
 
@@ -46,7 +45,8 @@ Figures used in this document use the following key:
 
 [[fig-figure-key]]
 .Key of elements used in this Model's figures
-image::img/key.png[]
+image::img/Key.svg[]
 
 ==== Example Data
-Example Data used in this document, for instance in model element "Example" values, are https://www.w3.org/RDF/[RDF] data in the https://www.w3.org/TR/turtle/[Turtle] syntax.
+
+Example data used in this document, for instance in model element "Example" values, are <<RDF>> data presented in the <<TTL>> syntax.
