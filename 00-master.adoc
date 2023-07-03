@@ -9,6 +9,11 @@
 
 ==== _A Semantic Web data model used for address information_
 
+[[fig-overview1]]
+.An informal model overview diagram showing the major elements of this model
+image::img/Overview.svg[]
+
+
 :sectnums:
 
 include::01-metadata.adoc[]
@@ -27,8 +32,10 @@ include::50-annex-a-requirments.adoc[]
 
 include::51-annex-b-validator.adoc[]
 
-include::52-annex-c-extended-examples.adoc[]
+include::52-annex-c-templating.adoc[]
 
-include::53-annex-d-demo-implementations.adoc[]
+include::53-annex-d-extended-examples.adoc[]
+
+include::54-annex-e-demo-implementations.adoc[]
 
 include::99-bibliography.adoc[]

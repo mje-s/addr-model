@@ -6,7 +6,7 @@ Four of the vocabularies expected for use with this model are defined here - wit
 
 Those defined here are:
 
-* <<Address Component Types>>
+* <<Address Part Types>>
 * <<Address Lifecycle Stage Types>>
 * <<Address Role Types>>
 * <<Address Status Types>>
@@ -26,7 +26,7 @@ Those defined as ICSM vocabularies are:
 
 NOTE: Hyperlinks to these vocabularies will be provided as soon as persistent identifiers for them are issued. Until then, the content of these vocabularies can be found within the submission to register them: https://github.com/GeoscienceAustralia/icsm-vocabs/pull/13/files.
 
-=== Address Component Types
+=== Address Part Types
 
 This vocabulary is an extended version of <<ISO19160-1>>'s `AddressComponentType` vocabulary. The original 8 concepts from the standard are included however only one of them - `postcode` - is suggested for use within this model. An additional 19 concepts are taken from address elements in the G-NAF, such as `numberFirstSuffix`. A further 4 concepts have also been added during the design of this model to cater for newly understood future ANZ addressing needs, such as `placeName` and `indigenousPlaceName`.
 
