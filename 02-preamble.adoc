@@ -18,21 +18,21 @@ This model is built on a small set of well-regarded Semantic Web models which us
 |Prefix | Namespace | Description
 
 | `*addr*` | `*https://linked.data.gov.au/def/addr/*` | This model
-| `act` | `https://linked.data.gov.au/def/addr/AddressComponentType/` | This model's `AddressComponentType` vocabulary namespace
-| `actiso` | `http://def.isotc211.org/iso19160/-1/2015/Address/code/AddressComponentType/` | <<ISO19160-1>>'s `AddressComponentType` vocabulary namespace
-| `als` | `https://linked.data.gov.au/def/addr/AddressLifecycleStageType/` | This model's `AddressLifecycleStageType` vocabulary namespace
-| `ast` | `https://linked.data.gov.au/def/addr/AddressStatusType/` | This model's `AddressStatusType` vocabulary namespace
+| `als` | `https://linked.data.gov.au/def/addr-lifeycle-stage-types/` | A Lifecycle Stage types vocabulary
+| `apt` | `https://linked.data.gov.au/def/addr-part-types/` | A vocabulary of types for parts of addresses
+| `aptiso` | `http://def.isotc211.org/iso19160/-1/2015/Address/code/AddressComponentType/` | <<ISO19160-1>>'s Address part types vocabulary
 | `asgsed3` | `https://linked.data.gov.au/dataset/asgsed3` | Australian Statistical Geographies Standard Dataset, Release 3, in Linked Data form
-| `ex` | `http://example.com/` | Generic examples namespace
-| `cn` | `https://linked.data.gov.au/def/cn/` | Compound Name Model, <<CNM>>
-| `geo` | `http://www.opengis.net/ont/geosparql#` | The OGC's GeoSPARQL standard's ontology's namespace, see <<GEO>>
+| `ex` | `http://example.com/` | Generic examples
+| `cn` | `https://linked.data.gov.au/def/cn/` | Compound Name Model <<CNM>>
+| `geo` | `http://www.opengis.net/ont/geosparql#` | The OGC's GeoSPARQL standard's ontology <<GEO>>
 | `lm` | `https://linked.data.gov.au/def/lifecycle/` | Lifecycle Model, <<LM>>
-| `owl` | `http://www.w3.org/2002/07/owl#` | Web Ontology Language ontology namespace
-| `rdfs` | `http://www.w3.org/2000/01/rdf-schema#` | RDF Schema ontology namespace
-| `roads` | `https://linked.data.gov.au/def/roads/*` | The Roads Model, <<ROADS>>
-| `sosa` | `http://www.w3.org/ns/sosa/` | Sensor, Observation, Sample, and Actuator ontology namespace
-| `skos` | `http://www.w3.org/2004/02/skos/core#` | Simple Knowledge Organization System (SKOS) ontology namespace
-| `xsd` | `http://www.w3.org/2001/XMLSchema#` | XML Schema Definitions ontology namespace, <<XSD>>
+| `owl` | `http://www.w3.org/2002/07/owl#` | Web Ontology Language ontology <<OWL>>
+| `rdf` | `http://www.w3.org/1999/02/22-rdf-syntax-ns#` | Resource Description Framework, RDF, code model <<RDF>>
+| `rdfs` | `http://www.w3.org/2000/01/rdf-schema#` | RDF Schema ontology <<RDFS>>
+| `roads` | `https://linked.data.gov.au/def/roads/*` | The Roads Model <<ROADS>>
+| `sosa` | `http://www.w3.org/ns/sosa/` | Sensor, Observation, Sample, and Actuator ontology <<SSN>>
+| `skos` | `http://www.w3.org/2004/02/skos/core#` | Simple Knowledge Organization System (SKOS) ontology <<SKOS>>
+| `xsd` | `http://www.w3.org/2001/XMLSchema#` | XML Schema Definitions ontology <<XSD>>
 |===
 
 === Conformance

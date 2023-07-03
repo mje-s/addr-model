@@ -30,7 +30,7 @@ include::05-supporting-vocabularies.adoc[]
 
 include::50-annex-a-requirments.adoc[]
 
-include::51-annex-b-validator.adoc[]
+include::51-annex-b-validation.adoc[]
 
 include::52-annex-c-templating.adoc[]
 

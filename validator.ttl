@@ -1,6 +1,6 @@
 PREFIX : <https://linked.data.gov.au/def/addr/validator/>
 PREFIX addr: <https://linked.data.gov.au/def/addr/>
-PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX cn: <https://linked.data.gov.au/def/cn/>
 PREFIX geo: <http://www.opengis.net/ont/geosparql#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX sdo: <https://schema.org/>
@@ -9,118 +9,68 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX time: <http://www.w3.org/2006/time#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-addr:validator
+
+<https://linked.data.gov.au/def/addr/validator>
     a owl:Ontology ;
-    dcterms:provenance "This model validator was made for the Queensland Department of Resources, Spatial Information unit to assist with future Address database design."@en ;
-    owl:versionIRI addr:0.0.1 ;
-    owl:versionInfo "0.0.1" ;
-    skos:definition "This validator is a Shapes Constraint Language (SHACL) resource that can be used to check the conformance of RDF data to the ANZ National Address Model (<https://linked.data.gov.au/def/addr>)."@en ;
-    skos:prefLabel "ANZ National Address Model Validator"@en ;
-    sdo:codeRespository "https://github.com/Spatial-Information-QLD/address-model/"^^xsd:anyURI ;
-    sdo:copyrightHolder <https://orcid.org/0000-0002-8742-7730> ;
-    sdo:copyrightNotice "(c) Nicholas J. Car, 2022" ;
+    skos:historyNote "This model validator was made for the Queensland Department of Resources, Spatial Information unit to assist with future Address database design."@en ;
+    owl:versionIRI addr:1.0.0 ;
+    owl:versionInfo "1.0.0" ;
+    skos:definition "This validator is a Shapes Constraint Language (SHACL) resource that can be used to check the conformance of RDF data to the Address Model (<https://linked.data.gov.au/def/addr>). It only check for 3 things which are described in individual shapes within this validator"@en ;
+    skos:prefLabel "Address Model Validator"@en ;
+    sdo:codeRepository "https://github.com/Spatial-Information-QLD/address-model/"^^xsd:anyURI ;
+    sdo:copyrightHolder <https://linked.data.gov.au/org/qsi> ;
+    sdo:copyrightNotice "(c) The State of Queensland (Department of Resources) 2020-2023" ;
     sdo:creator <https://orcid.org/0000-0002-8742-7730> ;
-    sdo:dateCreated "2022-05-10"^^xsd:date ;
-    sdo:dateIssued "2000-00-00"^^xsd:date ;
-    sdo:dateModified "2022-05-15"^^xsd:date ;
+    sdo:dateCreated "2021-12-16"^^xsd:date ;
+    sdo:dateIssued "2023-06-30"^^xsd:date ;
+    sdo:dateModified "2022-07-04"^^xsd:date ;
     sdo:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
-    sdo:publisher <https://orcid.org/0000-0002-8742-7730> ;
+    sdo:publisher <https://linked.data.gov.au/org/qsi> ;
+.
+
+<https://linked.data.gov.au/org/qsi>
+    a sdo:Organization ;
+    sdo:name "Spatial Information Queensland"@en ;
+    sdo:url "https://qldspatial.information.qld.gov.au"^^xsd:anyURI ;
 .
 
 <https://orcid.org/0000-0002-8742-7730>
     a sdo:Person ;
-    sdo:email "nick@kurrawong.net"^^xsd:anyURI ;
+    sdo:email "nick@kurrawong.ai"^^xsd:anyURI ;
     sdo:name "Nicholas J. Car"@en ;
+    sdo:memberOf <https://kurrawong.ai> ;
 .
 
-:soft-type
-    a sh:PropertyShape ;
-    skos:prefLabel "type" ;
-    sh:maxCount 1 ;
-    sh:message "The object MUST indicate exactly one type that is an IRI with the property dcterms:type" ;
-    sh:minCount 1 ;
-    sh:nodeKind sh:IRI ;
-    sh:path dcterms:type ;
-.
-
-:address-mandatory-properties
+:addressable-object-present
     a sh:NodeShape ;
     sh:targetClass addr:Address ;
-    skos:prefLabel "Address Mandatory Properties" ;
-    sh:property 
-        [
-            skos:prefLabel "is address for" ;
-            sh:maxCount 1 ;
-            sh:message "An addr:Address MUST indicate exactly one addr:AddressableObject that is an IRI with the property addr:isAddressFor." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:path addr:isAddressFor
-        ] ,
-        [
-            skos:prefLabel "has address component" ;
-            sh:message "An addr:Address must indicate at least one addr:AddressComponent that is an IRI or a Blank Node with the property addr:hasAddressComponent." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:path addr:hasAddressComponent
-        ] ,
-        [
-            skos:prefLabel "has geocode" ;
-            sh:message "An addr:Address must indicate at least one addr:Geocode that is an IRI or Blank Node with the property addr:hasGeocode." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:path addr:hasGeocode
-        ] ;
+    sh:property [
+        sh:path cn:isNameFor ;
+        sh:nodeKind sh:IRI ;
+        sh:maxCount 1;
+        sh:minCount 1;
+    ] ;
+    sh:message "Each Address must indicate an IRI with the property cn:isNameFor" ;
 .
 
-:address-component-properties
+:geocode-present
     a sh:NodeShape ;
-    sh:targetObjectsOf addr:hasAddressComponent ;
-    skos:prefLabel "Address Component Mandatory Properties" ;
-    sh:property
-        :soft-type ,
-        [
-            skos:prefLabel "has value" ;
-            sh:maxCount 1 ;
-            sh:message "An addr:AddressComponent MUST indicate exactly one value that is a resource with the property addr:hasValue" ;
-            sh:minCount 1 ;
-            sh:path addr:hasValue ;
-        ] ,
-        [
-            skos:prefLabel "has text value" ;
-            sh:maxCount 1 ;
-            sh:message "An addr:AddressComponent MUST indicate exactly one text value that is an xsd:string with the property addr:hasValueText" ;
-            sh:minCount 1 ;
-            sh:datatype xsd:string ;
-            sh:path addr:hasValueText ;
-        ] ;
+    sh:targetClass addr:Address ;
+    sh:property [
+        sh:path addr:hasGeocode ;
+        sh:class addr:Geocode ;
+        sh:minCount 1;
+    ] ;
+    sh:message "Each Address must indicate at least one Geocode with the property addr:hasGeocode" ;
 .
 
-:address-geocode-properties
+:address-parts-1
     a sh:NodeShape ;
-    sh:targetObjectsOf addr:hasGeocode ;
-    skos:prefLabel "Address Geocode Mandatory Properties" ;
-    sh:property
-        :soft-type ,
-        [
-            skos:prefLabel "has geometry representation" ;
-            sh:maxCount 1 ;
-            sh:message "An addr:Geocode MUST indicate exactly one geometry representation the property geo:asWKT or geo:asGeoJSON or geo:asGML" ;
-            sh:minCount 1 ;
-            sh:path [ sh:alternativePath ( geo:asWKT geo:asGeoJSON geo:asGML ) ] ;
-        ] ;
-.
-
-:address-lifecycle-stage-properties
-    a sh:NodeShape ;
-    sh:targetObjectsOf addr:hasLifecycleStage ;
-    skos:prefLabel "Address Lifecycle Stage Mandatory Properties" ;
-    sh:property
-        :soft-type ,
-        [
-            skos:prefLabel "has time" ;
-            sh:maxCount 1 ;
-            sh:message "An addr:AddressLifecycleStage MUST indicate exactly one temporal resources with the property time:hasTime" ;
-            sh:minCount 1 ;
-            sh:path time:hasTime ;
-        ] ;
+    sh:targetClass addr:Address ;
+    sh:property [
+        sh:path sdo:hasPart ;
+        sh:class cn:CompoundName ;
+        sh:minCount 1;
+    ] ;
+    sh:message "Each Address must have at least one part which must be Compound Names, indicated with sdo:hasPart" ;
 .
