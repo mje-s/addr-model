@@ -354,5 +354,4 @@ This document is this model's "Specification" which is its authoritative, human-
 | <<AnnexD>>
 &
 https://github.com/Spatial-Information-QLD/address-model/tree/main/extended-examples[Extended example data files] | _Example_ | Examples of data conforming, and some not conforming, to this model
-| <<AnnexE>> | _Example_ | Demonstration implementations of this model in various database forms
 |===

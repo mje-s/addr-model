@@ -36,6 +36,4 @@ include::52-annex-c-templating.adoc[]
 
 include::53-annex-d-extended-examples.adoc[]
 
-include::54-annex-e-demo-implementations.adoc[]
-
 include::99-bibliography.adoc[]
