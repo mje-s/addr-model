@@ -26,16 +26,10 @@ jobs:
         asciidoctor README.adoc -o docs/index.html
         echo "Add model to docs/"
         asciidoctor 00-master.adoc -o docs/model.html
-        echo "Add model RDF to docs/"
-        cp model.ttl docs/             
+        echo "Add RDF files to docs/"
+        cp *.ttl docs/             
         echo "Add images to docs/"
         cp -r img docs/
-        echo "Add vocabularies to docs/"
-        asciidoctor vocabularies/AnzAddressComponentTypes.adoc -o docs/AnzAddressComponentTypes.html
-        asciidoctor vocabularies/AnzAddressLifecycleStageTypes.adoc -o docs/AnzAddressLifecycleStageTypes.html
-        asciidoctor vocabularies/AnzAddressRoleTypes.adoc -o docs/AnzAddressRoleTypes.html
-        asciidoctor vocabularies/AnzAddressStatusTypes.adoc -o docs/AnzAddressStatusTypes.html
-        cp vocabularies/*.ttl docs/
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
