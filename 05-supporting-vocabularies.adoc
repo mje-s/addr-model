@@ -30,32 +30,32 @@ The Persistent web identifier for this vocabulary is:
 
 | `aptiso:addressedObjectIdentifier` | addressed object identifier | Identifier of the addressed object, e.g. building name or address number | Do not use: handled by `Address`/`AddressableObject` relation
 | `aptiso:administrativeAreaName` | administrative area name | Name of an administrative area | Do not use: use `apt:stateOrTerritory` or similar to refer to administrative area objects
-| `aptiso:countryCode` | country code | ISO 3166-1 code for the country, territory, or area of geopolitical interest | Do not use, use `apt:country` to refer to a country object
-| `aptiso:countryName` | country name | Name of a country | As above
-| `aptiso:localityName` | locality name | Name of a locality | No not use: use `apt:locality` to refer to a locality object
+| `aptiso:countryCode` | country code | ISO 3166-1 code for the country, territory, or area of geopolitical interest | An object reference, not a literal value or a short code
+| `aptiso:countryName` | country name | Name of a country | Use
+| `aptiso:localityName` | locality name | Name of a locality | Do not use: use `apt:locality` to refer to a locality object
 | `aptiso:postOfficeName` | post office name | Name of a post office | Do not use
-| `aptiso:postcode` | postcode | Code used for the sorting of mail | Do not use, use `apt:postcode` exact equivalent
+| `aptiso:postcode` | postcode | Code used for the sorting of mail | Use, only for delivery area postcodes
 | `aptiso:thoroughfareName` | thoroughfare name | Name of a thoroughfare | Do not use, use `apt:road` to refer to a road object
 4+|
 | `apt:buildingName` | building name |  | From the GNAF
-| `apt:lotNumberPrefix` | lot number prefix |  | From the GNAF
-| `apt:lotNumber` | lot number |  | From the GNAF
-| `apt:lotNumberSuffix` | lot number suffix |  | From the GNAF
-| `apt:flatTypeCode` | flat type code |  | From the GNAF
-| `apt:flatNumberPrefix` | flat number prefix |  | From the GNAF
-| `apt:flatNumber` | flat number |  | From the GNAF
-| `apt:flatNumberSuffix` | flat number suffix |  | From the GNAF
-| `apt:levelTypeCode` | level type code |  | From the GNAF
-| `apt:levelNumberPrefix` | level number prefix |  | From the GNAF
-| `apt:levelNumber` | level number |  | From the GNAF
-| `apt:levelNumberSuffix` | level number suffix |  | From the GNAF
-| `apt:numberFirstPrefix` | number first prefix |  | From the GNAF
-| `apt:numberFirst` | number first |  | From the GNAF
-| `apt:numberFirstSuffix` | number first suffix |  | From the GNAF
-| `apt:numberLastPrefix` | number last prefix |  | From the GNAF
-| `apt:numberLast` | number last |  | From the GNAF
-| `apt:numberLastSuffix` | numbre last suffix |  | From the GNAF
-| `apt:streetLocality` | street locality | | From the GNAF. Do not use, use `apt:road`
+| `apt:lotNumberPrefix` | lot number prefix |  | Do not use
+| `apt:lotNumber` | lot number |  | Do not use
+| `apt:lotNumberSuffix` | lot number suffix |  | Do not use
+| `apt:subaddressType` | sub-address type |  | Use instead of apt:flatTypeCode
+| `apt:flatNumberPrefix` | flat number prefix |  | Do not use
+| `apt:subaddressNumber` | sub-address number |  | Use instead of apt:flatNumber
+| `apt:subaddressNumberSuffix` | sub-address number suffix |  | Use instead of apt:flatNumberSuffix
+| `apt:buildingLevelType` | building level type |  | Use instead of apt:levelTypeCode
+| `apt:levelNumberPrefix` | level number prefix |  | Do not use
+| `apt:buildingLevelNumber` | building level number |  | Use instead of apt:levelNumber
+| `apt:buildingLevelNumberSuffix` | building level number suffix |  | use instead of apt:levelNumberSuffix
+| `apt:numberFirstPrefix` | number first prefix |  | Do not use
+| `apt:streetNumberFirst` | street number first |  | Use instead of apt:numberFirst
+| `apt:streetNumberFirstSuffix` | street number first suffix |  | Use instead of apt:numberFirstSuffix
+| `apt:numberLastPrefix` | number last prefix |  | Do not use
+| `apt:streetNumberLast` | street number last |  | Use instead of apt:numberLast
+| `apt:streetNumberLastSuffix` | street number last suffix |  | apt:numberLastSuffix
+| `apt:street` | street | | Use instead of apt:streetLocality and apt:road
 | `apt:locality` | locality |  | From the GNAF
 4+|
 | `apt:road` | road | A reference to a state or territory object | This replaces street, streetLocality, streetType
@@ -65,8 +65,8 @@ The Persistent web identifier for this vocabulary is:
 | `apt:stateOrTerritory` | stateOrTerritory | A reference to a state or territory object |
 | `apt:propertyName` | propertyName | A name for a property |
 | `apt:geographicalNameObject` | geographicalName | A reference to a geographical name object | An object reference, not a literal value
-| `apt:indigenousPlaceName` | indigenousPlaceName |  Could use the above, if the implementing geographical names data includes indigenous place names
-| `apt:country` | country | A reference to a country object | An object reference, not a literal value or a short code
+| `apt:indigenousPlaceName` | indigenous country name |  Could use the above, if the implementing geographical names data includes indigenous country names. Use instead of apt:indigenousPlaceName
+| `apt:country` | country | A reference to a country object | Do not use
 |===
 
 ==== Address Lifecycle Stage Types
@@ -126,8 +126,8 @@ The Persistent web identifier for this vocabulary is:
 
 At the time of publication, June 2023, there were several vocabularies proposed for publication by this model's authors by the Intergovernmental Committee on Surveying & Mapping (ICSM) that were derived from Australian & New Zealand and international addressing standards. Those vocabularies were:
 
-* Flat Types
-* Level Types
+* Sub-Address Types
+* Building Level Types
 * Street Suffix Types
 * Street Types
 
