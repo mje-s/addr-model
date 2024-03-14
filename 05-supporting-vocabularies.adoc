@@ -18,55 +18,56 @@ NOTE: Hyperlinks to these vocabularies will be provided as soon as persistent id
 
 ==== Address Part Types
 
-This vocabulary is an extended version of <<ISO19160-1>>'s _Address Component Type_ vocabulary. The original 8 concepts from the standard are included below however they are not recommended for use and only shown for comparison.
+This vocabulary is an extended version of <<ISO19160-1>>'s _Address Component Type_ vocabulary.
 
 The Persistent web identifier for this vocabulary is:
 
 * *https://linked.data.gov.au/def/addr-part-types*
 
+The original 8 concepts from ISO19160-1 are:
 
 |===
-| IRI | Preferred Label | Definition | Usage Note
+| IRI | Preferred Label | Definition | Deprecation note
 
-| `aptiso:addressedObjectIdentifier` | addressed object identifier | Identifier of the addressed object, e.g. building name or address number | Do not use: handled by `Address`/`AddressableObject` relation
-| `aptiso:administrativeAreaName` | administrative area name | Name of an administrative area | Do not use: use `apt:stateOrTerritory` or similar to refer to administrative area objects
-| `aptiso:countryCode` | country code | ISO 3166-1 code for the country, territory, or area of geopolitical interest | An object reference, not a literal value or a short code
-| `aptiso:countryName` | country name | Name of a country | Use
-| `aptiso:localityName` | locality name | Name of a locality | Do not use: use `apt:locality` to refer to a locality object
-| `aptiso:postOfficeName` | post office name | Name of a post office | Do not use
-| `aptiso:postcode` | postcode | Code used for the sorting of mail | Use, only for delivery area postcodes
-| `aptiso:thoroughfareName` | thoroughfare name | Name of a thoroughfare | Do not use, use `apt:road` to refer to a road object
-4+|
-| `apt:buildingName` | building name |  | From the GNAF
-| `apt:lotNumberPrefix` | lot number prefix |  | Do not use
-| `apt:lotNumber` | lot number |  | Do not use
-| `apt:lotNumberSuffix` | lot number suffix |  | Do not use
-| `apt:subaddressType` | sub-address type |  | Use instead of apt:flatTypeCode
-| `apt:flatNumberPrefix` | flat number prefix |  | Do not use
-| `apt:subaddressNumber` | sub-address number |  | Use instead of apt:flatNumber
-| `apt:subaddressNumberSuffix` | sub-address number suffix |  | Use instead of apt:flatNumberSuffix
-| `apt:buildingLevelType` | building level type |  | Use instead of apt:levelTypeCode
-| `apt:levelNumberPrefix` | level number prefix |  | Do not use
-| `apt:buildingLevelNumber` | building level number |  | Use instead of apt:levelNumber
-| `apt:buildingLevelNumberSuffix` | building level number suffix |  | use instead of apt:levelNumberSuffix
-| `apt:numberFirstPrefix` | number first prefix |  | Do not use
-| `apt:streetNumberFirst` | street number first |  | Use instead of apt:numberFirst
-| `apt:streetNumberFirstSuffix` | street number first suffix |  | Use instead of apt:numberFirstSuffix
-| `apt:numberLastPrefix` | number last prefix |  | Do not use
-| `apt:streetNumberLast` | street number last |  | Use instead of apt:numberLast
-| `apt:streetNumberLastSuffix` | street number last suffix |  | apt:numberLastSuffix
-| `apt:street` | street | | Use instead of apt:streetLocality and apt:road
-| `apt:locality` | locality |  | From the GNAF
-4+|
-| `apt:road` | road | A reference to a state or territory object | This replaces street, streetLocality, streetType
+| `aptiso:addressedObjectIdentifier` | addressed object identifier | Identifier of the addressed object, e.g. building name or address number | Handled by `Address`/`AddressableObject` relation
+| `aptiso:administrativeAreaName` | administrative area name | Name of an administrative area | Use `apt:stateOrTerritory`
+| `aptiso:countryCode` | country code | ISO 3166-1 code for the country, territory, or area of geopolitical interest | Use `apt:country` to refer to a Country object
+| `aptiso:countryName` | country name | Name of a country | Handled by use of `apt:country`
+| `aptiso:localityName` | locality name | Name of a locality | Use `apt:locality` to refer to a Locality object
+| `aptiso:postOfficeName` | post office name | Name of a post office | Not in current Australian address use
+| `aptiso:postcode` | postcode | Code used for the sorting of mail | Use `apt:postcode`
+| `aptiso:thoroughfareName` | thoroughfare name | Name of a thoroughfare | Use `apt:road` to refer to a road object
+|===
+
+Only the use of `aptiso:postcode` from this list is essentially unchanged as many literal value, such as `countryName`, have been replaced with references to data objects.
+
+This vocab currently (March, 2024) contains the following terms:
+
+|===
+| IRI | Preferred Label | Definition | Scope Note
+
+| `apt:geographicalNameObject` | geographical name object | A reference to a geographical name object |
+| `apt:propertyName` | propertyName | A name for a property |
+| `apt:buildingName` | building name | Name of a building |
+| `apt:subaddressType` | sub-address type |  | Replaces GNAF's flatTypeCode
+| `apt:subaddressNumber` | sub-address number |  | Replaces GNAF's flatNumber
+| `apt:subaddressNumberSuffix` | sub-address number suffix |  | Replaces GNAF's flatNumberSuffix
+| `apt:buildingLevelType` | building level type |  | Replaces GNAF's levelTypeCode
+| `apt:buildingLevelNumber` | building level number |  | Replaces GNAF's levelNumber
+| `apt:buildingLevelNumberSuffix` | building level number suffix |  | Replaces GNAF's levelNumberSuffix
+| `apt:streetNumberFirst` | street number first |  | Replaces GNAF's numberFirst
+| `apt:streetNumberFirstSuffix` | street number first suffix |  | Replaces GNAF's numberFirstSuffix
+| `apt:streetNumberLast` | street number last |  | Replaces GNAF's numberLast
+| `apt:streetNumberLastSuffix` | street number last suffix |  | Replaces GNAF's numberLastSuffix
+| `apt:street` | street | A reference to a Road object | This replaces streetLocality, streetType in GNAF
 | `apt:waterFeatureNumber` | water feature number | A number given, based on a water feature numbering system |
 | `apt:waterFeatureName` | water feature name | A name given to the water feature |
 | `apt:waterFeatureType` | water feature type | A type for the water feature | From a vocabulary: this part is not expected to be printed
+| `apt:locality` | locality | A reference to a Locality object |
 | `apt:stateOrTerritory` | stateOrTerritory | A reference to a state or territory object |
-| `apt:propertyName` | propertyName | A name for a property |
-| `apt:geographicalNameObject` | geographicalName | A reference to a geographical name object | An object reference, not a literal value
-| `apt:indigenousPlaceName` | indigenous country name |  Could use the above, if the implementing geographical names data includes indigenous country names. Use instead of apt:indigenousPlaceName
-| `apt:country` | country | A reference to a country object | Do not use
+| `apt:indigenousCountryName` | indigenous country name | The name of an Indigenous country | Could use the above, if the implementing geographical names data includes indigenous country names
+|`apt:postcode` | postcode | Code used for the sorting of mail |
+| `apt:country` | country | A reference to a country object |
 |===
 
 ==== Address Lifecycle Stage Types
@@ -79,16 +80,16 @@ The Persistent web identifier for this vocabulary is:
 
 [cols="1,1,2,1"]
 |===
-| IRI | Preferred Label | Definition | Usage Note
+| IRI | Preferred Label | Definition | Parent
 
 | `als:official` | official | The address is recognised by the authoritative jurisdiction |
-| `als:current` | current | The address is recognised by the authoritative jurisdiction and is in use | child of `als:official`
-| `als:reserved` | reserved | The address is recognised by the authoritative jurisdiction but is not yet in use | child of `als:official`
-| `als:retired` | retired | The address was recognised by the authoritative jurisdiction but is not no lonter in use | child of `als:official`
-| `als:unofficial | unofficial | The address is not recognised by the authoritative jurisdiction |
-| `als:proposed` | proposed | The address has been suggested for use but not yet accepted | child of `als:unofficial`
-| `als:rejected` | rejected | The address has been ruled not for use | child of `als:unofficial`
-| `als:unknown` | unknown | The stage of this Address' life is unknown therefore it is assumes as a form of unofficial | child of `als:unofficial`
+| `als:current` | current | The address is recognised by the authoritative jurisdiction and is in use | `als:official`
+| `als:reserved` | reserved | The address is recognised by the authoritative jurisdiction but is not yet in use | `als:official`
+| `als:retired` | retired | The address was recognised by the authoritative jurisdiction but is not no lonter in use | `als:official`
+| `als:unofficial` | unofficial | The address is not recognised by the authoritative jurisdiction |
+| `als:proposed` | proposed | The address has been suggested for use but not yet accepted | `als:unofficial`
+| `als:rejected` | rejected | The address has been ruled not for use | `als:unofficial`
+| `als:unknown` | unknown | The stage of this Address' life is unknown therefore it is assumes as a form of unofficial | `als:unofficial`
 |===
 
 ==== Geocode Type
@@ -124,13 +125,8 @@ The Persistent web identifier for this vocabulary is:
 
 === Links to other vocabularies
 
-At the time of publication, June 2023, there were several vocabularies proposed for publication by this model's authors by the Intergovernmental Committee on Surveying & Mapping (ICSM) that were derived from Australian & New Zealand and international addressing standards. Those vocabularies were:
+Multiple vocabularies derived from existing standards' codelists and databases' lookup table have been created for use with this model and proposed for adoption in vocabulary form to the Intergovernmental Committee on Surveying & Mapping (ICSM). Thos vocabularies, such as _Address Status Type_, _Level Types_ etc. can be seen online at:
 
-* Sub-Address Types
-* Building Level Types
-* Street Suffix Types
-* Street Types
+* https://gsq-prez.dev.kurrawong.ai/v#qsi-vocabs[QSI's development vocab server]
 
-Geocode Types is listed in the previous section.
-
-No publication of those vocabularies has yet been assured.
+See all the vocabularies with Theme: Geocoded Addressing
