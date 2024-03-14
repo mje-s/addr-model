@@ -1,0 +1,28 @@
+[[AnnexB]]
+== Annex B: Validation
+
+This model is a conceptual model for addressing (see <<Address part templating>> for model type details) and implementers of it are expected to create validators for use with it that test data according to their business rules. Implementers may, for example, test to see whether their data uses particular values for particular vocabularies or that geocodes are within a certain distance of the boundary of the Addressable Object.
+
+The validation system proposed for use with this model is the _Shapes Constraint Language (SHACL)_ <<SHACL>> which implements validators for <<RDF>> data.
+
+=== B.1 Example Validators
+
+Two example validators are provided with this model:
+
+. https://github.com/Spatial-Information-QLD/address-model/validator.ttl[validator.ttl] - a canonical validator for this model
+.. Test that every Address indicates: an Addressable Object with `cn:isNameFor`; a Geocode with `addr:hasGeocode`; at least one part, that is a Compound Name, with `sdo:hasPart`
+. https://github.com/Spatial-Information-QLD/address-model/blob/main/validator-qld.ttl[validator-qld.ttl] a validator for a jurisdiction - Queensland
+.. Test that every Address indicates at least 3 parts
+
+=== B.2 Performing validation
+
+The validators given above may be applied to RDF data implementations of this model using any one of a number of tools such as any in this list:
+
+* https://pypi.org/project/pyshacl/[pySHACL]
+** free and open source Python SHACL validator
+* https://shacl.org/playground/[SHACL Playground]
+** online Javascript-based validator
+* http://rdftools.kurrawong.net/validate[RDFTools Validator]
+** online pySHACL-based validator
+** preloaded with these validators
+

@@ -1,0 +1,8 @@
+[[AnnexD]]
+== Annex D: Extended Examples
+
+This model contains some small examples in the definitions tables of individual classes and properties, for example <<Address>>.
+
+Additionally, a series of extended examples are provided for Queensland government's testing within the following repository which lists and describes them:
+
+* https://github.com/Spatial-Information-QLD/feature-names-tests

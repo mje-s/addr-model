@@ -5,11 +5,13 @@
 [NOTE]
 This Model is under test by Queensland Government and is a candidate model for Australian & New Zealand address information. It is currently an unofficial model that is not yet published as a standard.
 
-A Semantic Web data model of address information. It caters specifically for Australian & New Zealand's address modelling needs. It was made in 2022 for Queensland Spatial Information, a unit of the Queensland Department of Resources, to assist with their future address database design. It is informed by the ICSM's Addressing 2035: Addressing Reform and Innovation for Australia and New Zealand, published in late 2021 and is based primarily on the ISO19160-1 _Addressing Part 1: Conceptual model_ <<ISO19160-1>> with additional elements from a small set of well-regarded Semantic Web models such as GeoSPARQL <<GEO>> and SKOS <<SKOS>>. It is also informed by the relational database model used for the https://data.gov.au/data/dataset/d4631917-14d7-4c49-830c-555ad63adf9d[G-NAF, Australia's Geocoded National Address File], and CSIRO work in 2018 to characterise the GNAF in Semantic Web form, the ontology for which is online at https://linked.data.gov.au/def/gnaf.
+A Semantic Web data model of address information that caters specifically for Australian & New Zealand's address modelling needs.
+
+This model was originally developed between 2021 and 2023 for Queensland Spatial Information, a unit of the Queensland Department of Resources, to assist with their future address database design. It is informed by the ICSM's Addressing 2035: Addressing Reform and Innovation for Australia and New Zealand, published in late 2021, which listed 'pain points' with current ANZ address models and considered future address modelling needs. This model tries to address the 10 main Requirements established by the Strategy. This model is also informed by both the relational database model used for the G-NAF, Australia's Geocoded National Address File, and CSIRO work in 2018 to characterise the GNAF in Semantic Web form, the ontology for which is online at https://linked.data.gov.au/def/gnaf, as well as the ISO's ISO19160-1 Addressing Part 1: Conceptual model. In 2023, several parts of this model covering general modelling issues, such as lifecycle representation, were extracted out into a series of mini-models to allow other models to reuse them without importing this model. As a result, the 2023 version fo this model appears to be greatly reduced in complexity and coverage but coverage is unchanged with those mini-models are also used.
 
 === Namespaces
 
-This model is built on a small set of well-regarded Semantic Web models which use a variatey of namespaces. Prefixes for this namespaces, used throughout this document, are listed below.
+This model is built on a small set of well-regarded Semantic Web models which use a variety of namespaces. Additionally, this model is expected to be used with a series of mini-models which were created alongside it and they also used namespaces. Prefixes for these namespaces, used throughout this document, are listed below.
 
 [width=100%, frame=none, grid=none, cols="1,4,5"]
 |===
@@ -36,7 +38,7 @@ This model is built on a small set of well-regarded Semantic Web models which us
 
 === Conformance
 
-This model conforms to the https://w3id.org/profile/ontpub[OntPub Profile] which is a specification for ontology publication that mandates certain structural and metadata properties for the model as a whole and model elements. Metadata elements for the model as a whole - the ontology - are given in the <<Metadata>> section above.
+This model's specification conforms to the https://w3id.org/profile/ontpub[OntPub Profile] which is a standard for ontology publication that mandates certain structural and metadata properties for the model as a whole and model elements.
 
 ==== Figures
 
@@ -44,7 +46,8 @@ Figures used in this document use the following key:
 
 [[fig-figure-key]]
 .Key of elements used in this Model's figures
-image::img/key.png[]
+image::img/Key.svg[]
 
 ==== Example Data
-Example Data used in this document, for instance in model element "Example" values, are https://www.w3.org/RDF/[RDF] data in the https://www.w3.org/TR/turtle/[Turtle] syntax.
+
+Example data used in this document, for instance in model element "Example" values, are <<RDF>> data presented in the <<TTL>> syntax.

@@ -1,25 +1,26 @@
 == Model
 
-This model is composed of Web Ontology Language (OWL) <<OWL>> Classes and Properties. While some of the properties are restricted in their use to various classes, the Classes and Properties are actually defined individually and both are "first class model citizens", with golbal identity, that can be used in isolation as well as together. This is in contrast to Unified Modelling Language (UML) _Class Diagrams_ which treat Properties as sub-parts of particular classes.
+
+This model is composed of Web Ontology Language (OWL) <<OWL>> Classes and Properties. While some of the properties are restricted in their use to various classes, the Classes and Properties are actually defined individually and both are "first class model citizens", with global identity, that can be used in isolation as well as together. This is in contrast to Unified Modelling Language (UML) _Class Diagrams_ which treat most Properties as element of particular Classes.
 
 This model defines only three Classes and no Properties but reuses many Classes and Properties from other models. Where it does, basic details of, a reference to that Class or Properties' definition via `rdfs:isDefinedBy`, and a scope note about using it in this model are given.
 
 [[fig-overview]]
-.An informal Model Overview diagram showing the major elements of this model
-image::img/overview.png[]
+.Overview of this model showing major elements
+image::img/Overview.svg[]
+
+[[fig-upper-classes]]
+.Mapping of the main model classes to common Semantic Web classes
+image::img/upper-classes.png[]
 
 [[Classes]]
 === Classes
 
-* <<CompoundName>>
+==== Classes defined by this model
+
 ** <<Address>>
-* <<Feature>>
 ** <<Addressable Object>>
 ** <<Geocode>>
-* <<Geometry>>
-* <<LifecycleStage>>
-* <<Concept>>
-* <<Resource>>
 
 [[Address]]
 ==== Address
@@ -32,9 +33,9 @@ image::img/overview.png[]
 | Preferred Label | Address
 | Definition | The Address class represents structured information that allows unambiguous identified of an object for the purposes of identification and location
 | Is Defined By | This model
-| Sub-class Of | https://linked.data.gov.au/def/cn/CompoundName[`cn:CompoundName`]
+| Subclass Of | <<CompoundName>>
 | Provenance | Derived from <<ISO19160-1>>'s `Address` class
-| Expected Properties | <<isNameFor>>, <<hasPart>>, <<hasGeocode>>, <<hasLifecycleStage>>, 
+| Expected Properties | <<isNameFor>>, <<hasPart>>, <<hasGeocode>>, <<hasLifecycleStage>>,
 | Example 
 a| [source,turtle]
 ----
@@ -56,7 +57,7 @@ PREFIX sdo: <https://schema.org/>
         rdf:value 20
     ] ,
     [
-        sdo:additionalType apt:streetLocality ;
+        sdo:additionalType apt:road ;
         rdf:value <https://linked.data.gov.au/dataset/qldaddr/streetLocality/QLD140492> ; # "Oxford Place"
     ] ,
     [
@@ -98,29 +99,75 @@ PREFIX sdo: <https://schema.org/>
 
 Examples of types of AddressableObjects are a building, a dwelling or a land parcel
 | Is Defined By | This model
-| Sub-class Of | https://opengeospatial.github.io/ogc-geosparql/geosparql11/spec.html#_class_geofeature[`geo:Feature`]
+| Subclass Of | <<Feature>>
 | Provenance | Derived from <<ISO19160-1>>'s `AddressableObject` class and its associated codelist of subtypes
 | Scope note | Judgement as to what makes for a permissible AddressableObject rests with the implementer. This model's technical requirements are only that the object is a legal `geo:Feature` object, thus implementers may make Addressable Objects of almost anything.
-| Expected Properties | <<hasAddress>>, http://www.opengis.net/ont/geosparql#[`geo:hasGeometry`]
-| Example 
+| Expected Properties | <<hasGeometry>>
+| Example
 a| [source,turtle]
 ----
-# ex:parcel-x is inferred to be an Addressable object
-# due to the property addr:hasAddress indicated for it
-ex:parcel-x addr:hasAddress ex:addr-1 .
+PREFIX addr: <https://linked.data.gov.au/def/addr/>
+PREFIX cn: <https://linked.data.gov.au/def/cn/>
+PREFIX ex: <http://example.com/>
+PREFIX sdo: <https://schema.org/>
 
-# this object is declared to be an Addressable Object
-<http://example.com/building/y>
-  a addr:AddressableObject ;
-  rdfs:label "Building Y" ;
+ex:oxford
+    a addr:Address ;
+    cn:isNameFor ex:cadastral-parcel-x ;
 .
 
-# ex:admin-area-z is inferred to be an Addressable Object
-# due to the property addr:isAddressFor indicating it
-ex:addre-2 addr:isAddressFor ex:admin-area-z .
+ex:cadastral-parcel-x
+    a ex:Parcel ;
+.
+
+# inferred
+ex:cadastral-parcel-x
+    sdo:name ex:oxford ;
+.
 ----
 |===
 
+[[Geocode]]
+==== Geocode
+
+[cols="2,6"]
+|===
+| Property | Value
+
+| IRI | `addr:Geocode`
+| Preferred Label | Geocode
+| Definition | A point Feature used to position other Features and to which additional typing or roles may be assigned
+| Is Defined By | This model
+| Subclass Of | <<Feature>>
+| Provenance | Derived from the G-NAF's expression of Address position
+| Scope note | Indicating a Geocode for an Address with the property hasGeocode is a direct method of locating the Address. Addresses either may also be located by reference to an Addressable Object which may a Geometry. This model does not indicate any Geocode / Addressable Object geometry relations although they may exist
+| Expected Properties | <<additionalType>> - use to indicate a Geocode Type, as per the <<Geocode Type>>
+
+`geo:hasGeometry` - to indicate the position of the Geocode. A GeoSPARQL `Geometry`.
+| Example
+a| [source,turtle]
+----
+# An Address with a Geocode and a role
+ex:addr-1
+  a addr:Address ;
+    addr:hasGeocode [
+      a addr:Geocode ;
+      dcterms:type geocodeType:DF ;  # Driveway Frontage
+      geo:hasGeometry "POINT (152.01 -35.03)"^^geo:wktLiteral ;
+    ] ;
+    addre:hasRole addr:buildingAccessPoint ;
+    ...
+----
+|===
+
+==== Existing classes reused by this model
+
+* <<CompoundName>>
+* <<LifecycleStage>>
+* <<Feature>>
+* <<Geometry>>
+* <<Concept>>
+* <<Resource>>
 
 [[CompoundName]]
 ==== Compound Name
@@ -146,7 +193,7 @@ ex:addre-2 addr:isAddressFor ex:admin-area-z .
 | IRI | `lm:LifecycleStage`
 | Preferred Label | Compound Name
 | Definition | A Compound Name is a literal value, or objects that can be interpreted as literal values, that describe or name a Feature
-| Is Defined By | https://linked.data.gov.au/def/lifecycle[Lifecycle Model]
+| Is Defined By | <<LM>>
 | Scope Note | Used to indicate the lifecycle stage of any Roads Model part. Different stage types may be necessary for different class instances such as Road Name and Road Object and may be sourced from different vocabularies
 |===
 
@@ -206,226 +253,16 @@ ex:addre-2 addr:isAddressFor ex:admin-area-z .
 | Scope Note | Used to indicate any kind of RDF value - a literal, IRI or Blank Node
 |===
 
-[[Geocode]]
-==== Geocode
-
-[cols="2,6"]
-|===
-| Property | Value
-
-| IRI | `addr:Geocode`
-| Preferred Label | Geocode
-| Definition | A Feature used to position other Features and to carry typing or provenance of that position
-| Is Defined By | This model
-| Sub-class Of | http://www.opengis.net/ont/geosparql#[`geo:Feature`]
-| Provenance | Derived from the G-NAF's expression of Address position
-| Scope note | Indicating a Geocode for an Address with the property hasGeocode is a direct method of locating the Address. Addresses either may or must also be located by ference to an Addressable Object which has a Geometry, depending on business rules.
-| Expected Properties | `dcterms:type` - to indicate a type, as per the https://linked.data.gov.au/dataset/gnaf/code/geocodeType[Geocode Type] vocabulary 
-
-`geo:hasGeometry` - to indicate the position of the Geocode. A GeoSPARQL `Geometry`.
-| Example 
-a| [source,turtle]
-----
-# An Address with a Geocode and a role
-ex:addr-1
-  a addr:Address ;
-    addr:hasGeocode [
-      a addr:Geocode ;
-      dcterms:type geocodeType:DF ;  # Driveway Frontage
-      geo:hasGeometry "POINT (152.01 -35.03)"^^geo:wktLiteral ; 
-    ] ;
-    addre:hasRole addr:buildingAccessPoint ;
-    ...
-----
-|===
-
-[[GeocodeType]]
-==== Geocode Type
-
-[cols="2,6"]
-|===
-| Property | Value
-
-| IRI | `addr:GeocodeType`
-| Preferred Label | Geocode Type
-| Definition | The type of Geocode, typically determined by creation method
-| Is Defined By | This model
-| Sub-class Of | http://www.w3.org/2004/02/skos/core#Concept[`skos:Concept`]
-| Provenance | Derived from the G-NAF's Geocode Type codelist
-| Expected Properties | Standard properties for a SKOS Concept
-| Example 
-a| [source,turtle]
-----
-# An Address with a Geocode with its type given (geocodeType:DF)
-ex:addr-1
-  a addr:Address ;
-    addr:hasGeocode [
-      a addr:Geocode ;
-      dcterms:type geocodeType:DF ;  # Driveway Frontage
-      geo:hasGeometry "POINT (152.01 -35.03)"^^geo:wktLiteral ; 
-    ] ;
-    addre:hasRole addr:buildingAccessPoint ;
-    ...
-----
-|===
 
 [[Properties]]
 === Properties
 
-* <<isAddressFor, is address for>>
-* <<hasAddress, has address>>
-* <<hasAddressComponent, has address component>>
-* <<hasAddressRole, has address role>>
-* <<hasGeocode, has geocode>>
-* <<hasLifecycleStage, has lifecycle stage >>
-* <<hasValue, has value>>
-* <<hasValueText, has value text>>
+==== Properties defined by this model
 
-[[isAddressFor]]
-==== is address for
-
-[cols="2,6"]
-|===
-| Property | Value
-
-| IRI | `addr:isAddressFor`
-| Preferred Label | is address for
-| Definition | Indicates an Addressable Object that an Address is allocated to
-| Is Defined By | This model
-| Sub-property Of | http://www.w3.org/2000/01/rdf-schema#label[`rdfs:label`]
-| Inverse Of | <<hasAddress>>
-| Provenance | Derived from <<ISO19160-1>>'s object relations
-| Domain | <<Address, Address>>
-| Range | <<AddressableObject, Addressable Object>>
-| Example 
-a| [source,turtle]
-----
-# the Address ex:addr-1 is allocated to
-# some-addressable-object
-ex:addr-1
-  a addr:Address ;
-  addr:isAddressFor <some-addressable-object> ;
-.
-----
-|===
-
-[[hasAddress]]
-==== has address
-
-[cols="2,6"]
-|===
-| Property | Value
-
-| IRI | `addr:hasAddress`
-| Preferred Label | has address
-| Definition | Indicates an Address has been allocated for an Addressable Object
-| Is Defined By | This model
-| Inverse Of | <<isAddressFor>>
-| Provenance | Derived from <<ISO19160-1>>'s object relations
-| Domain | <<AddressableObject, Addressable Object>>
-| Range | <<Address, Address>>
-| Example 
-a| [source,turtle]
-----
-# the addr:AddressableObject, some-addressable-object,
-# indicates an address with addr:hasAddress 
-<some-addressable-object>
-  a addr:AddressableObject ;
-  addr:hasAddress ex:addr-1 ;
-.
-
-ex:addr-1
-  a addr:Address ;
-.
-----
-|===
-
-[[hasAddressComponent]]
-==== has address component
-
-[cols="2,6"]
-|===
-| Property | Value
-
-| IRI | `addr:hasAddressComponent`
-| Preferred Label | has address component
-| Definition | Indicates an Address Component of an Address
-| Is Defined By | This model
-| Provenance | Derived from <<ISO19160-1>>'s object relations
-| Domain | <<Address, Address>>
-| Range | <<AddressComponent, Address Component>>
-| Example 
-a| [source,turtle]
-----
-# an Address has an Address Component, a street number, indicated
-ex:addr-1
-  a addr:Address ;
-  addr:hasAddressComponent [
-      rdf:value 20 ;
-      sdo:additionalType act:streetNumber ;
-    ] ,
-...
-----
-|===
-
-[[hasAddressComponentType]]
-==== has address component type
-
-[cols="2,6"]
-|===
-| Property | Value
-
-| IRI | `addr:hasAddressComponentType`
-| Preferred Label | has address component type
-| Definition | Indicates an Addresses Component's type
-| Is Defined By | This model
-| Provenance | Derived from <<ISO19160-1>>'s object relations
-| Domain | <<AddressComponent, Address Component>>
-| Range | <<AddressComponentType, Address Component Type>>
-| Example 
-a| [source,turtle]
-----
-# an Address has an Address Component with its type,
-# street number, indicated
-ex:addr-1
-  a addr:Address ;
-  addr:hasAddressComponent [
-      rdf:value 20 ;
-      sdo:additionalType act:streetNumber ;
-    ] ,
-...
-----
-|===
-
-[[hasAddressRole]]
-==== has address role
-
-[cols="2,6"]
-|===
-| Property | Value
-
-| IRI | `addr:hasAddressRole`
-| Preferred Label | has address component type
-| Definition | Indicates an Address Role for an Address
-| Is Defined By | This model
-| Provenance | Derived from <<ISO19160-1>>'s AddressPosition class and properties
-| Domain | <<Address>>
-| Range | <<AddressRole, Address Role>>
-| Example 
-a| [source,turtle]
-----
-# An Address with two roles
-ex:addr-1
-  a addr:Address ;
-  addr:hasAddressRole 
-    ex:emergencyAccess ,
-    buildingAccessPoint ;
-    ... 
-----
-|===
+* <<hasGeocode>>
 
 [[hasGeocode]]
-==== has geocode
+==== hasGeocode
 
 [cols="2,6"]
 |===
@@ -433,24 +270,53 @@ ex:addr-1
 
 | IRI | `addr:hasGeocode`
 | Preferred Label | has geocode
-| Definition | Indicates a refined, that is a very accurate or specific, geometry, usually a point, for an Address qualified by the Geocode Type - how it was generated.
+| Definition | Indicates that the Address has a Geocode
 | Is Defined By | This model
-| Provenance | Derived from the G-NAF's expression of Address position
-| Scope Note | This property, along with hasRole, allows multiple Addresses with different locations to be allocated to Addressable Objects and for those addresses to be used for different purposes. The location indicated by this property should be within/on/next to the location of the Addressable Object this Address is for, within some acceptable tolerance.
 | Domain | <<Address>>
 | Range | <<Geocode>>
-| Example 
+|===
+
+==== Existing properties reused by this model
+
+* <<isNameFor>>
+* <<hasLifecycleStage>>
+* <<value>>
+* <<additionalType>>
+* <<hasPart>>
+* <<hasGeometry>>
+
+[[isNameFor]]
+==== is name for
+
+[cols="2,6"]
+|===
+| Property | Value
+
+| IRI | `cn:isNameFor`
+| Preferred Label | is name for
+| Definition | Inverse of `sdo:name`
+| Is Defined By | <<CNM>>
+| Domain | <<CompoundName>>
+| Range | <<Feature>>
+| Scope Note | Used to link a name to a feature
+| Example
 a| [source,turtle]
 ----
-# An Address with a Geocode and a role
-ex:addr-1
-  a addr:Address ;
-    addr:hasGeocode [
-      dcterms:type geocodeType:DF ;  # Driveway Frontage
-      geo:hasGeometry "POINT (152.01 -35.03)"^^geo:wktLiteral ; 
-    ] ;
-    addre:hasRole addr:buildingAccessPoint ;
-    ...
+PREFIX addr: <https://linked.data.gov.au/def/addr/>
+PREFIX cn: <https://linked.data.gov.au/def/cn/>
+PREFIX ex: <http://example.com/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX sdo: <https://schema.org/>
+
+ex:address-x
+    a addr:Address ;
+    cn:isNameFor ex:cadastral-object-y ;
+.
+
+ex:cadastral-object-y
+    a addr:AddressableObject , geo:Feature ;
+    sdo:name ex:address-x ;
+.
 ----
 |===
 
@@ -461,120 +327,120 @@ ex:addr-1
 |===
 | Property | Value
 
-| IRI | `addr:hasLifecycleStage`
+| IRI | `lm:hasLifeCycleStage`
 | Preferred Label | has lifecycle stage
-| Definition | Indicates an Addresses' Lifecycle Stage
-| Is Defined By | This model
-| Provenance | Derived from <<ISO19160-1>>'s object relations
-| Domain | <<Address, Address>>
-| Range | <<AddressLifecycleStage, Address Lifecycle Stage>>
-| Example 
+| Definition | Indicates a Resources' Lifecycle Stage
+| Is Defined By | <<LM>>
+| Domain | <<Resource>>
+| Range | <<LifecycleStage>>
+| Scope Note | Used to indicate an object's lifecycle stage
+| Example
 a| [source,turtle]
 ----
-# An Address with two Lifecycle Stages indicated:
-# one current and one past
-ex:addr-1
+PREFIX addr: <https://linked.data.gov.au/def/addr/>
+PREFIX ex: <http://example.com/>
+PREFIX lm: <https://linked.data.gov.au/def/lifecycle/>
+PREFIX sdo: <https://schema.org/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+ex:road-name-x
   a addr:Address ;
-  addr:hasLifeCycleStage [
+  lm:hasLifeCycleStage [
     # this Stage has ceased
     time:hasTime [
       time:hasBeginning [ time:inXSDDate "1982-02-10"^^xsd:date ] ;
       time:hasEnd [ time:inXSDDate "1982-05-11"^^xsd:date ] ;
     ] ;
-    dcterms:type addrls:proposed ;
+    sdo:additionalType lm:proposed ;
   ] ,
   [
     # this Stage is still in effect - no hasEnd given
     time:hasTime [
       time:hasBeginning [ time:inXSDDate "1982-05-11"^^xsd:date ] ;
     ] ;
-    dcterms:type addrls:current ;
-  ] ,  
+    sdo:additionalType lm:current ;
+  ] ;
 .
 ----
 |===
 
-[[hasValue]]
-==== has value
+[[value]]
+==== value
 
 [cols="2,6"]
 |===
 | Property | Value
 
 | IRI | `rdf:value`
-| Preferred Label | has value
-| Definition | Indicates the value of an Address Component
-| Is Defined By | This model
-| Provenance | Derived from <<ISO19160-1>>'s AddressComponent object's properties
-| Domain | <<AddressComponent, Address Component>>
-| Range | http://www.w3.org/2000/01/rdf-schema#Resource[`rdfs:Resource`] (IRI or literal)
+| Preferred Label | value
+| Definition | Idiomatic property used for structured values
+| Is Defined By | <<RDF>>
+| Scope Note | Used to indicate literal or object values for <<CompoundName>> objects
 | Example
 a| [source,turtle]
 ----
-ex:addr-1
-  a addr:Address ;
-  addr:hasAddressComponent
-    [
-      # "StreetNumber" type
-      rdf:value 20 ;
-      sdo:additionalType act:streetNumber ;
+PREFIX addr: <https://linked.data.gov.au/def/addr/>
+PREFIX apt: <https://linked.data.gov.au/def/address-part-types/>
+PREFIX ex: <http://example.com/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX sdo: <https://schema.org/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+ex:road-name-x
+    a addr:Address ;
+    sdo:hasPart [
+        rdf:value 4017 ;
+        sdo:additionalType apt:postcode
     ] ,
     [
-      # "StreetName" type
-      rdf:value "Oxford" ;
-      sdo:additionalType act:thoroughfareName ;
-    ] ,
-    [
-      # "Locality" type
-      rdf:value <http://example.com/lga/1234> ;
-      # textual value of complex object
-      rdf:valueText "Shorncliffe" ;
-      sdo:additionalType act:locality ;
-    ] ,
-    ...
+        rdf:value ex:shorncliffe ;
+        sdo:additionalType apt:locality
+    ] ;
+.
 ----
 |===
 
-[[hasValueText]]
-==== has value text
+[[additionalType]]
+==== additionalType
 
 [cols="2,6"]
 |===
 | Property | Value
 
-| IRI | `rdf:valueText`
-| Preferred Label | has value
-| Definition | Indicates the textual rendering of an Address Component
-| Scope note | This property is to be used to represent the textual value of Address Components that are literals and also complex objects. For a literal, the same value will be present for hasValue and hasValueText, e.g. a street number of 20 or a property name of "Bonnie Doon", however for a complex object, e.g. the locality `<http://example.com/lga/1234>`, a textual representation of it must be selected. Likely a simple name for the object will do, i.e. a Locality name or a Street Locality name.
-| Is Defined By | This model
-| Provenance | Derived from <<ISO19160-1>>'s AddressComponent object's properties
-| Domain | <<AddressComponent, Address Component>>
-| Range | http://www.w3.org/2001/XMLSchema#string[`xsd:string`]
-| Example
-a| [source,turtle]
-----
-ex:addr-1
-  a addr:Address ;
-  addr:hasAddressComponent
-    [
-      # "StreetNumber" type
-      rdf:value 20 ;
-      rdf:valueText "20" ;
-      sdo:additionalType act:streetNumber ;
-    ] ,
-    [
-      # "StreetName" type
-      rdf:value "Oxford" ;
-      rdf:valueText "Oxford" ;
-      sdo:additionalType act:thoroughfareName ;
-    ] ,
-    [
-      # "Locality" type
-      rdf:value <http://example.com/lga/1234> ;
-      # textual value of complex object
-      rdf:valueText "Shorncliffe" ;
-      sdo:additionalType act:locality ;
-    ] ,
-    ...
-----
+| IRI | `sdo:additionalType`
+| Preferred Label | additionalType
+| Definition | An additional type for the item, typically used for adding more specific types from external vocabularies
+| Is Defined By | <<SDO>>
+| Scope Note | Used to indicate a subtype for Road Name and Road Object instances
+|===
+
+[[hasPart]]
+==== hasPart
+
+[cols="2,6"]
+|===
+| Property | Value
+
+| IRI | `sdo:hasPart`
+| Preferred Label | has part
+| Definition | Indicates a part of a whole
+| Is Defined By | <<SDO>>
+| Scope Note | Used to indicate the parts of a Road Name or of a Road Object
+|===
+
+[[hasGeometry]]
+==== hasGeometry
+
+[cols="2,6"]
+|===
+| Property | Value
+
+| IRI | `geo:hasGeometry`
+| Preferred Label | has geometry
+| Definition | A spatial representation for a given Feature
+| Is Defined By | <<GEO>>
+| Domain | <<Feature>>
+| Range | <<Geometry>>
+| Scope Note | Used to indicate the Geometry of a Feature, such as a Road Object
 |===

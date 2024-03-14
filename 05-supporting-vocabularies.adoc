@@ -1,134 +1,136 @@
 == Supporting Vocabularies
 
-This model uses many vocabularies to give specific values to classification properties for `Address` and to qualify relationships within the model.
+This model uses many vocabularies to give specialised types and roles to classes. This section previews some vocabularies that may be used and links to some others.
 
-Only three of the vocabularies required for use with this model are detailed here. Others are listed but their details are to be obtained from their independent publication points.
+This section is not to be taken as normative: these are example vocabularies and, even then, only part of them, to assist with model use.
 
-Those detailed here are:
+When implementing this model, it is within the remit of implementation-specific validators to mandate certain vocabularies and perhaps subsets fo concepts within those vocabularies, for use.
+
+=== Vocabularies previewed here
+
+Those defined here are:
 
 * <<Address Part Types>>
 * <<Address Lifecycle Stage Types>>
-* <<Geocode Types>>
-
-Those published elsewhere and their roles:
-
-* Flat Types
-** for use with `flatTypeCode` Address Part Type
-** _IRI still to be supplied_
-* Level Types
-** for use with `levelTypeCode` Address Part Type
-** _IRI still to be supplied_
-
+* <<Geocode Type>>
 
 NOTE: Hyperlinks to these vocabularies will be provided as soon as persistent identifiers for them are issued. Until then, the content of these vocabularies can be found within the submission to register them: https://github.com/GeoscienceAustralia/icsm-vocabs/pull/13/files.
 
-=== Address Part Types
+==== Address Part Types
 
-This vocabulary fills the role occupied by <<ISO19160-1>>'s `AddressComponentType` vocabulary and the content is derived from Australian standards and the G-NAF dataset. Original members from <<ISO19160-1>> are listed with notes on what terms from the updated vocabulary to use in their stead. The main logic being that where the original standard expected literal values for components, the new vocabulary expects object which themselves are potentially made of many parts.
+This vocabulary is an extended version of <<ISO19160-1>>'s _Address Component Type_ vocabulary. The original 8 concepts from the standard are included below however they are not recommended for use and only shown for comparison.
 
-* https://spatial-information-qld.github.io/address-model/AnzAddressComponentTypes.html[full documentation]
-** https://spatial-information-qld.github.io/address-model/AnzAddressComponentTypes.ttl[machine-readable form]
+The Persistent web identifier for this vocabulary is:
 
-Original <<ISO19160-1>> standard terms:
+* *https://linked.data.gov.au/def/addr-part-types*
 
-|===
-| IRI | Status | Usage directive
-
-| `actiso:addressedObjectIdentifier` | original | Do not use: handled by `Address`/`AddressableObject` relation
-| `actiso:administrativeAreaName` | original | No not use: use `act:stateOrTerritory`
-| `actiso:countryCode` | original | Do not use: use `act:country`
-| `actiso:countryName` | original | Do not use: use `act:country`
-| `actiso:localityName` | original | No not use: use `act:locality`
-| `actiso:postOfficeName` | original | Do not use: use `act:country`
-| `actiso:postcode` | original | Do not use: use `act:postcode` (direct equivalent)
-| `actiso:thoroughfareName` | original | Do not use, use `act:streetLocality`
-|===
-
-Current vocabulary:
 
 |===
-| IRI | Status | Usage directive
-| `act:buildingName` | addition (G-NAF) | Use
-| `act:lotNumberPrefix` | addition (G-NAF) | Use
-| `act:lotNumber` | addition (G-NAF) | Use
-| `act:lotNumberSuffix` | addition (G-NAF) | Use
-| `act:flatTypeCode` | addition (G-NAF) | Use
-| `act:flatNumberPrefix` | addition (G-NAF) | Use
-| `act:flatNumber` | addition (G-NAF) | Use
-| `act:flatNumberSuffix` | addition (G-NAF) | Use
-| `act:levelTypeCode` | addition (G-NAF) | Use
-| `act:levelNumberPrefix` | addition (G-NAF) | Use
-| `act:levelNumber` | addition (G-NAF) | Use
-| `act:levelNumberSuffix` | addition (G-NAF) | Use
-| `act:numberFirstPrefix` | addition (G-NAF) | Use
-| `act:numberFirst` | addition (G-NAF) | Use
-| `act:numberFirstSuffix` | addition (G-NAF) | Use
-| `act:numberLastPrefix` | addition (G-NAF) | Use
-| `act:numberLast` | addition (G-NAF) | Use
-| `act:numberLastSuffix` | addition (G-NAF) | Use
-| `act:streetLocality` | addition (G-NAF) | Use
-| `act:locality` | addition (G-NAF) | Use
-3+|
-| `act:waterFeatureNumber` | addition (Qld Gov.) | Use
-| `act:waterFeatureName` | addition (Qld Gov.) | Use
-| `act:waterFeatureType` | addition (Qld Gov.) | Use
-3+|
-| `act:country` | addition (Qld Gov.) | Use
-| `act:indigenousPlaceName` | addition (Qld Gov.) | Use
-| `act:placeName` | addition (Qld Gov.) | Use
-| `act:postcode` | equivalent to `actiso:postcode` | Use
-| `act:propertyName` | addition (Qld Gov.) | Use
-| `act:stateOrTerritory` | addition (Qld Gov.) | Use
+| IRI | Preferred Label | Definition | Usage Note
+
+| `aptiso:addressedObjectIdentifier` | addressed object identifier | Identifier of the addressed object, e.g. building name or address number | Do not use: handled by `Address`/`AddressableObject` relation
+| `aptiso:administrativeAreaName` | administrative area name | Name of an administrative area | Do not use: use `apt:stateOrTerritory` or similar to refer to administrative area objects
+| `aptiso:countryCode` | country code | ISO 3166-1 code for the country, territory, or area of geopolitical interest | An object reference, not a literal value or a short code
+| `aptiso:countryName` | country name | Name of a country | Use
+| `aptiso:localityName` | locality name | Name of a locality | Do not use: use `apt:locality` to refer to a locality object
+| `aptiso:postOfficeName` | post office name | Name of a post office | Do not use
+| `aptiso:postcode` | postcode | Code used for the sorting of mail | Use, only for delivery area postcodes
+| `aptiso:thoroughfareName` | thoroughfare name | Name of a thoroughfare | Do not use, use `apt:road` to refer to a road object
+4+|
+| `apt:buildingName` | building name |  | From the GNAF
+| `apt:lotNumberPrefix` | lot number prefix |  | Do not use
+| `apt:lotNumber` | lot number |  | Do not use
+| `apt:lotNumberSuffix` | lot number suffix |  | Do not use
+| `apt:subaddressType` | sub-address type |  | Use instead of apt:flatTypeCode
+| `apt:flatNumberPrefix` | flat number prefix |  | Do not use
+| `apt:subaddressNumber` | sub-address number |  | Use instead of apt:flatNumber
+| `apt:subaddressNumberSuffix` | sub-address number suffix |  | Use instead of apt:flatNumberSuffix
+| `apt:buildingLevelType` | building level type |  | Use instead of apt:levelTypeCode
+| `apt:levelNumberPrefix` | level number prefix |  | Do not use
+| `apt:buildingLevelNumber` | building level number |  | Use instead of apt:levelNumber
+| `apt:buildingLevelNumberSuffix` | building level number suffix |  | use instead of apt:levelNumberSuffix
+| `apt:numberFirstPrefix` | number first prefix |  | Do not use
+| `apt:streetNumberFirst` | street number first |  | Use instead of apt:numberFirst
+| `apt:streetNumberFirstSuffix` | street number first suffix |  | Use instead of apt:numberFirstSuffix
+| `apt:numberLastPrefix` | number last prefix |  | Do not use
+| `apt:streetNumberLast` | street number last |  | Use instead of apt:numberLast
+| `apt:streetNumberLastSuffix` | street number last suffix |  | apt:numberLastSuffix
+| `apt:street` | street | | Use instead of apt:streetLocality and apt:road
+| `apt:locality` | locality |  | From the GNAF
+4+|
+| `apt:road` | road | A reference to a state or territory object | This replaces street, streetLocality, streetType
+| `apt:waterFeatureNumber` | water feature number | A number given, based on a water feature numbering system |
+| `apt:waterFeatureName` | water feature name | A name given to the water feature |
+| `apt:waterFeatureType` | water feature type | A type for the water feature | From a vocabulary: this part is not expected to be printed
+| `apt:stateOrTerritory` | stateOrTerritory | A reference to a state or territory object |
+| `apt:propertyName` | propertyName | A name for a property |
+| `apt:geographicalNameObject` | geographicalName | A reference to a geographical name object | An object reference, not a literal value
+| `apt:indigenousPlaceName` | indigenous country name |  Could use the above, if the implementing geographical names data includes indigenous country names. Use instead of apt:indigenousPlaceName
+| `apt:country` | country | A reference to a country object | Do not use
 |===
 
-=== Address Lifecycle Stage Types
+==== Address Lifecycle Stage Types
 
-This vocabulary is a slightly extended version of <<ISO19160-1>>'s `AddressLifecycleStage` vocabulary which includes specialise forms of 'current' to cater for official/unofficial addresses.
+This vocabulary is currently as per <<ISO19160-1>>'s `AddressLifecycleStage` vocabulary, however it is expected that this vocabulary will be extended early in its use in Australia/NZ as it is know that jurisdictions within ANZ use other statuses
 
-This vocabulary is expected to be replaced by regional variants per jurisdiction.
+The Persistent web identifier for this vocabulary is:
 
-* https://spatial-information-qld.github.io/address-model/AnzAddressLifecycleStageTypes.html[full documentation]
-** https://spatial-information-qld.github.io/address-model/AnzAddressLifecycleStageTypes.ttl[machine-readable form]
+* *https://linked.data.gov.au/def/addr-lifeycle-stage-types*
 
-[cols="1,1,2"]
+[cols="1,1,2,1"]
 |===
-| IRI | Status | Usage directive
+| IRI | Preferred Label | Definition | Usage Note
 
-| `als:current` | original | Use `als:official` or `als:unofficial` where possible
-| `als:official` | addition | Use: a specialised form of `als:current`
-| `als:unofficial` | addition | Use: a specialised form of `als:current`
-| `als:proposed` | original | Use
-| `als:rejected` | original | Use
-| `als:reserved` | original | Use
-| `als:retired` | original | Use
-| `als:unknown` | original | Use
+| `als:official` | official | The address is recognised by the authoritative jurisdiction |
+| `als:current` | current | The address is recognised by the authoritative jurisdiction and is in use | child of `als:official`
+| `als:reserved` | reserved | The address is recognised by the authoritative jurisdiction but is not yet in use | child of `als:official`
+| `als:retired` | retired | The address was recognised by the authoritative jurisdiction but is not no lonter in use | child of `als:official`
+| `als:unofficial | unofficial | The address is not recognised by the authoritative jurisdiction |
+| `als:proposed` | proposed | The address has been suggested for use but not yet accepted | child of `als:unofficial`
+| `als:rejected` | rejected | The address has been ruled not for use | child of `als:unofficial`
+| `als:unknown` | unknown | The stage of this Address' life is unknown therefore it is assumes as a form of unofficial | child of `als:unofficial`
 |===
 
-=== Geocode Types
+==== Geocode Type
 
-This vocabulary indicates the type or the role that a Geocode plays, with respect to the Address. It is expected to be extended.
+This vocabulary was derived from the geocode types given as reference values in the <<GNAF>>.
 
-* https://spatial-information-qld.github.io/address-model/AnzAddressStatusTypes.html[full documentation]
-** https://spatial-information-qld.github.io/address-model/AnzAddressStatusTypes.ttl[machine-readable form]
+This is only a partial rendering of the vocabulary - a static list of the top concepts as they were in June, 2023 - provided to give an indicate of values, not to be an exhaustive list of values.
 
-[cols="1,1,4"]
+The Persistent web identifier for this vocabulary is:
+
+* *https://linked.data.gov.au/def/geocode-types*
+
 |===
-| IRI | Status | Usage directive
+| IRI | Preferred Label | Definition
 
-| `gt:building-access-point` | original | Use
-| `gt:building-centroid` | original | Use
-| `gt:centreline-dropped-frontage` | original | Use
-| `gt:driveway-frontage` | original | Use
-| `gt:emergency-access` | original | Use
-| `gt:emergency-access-secondary` | original | Use
-| `gt:front-door-access` | original | Use
-| `gt:frontage-centre` | original | Use
-| `gt:frontage-centre-setback` | original | Use
-| `gt:letterbox` | original | Use
-| `gt:property-access-point` | original | Use
-| `gt:property-access-point-setback` | original | Use
-| `gt:property-centroid` | original | Use
-| `gt:service-connection-point` | original | Use
-| `gt:service-meter` | original | Use
-| `gt:unit-centroid` | original | Useq
+| `gt:building-access-point` | Building Access Point | Point of access to the building
+| `gt:building-centroid` | Building Centroid | Point as centre of building and lying within its bounds (e.g. for u-shaped building)
+| `gt:centreline-dropped-frontage` | Centreline Dropped Frontage | A point on the road centre-line opposite the centre of the road frontage of an address site
+| `gt:driveway-frontage` | Driveway Frontage | Centre of driveway on address site frontage
+| `gt:emergency-access` | Emergency Access | Specific building or address site access point for emergency services
+| `gt:emergency-access-secondary` | Emergency Access Secondary | Specific building or address site secondary access point for emergency services
+| `gt:front-door-access` | Front Door Access | Front door of building
+| `gt:frontage-centre` | Frontage Centre | Point on the centre of the address site frontage
+| `gt:frontage-centre-setback` | Frontage Centre Setback | A point set back from the centre of the road frontage within an address site
+| `gt:letterbox` | Letterbox | Place where mail is deposited
+| `gt:property-access-point` | Property Access Point | Access point (centre of) at the road frontage of the address site
+| `gt:property-access-point-setback` | Property Access Point Setback | Centre of driveway on address site frontage
+| `gt:property-centroid` | Property Centroid | Point of centre of parcels making up an address site and lying within its boundaries (e.g. for l-shaped address site)
+| `gt:service-connection-point` | Service Connection Point | The utility connection point (e.g. box, or underground chamber)
+| `gt:service-meter` | Service Meter | The utility meter (e.g. box, or underground chamber)
+| `gt:unit-centroid` | Unit Centroid | Point at centre of unit and lying within its bounds (e.g. for u-shaped unit)
 |===
+
+=== Links to other vocabularies
+
+At the time of publication, June 2023, there were several vocabularies proposed for publication by this model's authors by the Intergovernmental Committee on Surveying & Mapping (ICSM) that were derived from Australian & New Zealand and international addressing standards. Those vocabularies were:
+
+* Sub-Address Types
+* Building Level Types
+* Street Suffix Types
+* Street Types
+
+Geocode Types is listed in the previous section.
+
+No publication of those vocabularies has yet been assured.

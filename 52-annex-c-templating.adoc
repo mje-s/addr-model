@@ -1,0 +1,166 @@
+[[AnnexC]]
+== Annex C: Templating
+
+To present - on screen or in print form - consolidated address information, such as for an envelope, the address parts need to be assembled in a particular order and perhaps processes to make contractions etc. The logic for this is not contained in core model itself but must be implemented in _application code_ reflecting _business logic_, as in what it is that implementers need to implement!
+
+This templating annex gives a demonstration of basic templating however users of this model are free to implement their own templates and template logic to suit their needs.
+
+=== Generating names
+
+
+Consider the example address:
+
+----
+Unit 4B, 72 Yundah Street
+Shorncliffe, Queensland
+4017 Australia
+----
+
+The "print out" format is as above where the Address parts, as per Queensland's implementation are:
+
+[width="50%", cols="1,3"]
+|===
+| Part | Value
+
+| Unit | "4B"
+| StreetNumber | "72"
+| Road | reference to the Yundah Street road object
+| Locality | reference to the Shorncliffe locality object
+| StateOrTerritory | reference to the Queensland state object
+| Postcode | "4017"
+| Country | reference to the Australia state object
+|===
+
+Using Feature Naming recursive logic - generating names for the Road, Locality, State & Country objects elsewhere, the address model sees the following:
+
+[width="50%", cols="1,3"]
+|===
+| Part | Value
+
+| Unit | "4B"
+| StreetNumber | "72"
+| Road | "Yundah Street"
+| Locality | "Shorncliffe"
+| StateOrTerritory | "Queensland"
+| Postcode | "4017"
+| Country | "Australia"
+|===
+
+Thus, an informal template for the example address, given these values could be:
+
+----
+Unit {Unit}
+{StreetNumber} {Road}
+{Locality}, {StateOrTerritory}
+{Postcode} {Country}
+----
+
+This is an informal logic - no formalised templating syntax is used - but it's obvious to see that you'd place the value "Shorncliffe" where the marker `{Locality}`  exists in the informal template.
+
+Such an informal template will not work for comprehensive address templates as it doesn't include many potential address parts, such as Unit/Flat information, contractions, building names etc.
+
+The next two subsections use a formal templating logic that can be extended for any level of template coverage/complexity.
+
+
+=== Basic Template
+
+This template assembles the parts of an Address in a basic manner, similar to the example in the previous section, and something like this is expected to be the commonly used.
+
+The template, in EBNF form <<ISO-IEC-14977>>, is:
+
+----
+space = " "
+comma = ","
+letters = "A" | "B" | "C" | "D" | "E" | "F" | "G"
+       | "H" | "I" | "J" | "K" | "L" | "M" | "N"
+       | "O" | "P" | "Q" | "R" | "S" | "T" | "U"
+       | "V" | "W" | "X" | "Y" | "Z" | "a" | "b"
+       | "c" | "d" | "e" | "f" | "g" | "h" | "i"
+       | "j" | "k" | "l" | "m" | "n" | "o" | "p"
+       | "q" | "r" | "s" | "t" | "u" | "v" | "w"
+       | "x" | "y" | "z" ;
+extra_characters = | " " | "-" ;
+numbers = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
+extended_letters = letters | extra_characters ;
+extended_numbers = numbers | extra_characters ;
+prefix = extended_letters
+prefix_spaced = prefix, space
+level_number = extended_numbers | extended_numbers ;
+level = "Level" space level_number
+unit_number = extended_numbers
+unit = "Unit" space unit_number
+road_number = extended_numbers
+road_name = extended_letters
+locality = extended_letters
+state_or_territory = extended_letters
+country = extended_letters
+postcode = numbers
+suffix = extended_letters
+suffix_spaced = space, suffix
+
+address = [building_name NEWLINE]
+          [property_name NEWLINE]
+          [level space] [unit comma space] [road_number space] road_name NEWLINE
+          locality, space state_or_territory NEWLINE
+          postcode space country
+----
+
+Part value for the example above, using these EBNF tokens are:
+
+|===
+| Token | Value
+
+| `building_name` | -
+| `property_name` | -
+| `level` | -
+| `unit` | "Unit 4B"
+| `road_number` | "72"
+| `road_name` | "Yundah Street"
+| `locality` | "Shorncliffe"
+| `state_or_territory` | "Queensland"
+| `postcode` | "4017"
+| `country` | "Australia"
+|===
+
+The template would result in this the same "print out" value as per the example in the section above:
+
+----
+Unit 4B, 72 Yundah Street
+Shorncliffe, Queensland
+4017 Australia
+----
+
+=== Short Form Template
+
+This Short Form Template is an example of an alternative template to the Basic Template above.
+
+This template uses most of the same layout logic as the Basic Template but it replaces `NEWLINE` between `building_name` & `property_name` with `space` and makes the followin contractions:
+
+* "Level X" -> Lv X
+* "Unit X," -> "X/"
+
+It contracts States & Territories as follows:
+
+* "Australian Capital Territory" -> "ACT"
+* "New South Wales" -> "NSW"
+* "Northern Territory" -> "NT"
+* "Queensland" -> "ACT"
+* "South Australia" -> "SA"
+* "Tasmania" -> "TAS"
+* "Victoria" -> "VIC"
+* "Western Australia" -> "WA"
+
+It contracts Countries as follows:
+
+* "Australia" -> "Aust."
+* "New Zealand" -> "NZ"
+
+This template will also see out short form templates implemented for referenced objects, such as Roads so for the example above, using the Roads Model's short form templatefootnote:[https://linked.data.gov.au/def/roads#_short_form_template], the road name "Yundah Street" will be contracted to "Yundah St".
+
+Given these changes, the example above would print out like this:
+
+----
+4B/72 Yundah St
+Shorncliffe, QLD
+4017 Aust.
+----
