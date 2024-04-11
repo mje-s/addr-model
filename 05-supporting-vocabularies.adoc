@@ -80,16 +80,14 @@ The Persistent web identifier for this vocabulary is:
 
 [cols="1,1,2,1"]
 |===
-| IRI | Preferred Label | Definition | Parent
+| IRI | Preferred Label | Definition
 
-| `als:official` | official | The address is recognised by the authoritative jurisdiction |
-| `als:current` | current | The address is recognised by the authoritative jurisdiction and is in use | `als:official`
-| `als:reserved` | reserved | The address is recognised by the authoritative jurisdiction but is not yet in use | `als:official`
-| `als:retired` | retired | The address was recognised by the authoritative jurisdiction but is not no lonter in use | `als:official`
-| `als:unofficial` | unofficial | The address is not recognised by the authoritative jurisdiction |
-| `als:proposed` | proposed | The address has been suggested for use but not yet accepted | `als:unofficial`
-| `als:rejected` | rejected | The address has been ruled not for use | `als:unofficial`
-| `als:unknown` | unknown | The stage of this Address' life is unknown therefore it is assumes as a form of unofficial | `als:unofficial`
+| `als:current` | current | The address is recognised by the authoritative jurisdiction and is in use
+| `als:reserved` | reserved | The address is recognised by the authoritative jurisdiction but is not yet in use
+| `als:retired` | retired | The address was recognised by the authoritative jurisdiction but is not no lonter in use
+| `als:proposed` | proposed | The address has been suggested for use but not yet accepted
+| `als:rejected` | rejected | The address has been ruled not for use
+| `als:unknown` | unknown | The stage of this Address' life is unknown therefore it is assumes as a form of unofficial
 |===
 
 ==== Geocode Type
