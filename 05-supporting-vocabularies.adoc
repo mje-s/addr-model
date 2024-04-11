@@ -84,7 +84,7 @@ The Persistent web identifier for this vocabulary is:
 
 | `als:current` | current | The address is recognised by the authoritative jurisdiction and is in use
 | `als:reserved` | reserved | The address is recognised by the authoritative jurisdiction but is not yet in use
-| `als:retired` | retired | The address was recognised by the authoritative jurisdiction but is not no lonter in use
+| `als:retired` | retired | The address was recognised by the authoritative jurisdiction but is no longer in use
 | `als:proposed` | proposed | The address has been suggested for use but not yet accepted
 | `als:rejected` | rejected | The address has been ruled not for use
 | `als:unknown` | unknown | The stage of this Address' life is unknown therefore it is assumes as a form of unofficial
