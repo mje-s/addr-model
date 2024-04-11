@@ -78,7 +78,7 @@ The Persistent web identifier for this vocabulary is:
 
 * *https://linked.data.gov.au/def/addr-lifeycle-stage-types*
 
-[cols="1,1,2,1"]
+[cols="1,1,2"]
 |===
 | IRI | Preferred Label | Definition
 
