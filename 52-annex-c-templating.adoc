@@ -83,37 +83,45 @@ extra_characters = | " " | "-" ;
 numbers = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
 extended_letters = letters | extra_characters ;
 extended_numbers = numbers | extra_characters ;
-prefix = extended_letters
-prefix_spaced = prefix, space
-level_number = extended_numbers | extended_numbers ;
+extended_letters_and_numbers = extended_letters | extended_numbers
+
+geographical_object_name = extended_letters_and_numbers
+level_number = extended_numbers ;
 level = "Level" space level_number
-unit_number = extended_numbers
-unit = "Unit" space unit_number
-street_number = extended_numbers
-street_name = extended_letters
+unit_indicator = "Unit" space
+subaddress_number_prefix = extended_letters
+subaddress_number_number = extended_numbers
+subaddress_number_suffix = extended_letters
+street_number_prefix = extended_letters
+street_number_number = extended_numbers
+street_number_suffix = extended_letters
+street_label = extended_letters_and_numbers
+
 locality = extended_letters
 state_or_territory = extended_letters
 country = extended_letters
 postcode = numbers
-suffix = extended_letters
-suffix_spaced = space, suffix
 
-address = [building_name NEWLINE]
-          [property_name NEWLINE]
-          [level space] [unit comma space] [street_number space] street_name NEWLINE
+subaddress = level unit_indicator subaddress_number_prefix subaddress_number subaddress_number_suffix
+street = street_number_prefix street_number street_number_suffix space street_label
+
+address = geographical_object_name NEWLINE
+          subaddress NEWLINE
+          street NEWLINE
           locality, space state_or_territory NEWLINE
-          postcode space country
+          postcode country
 ----
 
-Part value for the example above, using these EBNF tokens are:
+Part values for the example above, using these EBNF tokens are:
 
 |===
 | Token | Value
 
-| `building_name` | -
+| `building_name` | "The Manse"
 | `property_name` | -
 | `level` | -
-| `unit` | "Unit 4B"
+| `subaddress_number` | "4"
+| `subaddress_number_suffix` | "B"
 | `street_number` | "72"
 | `street_name` | "Yundah Street"
 | `locality` | "Shorncliffe"
@@ -125,7 +133,9 @@ Part value for the example above, using these EBNF tokens are:
 The template would result in this the same "print out" value as per the example in the section above:
 
 ----
-Unit 4B, 72 Yundah Street
+The Manse
+Unit 4B
+72 Yundah Street
 Shorncliffe, Queensland
 4017 Australia
 ----
@@ -160,6 +170,7 @@ This template will also see out short form templates implemented for referenced 
 Given these changes, the example above would print out like this:
 
 ----
+The Manse
 4B/72 Yundah St
 Shorncliffe, QLD
 4017 Aust.
