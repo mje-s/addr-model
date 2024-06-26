@@ -14,7 +14,7 @@ Addresses modelled according to this model do more than just name things though:
 
 Overall, this model represents addresses, certain properties for them, including address parts, geocodes and the objects to which addresses are assigned in a conceptual manner similar to the international addressing standard, <<ISO19160-1>>. However, this model is expressed in Semantic Webfootnote:[See https://en.wikipedia.org/wiki/Semantic_Web for a general description of the Semantic Web] form, rather than ISO19160-1's UML and XML, and many aspects of the conceptual range that ISO19160 covers this model does not directly cover but instead delegates to other models which it imports, such as the representation of address and address part lifecycle information. This is done so that common things that this model does are available for use elsewhere via a series of mini-models that others may use without importing this whole model.
 
-Additionally, this model relies on several specialised sub-models to handle specific types of address parts, such as roads and geographical object naming. By doing this, those things many be modelled independently of addressing and roads and geographic object names datasets can be used with address data very easily.
+Additionally, this model relies on several specialised sub-models to handle specific types of address parts, such as streets and geographical object naming. By doing this, those things many be modelled independently of addressing and streets and geographic object names datasets can be used with address data very easily.
 
 This model makes no attempt to model the things to which addresses are assigned. In the example above, the address "72 Yundah St...." is mentioned as being a form of name for, or assigned to, a cadastral parcel or a 'lot'. This model doesn't know what those things are and leaves their modelling to other systems. This means that using this model alone, you cannot know what an address is for unless you implement an address part to describe the type of object the address is assigned to. This decision has been made since there could be great complexity in spatial object / infrastructure modelling that isn't really core to addressing, so that's best left to other, likely sophisticated, models.
 
@@ -38,7 +38,7 @@ Major modelling principles present in this model are:
 . <<Feature / Geometry differentiation>>
 . <<Geocodes>>
 . <<Address Parts>>
-. <<Road & Geographical Names>>
+. <<Street & Geographical Names>>
 . <<Address part typing>>
 . <<Address part templating>>
 . <<Water-based Addressing>>
@@ -80,7 +80,7 @@ This model details the elements of an _address_ but not details of the spatial o
 
 This allows for the representation, and ultimately the management, of names - text, numbers, identifiers, references - separately to the management of spatial objects.
 
-This Feature / Feature Naming separation applies to Geographical objects, Roads and Administrative Areas as well as Addresses and the first two of those three objects have models similar to this one for their names, <<GN>> & <<ROADS>>.
+This Feature / Feature Naming separation applies to Geographical objects, Streets and Administrative Areas as well as Addresses and the first two of those three objects have models similar to this one for their names, <<GN>> & <<ROADS>>.
 
 Some elements of this Feature / Feature Naming pattern, used by this and the two models mentioned above, are captured in the general-purpose _Compound Naming Model_ <<CNM>> which they all inherit from.
 
@@ -105,22 +105,22 @@ For this reason, Geocodes are related to Addresses only in this model, not Addre
 
 ==== Address Parts
 
-Addresses are complex things: they are all made of multiple parts with different roles, types ordering and so on. To handle this, this model has a generic notion of a part which may be a simple thing, e.g. a postcode or a street number, but it may also be a complex thing, e.g. a road name that includes a "given" name for the road as well as some type indication.
+Addresses are complex things: they are all made of multiple parts with different roles, types ordering and so on. To handle this, this model has a generic notion of a part which may be a simple thing, e.g. a postcode or a street number, but it may also be a complex thing, e.g. a street name that includes a "given" name for the street as well as some type indication.
 
-This model inherits from the Compound Naming Model <<CNM>> which allows for Compound Names, such as Addresses, to link to parts which are also Compound Names which then link to other Compound Names. In this way, Addresses may be "built up" from compound names for a series of parts, such as road names, locality names and so on.
+This model inherits from the Compound Naming Model <<CNM>> which allows for Compound Names, such as Addresses, to link to parts which are also Compound Names which then link to other Compound Names. In this way, Addresses may be "built up" from compound names for a series of parts, such as street names, locality names and so on.
 
 
-==== Road & Geographical Names
+==== Street & Geographical Names
 
-This model can be used to model all the parts of a street names - the 'given' part e.g. "Smith", a type indicator such as "Street" and perhaps a suffix, such as "South" - or it can be used to just indicate that a particular street or road is a part of an address and the name for that road is to be found in an independent road name object.
+This model can be used to model all the parts of a street names - the 'given' part e.g. "Smith", a type indicator such as "Street" and perhaps a suffix, such as "South" - or it can be used to just indicate that a particular street is a part of an address and the name for that street is to be found in an independent object.
 
-This second form - delegation of name - is allowed to facilitate point-of-truth road names datasets which both provide names for roads in isolation and are also used by address datasets.
+This second form - delegation of name - is allowed to facilitate point-of-truth datasets which both provide names for streets in isolation and are also used by address datasets.
 
 Similarly, names for geographical objects, such as mountains, lakes, certain kinds of locality etc. may also be held independently of addressing data and just referred to as a complex object part of an address.
 
-A model of roads - both naming and some physical presentation of them - has been created in parallel to this model, as has a model of Geographical Names which is a replacement for the various Placenames models found in ANZ, such as the https://linked.data.gov.au/def/placenames[FSDF Placenames Ontology]. these models can be used independently as well as within this model. Their persistent web addresses are:
+A model of streets - both naming and some physical presentation of them - has been created in parallel to this model, as has a model of Geographical Names which is a replacement for the various Placenames models found in ANZ, such as the https://linked.data.gov.au/def/placenames[FSDF Placenames Ontology]. These models can be used independently as well as within this model. Their persistent web addresses are:
 
-* https://linked.data.gov.au/def/roads - Roads Model
+* https://linked.data.gov.au/def/roads - Streets, called the Roads Model
 * https://linked.data.gov.au/def/gn - Geographical Names Model
 
 
@@ -148,9 +148,11 @@ While not a core part of this model, templating suggestions are presented in <<A
 
 The ability to cater for addresses reachable by watercraft was a requirement of Queensland's project that generated this model. Water-based addressing is standardised in the Australian/New Zealand standard <<AS4189:2011>> and it requires that water-based addressing use the name of the water feature as well as a water address number, the logic for the assignment of which is feature-specific, i.e. numbers for islands and for watercourses are determined differently.
 
-This model does not supply the logic for water number generation, just as it does not supply the logic for road number assignment, however it does provide address part types for water-based addressing, see the <<Address Part Types>> in the <<Supporting Vocabularies>> section.
+This model indicates the use of a typed reference from an Address to a Water Feature object, just as Addresses reference Street or Locality objects, and then the Water Feature itself supplies the format of its name, including typing, e.g. Lord Howe _Island_ or Slacks _Creek_ any abbreviations or other name variants, e.g. _Wop pa_ as an indigenous name variant of Great Keppel Island.
 
-This model does not provide templating or application logic to show how a water-based address should order water address parts or perhaps use water addressing parts and not road addressing parts: templating logic is exemplified in the templating annex <<AnnexC>> and appropriate part usage logic is left to implementers.
+This model does not supply the logic for water number generation, just as it does not supply the logic for street number assignment, however it does provide address part types for water-based addressing, see the <<Address Part Types>> in the <<Supporting Vocabularies>> section.
+
+This model does not provide templating or application logic to show how a water-based address should order water address parts or perhaps use water addressing parts and not street addressing parts: templating logic is exemplified in the templating annex <<AnnexC>> and appropriate part usage logic is left to implementers.
 
 
 ==== Related Addresses

@@ -27,6 +27,7 @@ This model is built on a small set of well-regarded Semantic Web models which us
 | `gt` | `http://www.opengis.net/ont/geocode-types/` | Geocode types vocabulary
 | `ls` | `https://linked.data.gov.au/def/lifecycel` | Lifecycle Model
 | `owl` | `http://www.w3.org/2002/07/owl#` | Web Ontology Language ontology
+| `rdf` | `http://www.w3.org/1999/02/22-rdf-syntax-ns#` | The RDF Concepts Vocabulary
 | `rdfs` | `http://www.w3.org/2000/01/rdf-schema#` | RDF Schema ontology
 | `sosa` | `http://www.w3.org/ns/sosa/` | Sensor, Observation, Sample, and Actuator ontology
 | `sdo` | `https://schema.org` | schema.org model

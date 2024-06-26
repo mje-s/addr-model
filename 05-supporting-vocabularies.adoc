@@ -18,9 +18,9 @@ NOTE: Hyperlinks to these vocabularies will be provided as soon as persistent id
 
 ==== Address Part Types
 
-This vocabulary is an extended version of <<ISO19160-1>>'s _Address Component Type_ vocabulary.
+This vocabulary is an extended version of <<ISO19160-1>>'s _Address Component Type_ vocabulary and is maintained outside this model. This means it can be extended by the user community (Australian & New Zealand), as needed, and without change to this model.
 
-The Persistent web identifier for this vocabulary is:
+The vocabulary is located online at:
 
 * *https://linked.data.gov.au/def/addr-part-types*
 
@@ -36,38 +36,26 @@ The original 8 concepts from ISO19160-1 are:
 | `aptiso:localityName` | locality name | Name of a locality | Use `apt:locality` to refer to a Locality object
 | `aptiso:postOfficeName` | post office name | Name of a post office | Not in current Australian address use
 | `aptiso:postcode` | postcode | Code used for the sorting of mail | Use `apt:postcode`
-| `aptiso:thoroughfareName` | thoroughfare name | Name of a thoroughfare | Use `apt:road` to refer to a road object
+| `aptiso:thoroughfareName` | thoroughfare name | Name of a thoroughfare | Use `apt:street` to refer to a street object
 |===
 
-Only the use of `aptiso:postcode` from this list is essentially unchanged as many literal value, such as `countryName`, have been replaced with references to data objects.
+These concepts have all been modified or completely replaced, except `postcode`. Replacements preference links to other complex objects, rather than simple literal data types, for example ISO19160-1's `countryCode` which indicates a text code value for a country has been replaced with `apt:country` which indicates a country object. The use of object references rather than literal values allows for element labelling variation, such as use of abbreviated forms of a name, e.g. "USA" instead of "United Stated of America" , or different language variants, e.g. "Deutschland" instead of "Germany", where the variant information is stored as part of the object referred to.
 
-This vocab currently (March, 2024) contains the following terms:
+This vocab currently (June 2024) contains terms such as the following (not the complete vocabulary):
 
+[cols="2,3,3,5"]
 |===
 | IRI | Preferred Label | Definition | Scope Note
 
-| `apt:geographicalNameObject` | geographical name object | A reference to a geographical name object |
-| `apt:propertyName` | propertyName | A name for a property |
-| `apt:buildingName` | building name | Name of a building |
-| `apt:subaddressType` | sub-address type |  | Replaces GNAF's flatTypeCode
-| `apt:subaddressNumber` | sub-address number |  | Replaces GNAF's flatNumber
+| `apt:geographicalObject` | geographical name object | A reference to a geographical object | This replaces several ISO19160-1 & GNAF values as this reference can be used to any category of Geographical Object with the name for the object used within the address this part is part of. Geographical Object categories are assgned to the Geographical Object, not any part of this address part or the address it is part of.
+| `apt:subaddressType` | sub-address type | The type of the sub-address part | Replaces GNAF's flatTypeCode
+| `apt:subaddressNumber` | sub-address number | The number of the sub-address part | Replaces GNAF's flatNumber
+| `apt:subaddressNumberPrefix` | sub-address number prefix |  | Replaces GNAF's flatNumberPrefix
 | `apt:subaddressNumberSuffix` | sub-address number suffix |  | Replaces GNAF's flatNumberSuffix
-| `apt:buildingLevelType` | building level type |  | Replaces GNAF's levelTypeCode
-| `apt:buildingLevelNumber` | building level number |  | Replaces GNAF's levelNumber
-| `apt:buildingLevelNumberSuffix` | building level number suffix |  | Replaces GNAF's levelNumberSuffix
-| `apt:streetNumberFirst` | street number first |  | Replaces GNAF's numberFirst
-| `apt:streetNumberFirstSuffix` | street number first suffix |  | Replaces GNAF's numberFirstSuffix
-| `apt:streetNumberLast` | street number last |  | Replaces GNAF's numberLast
-| `apt:streetNumberLastSuffix` | street number last suffix |  | Replaces GNAF's numberLastSuffix
-| `apt:street` | street | A reference to a Road object | This replaces streetLocality, streetType in GNAF
-| `apt:waterFeatureNumber` | water feature number | A number given, based on a water feature numbering system |
-| `apt:waterFeatureName` | water feature name | A name given to the water feature |
-| `apt:waterFeatureType` | water feature type | A type for the water feature | From a vocabulary: this part is not expected to be printed
-| `apt:locality` | locality | A reference to a Locality object |
-| `apt:stateOrTerritory` | stateOrTerritory | A reference to a state or territory object |
-| `apt:indigenousCountryName` | indigenous country name | The name of an Indigenous country | Could use the above, if the implementing geographical names data includes indigenous country names
-|`apt:postcode` | postcode | Code used for the sorting of mail |
-| `apt:country` | country | A reference to a country object |
+| ... | ... | ... | ...
+| `apt:locality` | locality | A reference to a Locality object | Replaces ISO19160-1's localityName
+| `apt:waterFeature` | water feature | A reference to a Water Feature object | New in this model
+| ... | ... | ... | ...
 |===
 
 ==== Address Lifecycle Stage Types

@@ -24,14 +24,14 @@ The "print out" format is as above where the Address parts, as per Queensland's 
 
 | Unit | "4B"
 | StreetNumber | "72"
-| Road | reference to the Yundah Street road object
+| Street | reference to the Yundah Street, street object
 | Locality | reference to the Shorncliffe locality object
 | StateOrTerritory | reference to the Queensland state object
 | Postcode | "4017"
 | Country | reference to the Australia state object
 |===
 
-Using Feature Naming recursive logic - generating names for the Road, Locality, State & Country objects elsewhere, the address model sees the following:
+Using Feature Naming recursive logic - generating names for the Street, Locality, State & Country objects elsewhere, the address model sees the following:
 
 [width="50%", cols="1,3"]
 |===
@@ -39,7 +39,7 @@ Using Feature Naming recursive logic - generating names for the Road, Locality, 
 
 | Unit | "4B"
 | StreetNumber | "72"
-| Road | "Yundah Street"
+| Street | "Yundah Street"
 | Locality | "Shorncliffe"
 | StateOrTerritory | "Queensland"
 | Postcode | "4017"
@@ -50,7 +50,7 @@ Thus, an informal template for the example address, given these values could be:
 
 ----
 Unit {Unit}
-{StreetNumber} {Road}
+{StreetNumber} {Street}
 {Locality}, {StateOrTerritory}
 {Postcode} {Country}
 ----
@@ -89,8 +89,8 @@ level_number = extended_numbers | extended_numbers ;
 level = "Level" space level_number
 unit_number = extended_numbers
 unit = "Unit" space unit_number
-road_number = extended_numbers
-road_name = extended_letters
+street_number = extended_numbers
+street_name = extended_letters
 locality = extended_letters
 state_or_territory = extended_letters
 country = extended_letters
@@ -100,7 +100,7 @@ suffix_spaced = space, suffix
 
 address = [building_name NEWLINE]
           [property_name NEWLINE]
-          [level space] [unit comma space] [road_number space] road_name NEWLINE
+          [level space] [unit comma space] [street_number space] street_name NEWLINE
           locality, space state_or_territory NEWLINE
           postcode space country
 ----
@@ -114,8 +114,8 @@ Part value for the example above, using these EBNF tokens are:
 | `property_name` | -
 | `level` | -
 | `unit` | "Unit 4B"
-| `road_number` | "72"
-| `road_name` | "Yundah Street"
+| `street_number` | "72"
+| `street_name` | "Yundah Street"
 | `locality` | "Shorncliffe"
 | `state_or_territory` | "Queensland"
 | `postcode` | "4017"
@@ -134,7 +134,7 @@ Shorncliffe, Queensland
 
 This Short Form Template is an example of an alternative template to the Basic Template above.
 
-This template uses most of the same layout logic as the Basic Template but it replaces `NEWLINE` between `building_name` & `property_name` with `space` and makes the followin contractions:
+This template uses most of the same layout logic as the Basic Template but it replaces `NEWLINE` between `building_name` & `property_name` with `space` and makes the following contractions:
 
 * "Level X" -> Lv X
 * "Unit X," -> "X/"
@@ -155,7 +155,7 @@ It contracts Countries as follows:
 * "Australia" -> "Aust."
 * "New Zealand" -> "NZ"
 
-This template will also see out short form templates implemented for referenced objects, such as Roads so for the example above, using the Roads Model's short form templatefootnote:[https://linked.data.gov.au/def/roads#_short_form_template], the road name "Yundah Street" will be contracted to "Yundah St".
+This template will also see out short form templates implemented for referenced objects, such as Roads so for the example above, using the Roads Model's short form templatefootnote:[https://linked.data.gov.au/def/roads#_short_form_template], the street name "Yundah Street" will be contracted to "Yundah St".
 
 Given these changes, the example above would print out like this:
 

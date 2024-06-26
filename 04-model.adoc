@@ -57,7 +57,7 @@ PREFIX sdo: <https://schema.org/>
         rdf:value 20
     ] ,
     [
-        sdo:additionalType apt:road ;
+        sdo:additionalType apt:street ;
         rdf:value <https://linked.data.gov.au/dataset/qldaddr/streetLocality/QLD140492> ; # "Oxford Place"
     ] ,
     [
@@ -180,7 +180,7 @@ ex:addr-1
 | Preferred Label | Compound Name
 | Definition | A Compound Name is a literal value, or objects that can be interpreted as literal values, that describe or name a Feature
 | Is Defined By | <<CNM>>
-| Scope Note | The basis for the Road Name class. This class is also used for instances of Road Name parts
+| Scope Note | The basis for the Address class. This class is also used for instances of Address Part parts
 |===
 
 [[LifecycleStage]]
@@ -194,7 +194,7 @@ ex:addr-1
 | Preferred Label | Compound Name
 | Definition | A Compound Name is a literal value, or objects that can be interpreted as literal values, that describe or name a Feature
 | Is Defined By | <<LM>>
-| Scope Note | Used to indicate the lifecycle stage of any Roads Model part. Different stage types may be necessary for different class instances such as Road Name and Road Object and may be sourced from different vocabularies
+| Scope Note | Used to indicate the lifecycle stage of any Address model part. Different stage types may be necessary for different class instances such as Road Name and Road Object and may be sourced from different vocabularies
 |===
 
 [[Feature]]
@@ -208,7 +208,7 @@ ex:addr-1
 | Preferred Label | Feature
 | Definition | A discrete spatial phenomenon in a universe of discourse
 | Is Defined By | <<GEO>>
-| Scope Note | Used as the basis for the Road Object class
+| Scope Note | Used as the basis for the Addressable Object class
 |===
 
 [[Geometry]]
@@ -344,7 +344,7 @@ PREFIX sdo: <https://schema.org/>
 PREFIX time: <http://www.w3.org/2006/time#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-ex:road-name-x
+ex:street-name-x
   a addr:Address ;
   lm:hasLifeCycleStage [
     # this Stage has ceased
@@ -387,7 +387,7 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX sdo: <https://schema.org/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-ex:road-name-x
+ex:street-name-x
     a addr:Address ;
     sdo:hasPart [
         rdf:value 4017 ;
@@ -412,7 +412,7 @@ ex:road-name-x
 | Preferred Label | additionalType
 | Definition | An additional type for the item, typically used for adding more specific types from external vocabularies
 | Is Defined By | <<SDO>>
-| Scope Note | Used to indicate a subtype for Road Name and Road Object instances
+| Scope Note | Used to indicate a subtype for Address Part and Addressable Object instances
 |===
 
 [[hasPart]]
@@ -426,7 +426,7 @@ ex:road-name-x
 | Preferred Label | has part
 | Definition | Indicates a part of a whole
 | Is Defined By | <<SDO>>
-| Scope Note | Used to indicate the parts of a Road Name or of a Road Object
+| Scope Note | Used to indicate the parts of a Address
 |===
 
 [[hasGeometry]]
@@ -442,5 +442,5 @@ ex:road-name-x
 | Is Defined By | <<GEO>>
 | Domain | <<Feature>>
 | Range | <<Geometry>>
-| Scope Note | Used to indicate the Geometry of a Feature, such as a Road Object
+| Scope Note | Used to indicate the Geometry of a Feature, such as an Addressable Object
 |===
