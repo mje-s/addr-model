@@ -1,6 +1,6 @@
 = Spatial Information Queensland - Address Model
 
-A Semantic Web data model of address information that caters specifically for Australian & New Zealand's address modelling needs.
+The national for address information for Australian & New Zealand, realised in Semantic Web form.
 
 This model's specification document is auto-built from the source file `00-master.adoc` and is viewable online at the following persistent web address:
 
@@ -40,5 +40,6 @@ https://qldspatial.information.qld.gov.au/
 For technical model implementation questions, contact:
 
 *Nicholas Car* +
+https://kurrawong.ai[KurrawongAI] +
 nick@kurrawong.ai +
 _Contractor to Spatial Information Qld._
