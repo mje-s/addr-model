@@ -8,7 +8,7 @@
 
 [[GEO]] GEO:: Open Geospatial Consortium, _OGC GeoSPARQL - A Geographic Query Language for RDF Data, Version 1.1_ (2021). OGC Implementation Specification. http://www.opengis.net/doc/IS/geosparql/1.1
 
-[[GNAF]] [GNAF]:: Geoscape Australia. _Geocoded National Address File, G-NAF_ (2023). https://data.gov.au/dataset/ds-dga-19432f89-dc3a-4ef3-b943-5326ef1dbecc
+[[GNAF]] GNAF:: Geoscape Australia. _Geocoded National Address File, G-NAF_ (2023). https://data.gov.au/dataset/ds-dga-19432f89-dc3a-4ef3-b943-5326ef1dbecc
 
 [[GN]] GN:: Queensland Spatial Information. _Geographical Names Model_ (2023). https://linked.data.gov.au/def/gn
 
