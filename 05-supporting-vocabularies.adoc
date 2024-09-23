@@ -47,7 +47,7 @@ This vocab currently (June 2024) contains terms such as the following (not the c
 |===
 | IRI | Preferred Label | Definition | Scope Note
 
-| `apt:geographicalObject` | geographical name object | A reference to a geographical object | This replaces several ISO19160-1 & GNAF values as this reference can be used to any category of Geographical Object with the name for the object used within the address this part is part of. Geographical Object categories are assgned to the Geographical Object, not any part of this address part or the address it is part of.
+| `apt:geographicalObject` | geographical name object | A reference to a geographical object | This replaces several ISO19160-1 & GNAF values as this reference can be used to any category of Geographical Object with the name for the object used within the address this part is part of. Geographical Object categories are assigned to the Geographical Object, not any part of this address part or the address it is part of.
 | `apt:subaddressType` | sub-address type | The type of the sub-address part | Replaces GNAF's flatTypeCode
 | `apt:subaddressNumber` | sub-address number | The number of the sub-address part | Replaces GNAF's flatNumber
 | `apt:subaddressNumberPrefix` | sub-address number prefix |  | Replaces GNAF's flatNumberPrefix
