@@ -24,7 +24,7 @@ The vocabulary is located online at:
 
 * *https://linked.data.gov.au/def/addr-part-types*
 
-The original 8 concepts from ISO19160-1 are:
+The original 8 concepts from <<ISO19160-1, ISO19160-1>> are:
 
 |===
 | IRI | Preferred Label | Definition | Deprecation note
