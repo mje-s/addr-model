@@ -38,7 +38,7 @@
 
 [[ROADS]] ROADS:: Queensland Spatial Information. _Roads Model_ (2023). https://linked.data.gov.au/def/roads
 
-[[SDO]] SDO:: W3C Schema.org Community Group, _schema.org_. Community ontology (2015). https://schema.org
+[[SDO]] schema:: W3C Schema.org Community Group, _schema.org_. Community ontology (2015). https://schema.org
 
 [[SHACL]] SHACL:: World Wide Web Consortium, _Shapes Constraint Language (SHACL)_, W3C Recommendation (20 July 2017). https://www.w3.org/TR/shacl/
 

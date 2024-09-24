@@ -49,38 +49,38 @@ PREFIX ex-parcel: <http://example.com/parcel/>
 PREFIX geo: <http://www.opengis.net/ont/geosparql#>
 PREFIX ls: <https://linked.data.gov.au/def/lifecycle/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX sdo: <https://schema.org/>
+PREFIX schema: <https://schema.org/>
 
 <http://example.com/oxford>
     a addr:Address ;
-    sdo:hasPart [
-        sdo:additionalType apt:numberFirst ;
+    schema:hasPart [
+        schema:additionalType apt:numberFirst ;
         schema:value 20
     ] ,
     [
-        sdo:additionalType apt:street ;
+        schema:additionalType apt:street ;
         schema:value <https://linked.data.gov.au/dataset/qldaddr/streetLocality/QLD140492> ; # "Oxford Place"
     ] ,
     [
-        sdo:additionalType apt:locality ;
+        schema:additionalType apt:locality ;
         schema:value <https://linked.data.gov.au/dataset/qldaddr/locality/loc38f189794e03> ;  # "Shorncliffe"
     ] ,
     [
-        sdo:additionalType apt:administrativeArea ;
+        schema:additionalType apt:administrativeArea ;
         schema:value <https://linked.data.gov.au/dataset/asgsed3/STE/3> ; # "Queensland"
     ] ,
     [
-        sdo:additionalType apt:postcode ;
+        schema:additionalType apt:postcode ;
         schema:value 4017
     ] ;
     addr:hasGeocode [
         a addr:Geocode ;
-        sdo:roleName <https://linked.data.gov.au/def/geocode-types/property-centroid> ;
+        schema:roleName <https://linked.data.gov.au/def/geocode-types/property-centroid> ;
         geo:asWKT "POINT(153.0846 -27.3270)"^^geo:wktLiteral ;
     ] ;
     cn:isNameFor ex-parcel:161162441 ;
     ls:hasLifecycleStage [
-        sdo:additionalType ex:Unofficial ;
+        schema:additionalType ex:Unofficial ;
     ] ;
 .
 ----
@@ -109,7 +109,7 @@ a| [source,turtle]
 PREFIX addr: <https://linked.data.gov.au/def/addr/>
 PREFIX cn: <https://linked.data.gov.au/def/cn/>
 PREFIX ex: <http://example.com/>
-PREFIX sdo: <https://schema.org/>
+PREFIX schema: <https://schema.org/>
 
 ex:oxford
     a addr:Address ;
@@ -122,7 +122,7 @@ ex:cadastral-parcel-x
 
 # inferred
 ex:cadastral-parcel-x
-    sdo:name ex:oxford ;
+    schema:name ex:oxford ;
 .
 ----
 |===
@@ -308,7 +308,7 @@ ex:addr-1
 
 | IRI | `cn:isNameFor`
 | Preferred Label | is name for
-| Definition | Inverse of `sdo:name`
+| Definition | Inverse of `schema:name`
 | Is Defined By | <<CNM>>
 | Domain | <<CompoundName>>
 | Range | <<Feature>>
@@ -320,7 +320,7 @@ PREFIX addr: <https://linked.data.gov.au/def/addr/>
 PREFIX cn: <https://linked.data.gov.au/def/cn/>
 PREFIX ex: <http://example.com/>
 PREFIX geo: <http://www.opengis.net/ont/geosparql#>
-PREFIX sdo: <https://schema.org/>
+PREFIX schema: <https://schema.org/>
 
 ex:address-x
     a addr:Address ;
@@ -329,7 +329,7 @@ ex:address-x
 
 ex:cadastral-object-y
     a addr:AddressableObject , geo:Feature ;
-    sdo:name ex:address-x ;
+    schema:name ex:address-x ;
 .
 ----
 |===
@@ -354,7 +354,7 @@ a| [source,turtle]
 PREFIX addr: <https://linked.data.gov.au/def/addr/>
 PREFIX ex: <http://example.com/>
 PREFIX lm: <https://linked.data.gov.au/def/lifecycle/>
-PREFIX sdo: <https://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX time: <http://www.w3.org/2006/time#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
@@ -366,14 +366,14 @@ ex:street-name-x
       time:hasBeginning [ time:inXSDDate "1982-02-10"^^xsd:date ] ;
       time:hasEnd [ time:inXSDDate "1982-05-11"^^xsd:date ] ;
     ] ;
-    sdo:additionalType lm:proposed ;
+    schema:additionalType lm:proposed ;
   ] ,
   [
     # this Stage is still in effect - no hasEnd given
     time:hasTime [
       time:hasBeginning [ time:inXSDDate "1982-05-11"^^xsd:date ] ;
     ] ;
-    sdo:additionalType lm:current ;
+    schema:additionalType lm:current ;
   ] ;
 .
 ----
@@ -398,18 +398,18 @@ PREFIX addr: <https://linked.data.gov.au/def/addr/>
 PREFIX apt: <https://linked.data.gov.au/def/address-part-types/>
 PREFIX ex: <http://example.com/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX sdo: <https://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 ex:street-name-x
     a addr:Address ;
-    sdo:hasPart [
+    schema:hasPart [
         schema:value 4017 ;  # literal value
-        sdo:additionalType apt:postcode
+        schema:additionalType apt:postcode
     ] ,
     [
         schema:value ex:shorncliffe ;  # object value
-        sdo:additionalType apt:locality
+        schema:additionalType apt:locality
     ] ;
 .
 ----
@@ -422,7 +422,7 @@ ex:street-name-x
 |===
 | Property | Value
 
-| IRI | `sdo:additionalType`
+| IRI | `schema:additionalType`
 | Preferred Label | additionalType
 | Definition | An additional type for the item, typically used for adding more specific types from external vocabularies
 | Is Defined By | <<SDO>>
@@ -436,7 +436,7 @@ ex:street-name-x
 |===
 | Property | Value
 
-| IRI | `sdo:hasPart`
+| IRI | `schema:hasPart`
 | Preferred Label | has part
 | Definition | Indicates a part of a whole
 | Is Defined By | <<SDO>>
@@ -450,7 +450,7 @@ ex:street-name-x
 |===
 | Property | Value
 
-| IRI | `sdo:roleName`
+| IRI | `schema:roleName`
 | Preferred Label | role name
 | Definition | A role played, performed or filled by a person or organization
 | Is Defined By | <<SDO>>
