@@ -1,6 +1,5 @@
 == Model
 
-
 This model is composed of Web Ontology Language (OWL) <<OWL>> Classes and Properties. While some of the properties are restricted in their use to various classes, the Classes and Properties are actually defined individually and both are "first class model citizens", with global identity, that can be used in isolation as well as together. This is in contrast to Unified Modelling Language (UML) _Class Diagrams_ which treat most Properties as element of particular Classes.
 
 This model defines only three Classes and no Properties but reuses many Classes and Properties from other models. Where it does, basic details of, a reference to that Class or Properties' definition via `rdfs:isDefinedBy`, and a scope note about using it in this model are given.
@@ -74,7 +73,7 @@ PREFIX sdo: <https://schema.org/>
     ] ;
     addr:hasGeocode [
         geo:hasGeometry [
-            sdo:additionalType <https://linked.data.gov.au/def/geocode-types/property-centroid> ;
+            sdo:roleName <https://linked.data.gov.au/def/geocode-types/property-centroid> ;
             geo:hasGeometry ex-geom:x ;
         ] ;
     ] ;
@@ -140,8 +139,8 @@ ex:cadastral-parcel-x
 | Is Defined By | This model
 | Subclass Of | <<Feature>>
 | Provenance | Derived from the G-NAF's expression of Address position
-| Scope note | Indicating a Geocode for an Address with the property hasGeocode is a direct method of locating the Address. Addresses either may also be located by reference to an Addressable Object which may a Geometry. This model does not indicate any Geocode / Addressable Object geometry relations although they may exist
-| Expected Properties | <<additionalType>> - use to indicate a Geocode Type, as per the <<Geocode Type>>
+| Scope note | Indicating a Geocode for an Address with the property hasGeocode is a direct method of locating the Address. Addresses either may also be located by reference to an Addressable Object which may a Geometry. This model does not indicate any Geocode / Addressable Object geometry relations, although they may exist
+| Expected Properties | <<roleName>> - use to indicate the role that a Geocode plays in relation to an Address
 
 `geo:hasGeometry` - to indicate the position of the Geocode. A GeoSPARQL `Geometry`.
 | Example
@@ -253,7 +252,6 @@ ex:addr-1
 | Scope Note | Used to indicate any kind of RDF value - a literal, IRI or Blank Node
 |===
 
-
 [[Properties]]
 === Properties
 
@@ -283,6 +281,7 @@ ex:addr-1
 * <<value>>
 * <<additionalType>>
 * <<hasPart>>
+* <<roleName>>
 * <<hasGeometry>>
 
 [[isNameFor]]
@@ -427,6 +426,20 @@ ex:street-name-x
 | Definition | Indicates a part of a whole
 | Is Defined By | <<SDO>>
 | Scope Note | Used to indicate the parts of a Address
+|===
+
+[[roleName]]
+==== roleName
+
+[cols="2,6"]
+|===
+| Property | Value
+
+| IRI | `sdo:roleName`
+| Preferred Label | role name
+| Definition | A role played, performed or filled by a person or organization
+| Is Defined By | <<SDO>>
+| Scope Note | Used to indicate the role that a Geocode place in relation to an Address
 |===
 
 [[hasGeometry]]
