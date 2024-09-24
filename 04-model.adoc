@@ -1,6 +1,6 @@
 == Model
 
-This model is composed of Web Ontology Language (OWL) <<OWL>> Classes and Properties. While some of the properties are restricted in their use to various classes, the Classes and Properties are actually defined individually and both are "first class model citizens", with global identity, that can be used in isolation as well as together. This is in contrast to Unified Modelling Language (UML) _Class Diagrams_ which treat most Properties as element of particular Classes.
+This model is composed of Web Ontology Language (OWL) <<OWL>> Classes and Properties. While some of the properties are restricted in their use to various classes, the Classes and Properties are actually defined individually and both are "first class model citizens", with global identity, that can be used in isolation and together. This is in contrast to Unified Modelling Language (UML) _Class Diagrams_ which treat most Properties as element of particular Classes.
 
 This model defines only three Classes and no Properties but reuses many Classes and Properties from other models. Where it does, basic details of, a reference to that Class or Properties' definition via `rdfs:isDefinedBy`, and a scope note about using it in this model are given.
 
@@ -53,23 +53,23 @@ PREFIX sdo: <https://schema.org/>
     a addr:Address ;
     sdo:hasPart [
         sdo:additionalType apt:numberFirst ;
-        rdf:value 20
+        schema:value 20
     ] ,
     [
         sdo:additionalType apt:street ;
-        rdf:value <https://linked.data.gov.au/dataset/qldaddr/streetLocality/QLD140492> ; # "Oxford Place"
+        schema:value <https://linked.data.gov.au/dataset/qldaddr/streetLocality/QLD140492> ; # "Oxford Place"
     ] ,
     [
         sdo:additionalType apt:locality ;
-        rdf:value <https://linked.data.gov.au/dataset/qldaddr/locality/loc38f189794e03> ;  # "Shorncliffe"
+        schema:value <https://linked.data.gov.au/dataset/qldaddr/locality/loc38f189794e03> ;  # "Shorncliffe"
     ] ,
     [
         sdo:additionalType apt:administrativeArea ;
-        rdf:value <https://linked.data.gov.au/dataset/asgsed3/STE/3> ; # "Queensland"
+        schema:value <https://linked.data.gov.au/dataset/asgsed3/STE/3> ; # "Queensland"
     ] ,
     [
         sdo:additionalType apt:postcode ;
-        rdf:value 4017
+        schema:value 4017
     ] ;
     addr:hasGeocode [
         geo:hasGeometry [
@@ -387,10 +387,10 @@ ex:street-name-x
 |===
 | Property | Value
 
-| IRI | `rdf:value`
+| IRI | `schema:value`
 | Preferred Label | value
-| Definition | Idiomatic property used for structured values
-| Is Defined By | <<RDF>>
+| Definition | The value of a node
+| Is Defined By | <<SDO>>
 | Scope Note | Used to indicate literal or object values for <<CompoundName>> objects
 | Example
 a| [source,turtle]
@@ -405,11 +405,11 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 ex:street-name-x
     a addr:Address ;
     sdo:hasPart [
-        rdf:value 4017 ;
+        schema:value 4017 ;  # literal value
         sdo:additionalType apt:postcode
     ] ,
     [
-        rdf:value ex:shorncliffe ;
+        schema:value ex:shorncliffe ;  # object value
         sdo:additionalType apt:locality
     ] ;
 .

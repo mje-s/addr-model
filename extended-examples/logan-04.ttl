@@ -71,7 +71,7 @@ a:GAQLD159419153
         [
             # 609-667 CHAMBERS FLAT RD CHAMBERS FLAT
             dcterms:type <https://linked.data.gov.au/dataset/gnaf/code/addressAliasType/SYN> ;
-            rdf:value a:GAQLD720735932 ;
+            schema:value a:GAQLD720735932 ;
         ] ;
     addr:hasSecondary a:GAQLD720868711 ;
 .
@@ -90,6 +90,6 @@ a:GAQLD720735932
         [
             # 2-40 Ingenia Lifestyle Chambers Pines, Koplick Road Chambers Flat
             dcterms:type <https://linked.data.gov.au/dataset/gnaf/code/addressAliasType/SYN> ;
-            rdf:value a:GAQLD159419153 ;
+            schema:value a:GAQLD159419153 ;
         ] ;
 .
