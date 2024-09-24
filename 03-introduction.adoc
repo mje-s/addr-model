@@ -96,11 +96,11 @@ While this model doesn't model spatial aspects of the object to which addresses 
 
 ==== Geocodes
 
-Geocodes are spatial objects - Features - with point geometries that addresses may be associated with so that they can be used by mapping applications to locate the address, or part of an addressable object, on a map or on the earth.
+Geocodes are spatial objects - Geometries - with point coordinates that addresses may be associated with so that they can be used by mapping applications to locate the address, or part of an addressable object, on a map or on the earth. Geocodes always have both their position - a point location - and a role - what they mean - in relation to the Address they are associated with.
 
-Geocodes may be only indirectly related to an Addressable Object: while they may be calculated from them, for example they could be the centroid of a lot, they may also not be, for example they could be a GPS-marked point indicating a property entrance point that is on or close to the Addressable Object but has been determined independently of its details.
+Geocodes may be only indirectly related to an Addressable Object: while they may be calculated from them by being their centroid, they may also be created independently, for example they could be a GPS-marked point indicating a property entrance point that is on, or close to, the Addressable Object but has been determined independently of it.
 
-For this reason, Geocodes are related to Addresses only in this model, not Addressable Objects, and any Geocode/Addressable Object relations are out-of-scope here.
+For this reason, Geocodes are related only to Addresses in this model, not Addressable Objects, and any Geocode/Addressable Object relations are out-of-scope here.
 
 
 ==== Address Parts

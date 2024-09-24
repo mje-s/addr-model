@@ -135,12 +135,12 @@ ex:cadastral-parcel-x
 
 | IRI | `addr:Geocode`
 | Preferred Label | Geocode
-| Definition | A point Feature used to position other Features and to which additional typing or roles may be assigned
+| Definition | A point qualified Geometry used to locate a Features and with a role
 | Is Defined By | This model
-| Subclass Of | <<Feature>>
+| Subclass Of | <<Geometry>>
 | Provenance | Derived from the G-NAF's expression of Address position
-| Scope note | Indicating a Geocode for an Address with the property hasGeocode is a direct method of locating the Address. Addresses either may also be located by reference to an Addressable Object which may a Geometry. This model does not indicate any Geocode / Addressable Object geometry relations, although they may exist
-| Expected Properties | <<roleName>> - use to indicate the role that a Geocode plays in relation to an Address
+| Scope note | Indicating a Geocode for an Address with the property hasGeocode is a direct method of locating the Address. Addresses may also be located by reference to an Addressable Object. This model does not indicate any Geocode / Addressable Object geometry relations, although they may exist
+| Expected Properties | <<roleName>> - use to indicate the role that a Geocode plays in relation to an Address, <<hasSerialization, hasSerialization>> - use to indicate the position information of the Geocode
 
 `geo:hasGeometry` - to indicate the position of the Geocode. A GeoSPARQL `Geometry`.
 | Example
@@ -167,6 +167,7 @@ ex:addr-1
 * <<Geometry>>
 * <<Concept>>
 * <<Resource>>
+* <<Literal>>
 
 [[CompoundName]]
 ==== Compound Name
@@ -252,6 +253,20 @@ ex:addr-1
 | Scope Note | Used to indicate any kind of RDF value - a literal, IRI or Blank Node
 |===
 
+[[Literal]]
+==== Literal
+
+[cols="2,6"]
+|===
+| Property | Value
+
+| IRI | `rdfs:Literal`
+| Preferred Label | Literal
+| Definition | The class of literal values, eg. textual strings and integers
+| Is Defined By | <<RDFS>>
+| Scope Note | Used to indicate any kind of literal value. Note that specialised subclasses of Literal exist, such as `wktLiteral` which indicates Well-Known Text (see <<ISO19125-1>>) representations of a Geometry's coordinates
+|===
+
 [[Properties]]
 === Properties
 
@@ -283,6 +298,7 @@ ex:addr-1
 * <<hasPart>>
 * <<roleName>>
 * <<hasGeometry>>
+* <<hasSerialization>>
 
 [[isNameFor]]
 ==== is name for
@@ -457,3 +473,21 @@ ex:street-name-x
 | Range | <<Geometry>>
 | Scope Note | Used to indicate the Geometry of a Feature, such as an Addressable Object
 |===
+
+[[hasSerialization]]
+==== hasSerialization
+
+[cols="2,6"]
+|===
+| Property | Value
+
+| IRI | `geo:hasSerialization`
+| Preferred Label | has serialization
+| Definition | Connects a Geometry object with its text-based serialization
+| Is Defined By | <<GEO>>
+| Domain | <<Geometry>>
+| Range | <<Literal>>
+| Scope Note | Do not use this predicate directly, instead use one of the <<GEO, GeoSPARQL>> specialised sub-properties, such as `geo:asWKT` or `gro:asGeoJSON` to indicate Well-Known Text (see <<ISO19125-1>>) or <<GEOJSON, GeoJSON>> literal values.
+|===
+
+https://docs.ogc.org/is/22-047r1/22-047r1.html#_property_geohasserialization
