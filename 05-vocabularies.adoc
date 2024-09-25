@@ -1,10 +1,29 @@
-== Supporting Vocabularies
+== Vocabularies
 
-This model uses many vocabularies to give specialised types and roles to classes. This section previews some vocabularies that may be used and links to some others.
+This model requires the use of vocabularies to provide values for some predicates. Values from a Geocode role type vocabulary must be used to provide value for a Geocode's <<additionalType>> predicate indicating the role that a Geocode plays, and similarly, values from a lifecycle stages vocabulary must be used to provide values for a Lifecycle Stage's <<additionalType>> predicate, indicating specialised lifecycle stage type. <<additionalType>> is frequently use to provide specialised typing for instances of classes.
 
-This section is not to be taken as normative: these are example vocabularies and, even then, only part of them, to assist with model use.
+[NOTE]
+See the example for <<Address>> where vocabulary concepts are used for both Geocode's and Lifecycle Stage's <<additionalType>> predicates.
 
-When implementing this model, it is within the remit of implementation-specific validators to mandate certain vocabularies and perhaps subsets fo concepts within those vocabularies, for use.
+Wherever in the model the range value for a predicate is given as a `skos:Concept`, this indicates that a vocabulary must be used as opposed to literal (text, numerical) values. `skos:Concept` objects are presented within `skos:ConceptScheme` resources, which are controlled vocabularies.
+
+Particular vocabularies _MUST_ be used within certain contexts of use of this model. The following subsections per known use context indicate which particular vocabularies must be used, where.
+
+=== ICSM Australia & New Zealand Address Data Exchange
+
+When address information formulated according to this model is exchanged within Australia & New Zealand according to the https://www.icsm.gov.au[Intergovernmental Committee on Surveying & Mapping]'s rules, the following predicates _MUST_ have range values selected from the indicated vocabularies.
+
+
+|===
+| Model | Class | Predicate | Vocabulary
+
+| Address Model | <<Address>> | <<hasPart>>/<<additionalType>> | https://linked.data.gov.au/def/geocode-types[ICSM's Address Part Types]
+| Address Model | <<Geocode>> | <<additionalType>> | https://linked.data.gov.au/def/geocode-types[ICSM's Geocode Roles]
+
+| Lifecycle Model | Lifecycle Stage | <<additionalType>> | https://linked.data.gov.au/def/lifecycle-stage-types[ICSM's Lifecycle Stage Types]
+|===
+
+//// get the remainder from Anne's documents
 
 === Vocabularies previewed here
 
@@ -108,11 +127,3 @@ The Persistent web identifier for this vocabulary is:
 | `gt:service-meter` | Service Meter | The utility meter (e.g. box, or underground chamber)
 | `gt:unit-centroid` | Unit Centroid | Point at centre of unit and lying within its bounds (e.g. for u-shaped unit)
 |===
-
-=== Links to other vocabularies
-
-Multiple vocabularies derived from existing standards' codelists and databases' lookup table have been created for use with this model and proposed for adoption in vocabulary form to the Intergovernmental Committee on Surveying & Mapping (ICSM). Those vocabularies, such as _Address Status Type_, _Level Types_ etc. can be seen online at:
-
-* https://gsq-prez.dev.kurrawong.ai/v#qsi-vocabs[QSI's development vocab server]
-
-See all the vocabularies with Theme: Geocoded Addressing

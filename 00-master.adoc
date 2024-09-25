@@ -24,7 +24,7 @@ include::03-introduction.adoc[]
 
 include::04-model.adoc[]
 
-include::05-supporting-vocabularies.adoc[]
+include::05-vocabularies.adoc[]
 
 :sectnums!:
 
