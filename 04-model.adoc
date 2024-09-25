@@ -75,7 +75,7 @@ PREFIX schema: <https://schema.org/>
     ] ;
     addr:hasGeocode [
         a addr:Geocode ;
-        schema:roleName <https://linked.data.gov.au/def/geocode-types/property-centroid> ;
+        schema:additionalType <https://linked.data.gov.au/def/geocode-types/property-centroid> ;
         geo:asWKT "POINT(153.0846 -27.3270)"^^geo:wktLiteral ;
     ] ;
     cn:isNameFor ex-parcel:161162441 ;
@@ -141,7 +141,7 @@ ex:cadastral-parcel-x
 | Subclass Of | <<Geometry>>
 | Provenance | Derived from the G-NAF's expression of Address position
 | Scope note | Indicating a Geocode for an Address is a direct method of positioning the Address on the earth. Addresses may also be located by reference to an Addressable Object whc=ich is an indirect method. This model does not indicate any Geocode / Addressable Object geometry relations, although they may exist
-| Expected Properties | <<roleName>> - use to indicate the role that a Geocode plays in relation to an Address, <<hasSerialization, hasSerialization>> - use to indicate the position information of the Geocode
+| Expected Properties | <<additionalType>> - use to indicate the specialised type of a Geocode, <<hasSerialization, hasSerialization>> - use to indicate the position information of the Geocode
 
 `geo:hasGeometry` - to indicate the position of the Geocode. A GeoSPARQL `Geometry`.
 | Example
@@ -151,7 +151,7 @@ a| [source,turtle]
 ex:addr-1
   a addr:Address ;
   addr:hasGeocode [
-    schema:roleName addr:buildingAccessPoint ;
+    schema:additionalType addr:buildingAccessPoint ;
     geo:asWKT "POINT (152.01 -35.03)"^^geo:wktLiteral ;  # specialised form of hasSerialization
   ] ;
   ...
@@ -295,7 +295,6 @@ ex:addr-1
 * <<value>>
 * <<additionalType>>
 * <<hasPart>>
-* <<roleName>>
 * <<hasGeometry>>
 * <<hasSerialization>>
 
@@ -441,20 +440,6 @@ ex:street-name-x
 | Definition | Indicates a part of a whole
 | Is Defined By | <<SDO>>
 | Scope Note | Used to indicate the parts of a Address
-|===
-
-[[roleName]]
-==== roleName
-
-[cols="2,6"]
-|===
-| Property | Value
-
-| IRI | `schema:roleName`
-| Preferred Label | role name
-| Definition | A role played, performed or filled by a person or organization
-| Is Defined By | <<SDO>>
-| Scope Note | Used to indicate the role that a Geocode place in relation to an Address
 |===
 
 [[hasGeometry]]
