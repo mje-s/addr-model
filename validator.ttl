@@ -1,0 +1,76 @@
+PREFIX : <https://linked.data.gov.au/def/addr/validator/>
+PREFIX addr: <https://linked.data.gov.au/def/addr/>
+PREFIX cn: <https://linked.data.gov.au/def/cn/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX sdo: <https://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+<https://linked.data.gov.au/def/addr/validator>
+    a owl:Ontology ;
+    skos:historyNote "This model validator was made for the Queensland Department of Resources, Spatial Information unit to assist with future Address database design."@en ;
+    owl:versionIRI addr:1.0.0 ;
+    owl:versionInfo "1.0.0" ;
+    skos:definition "This validator is a Shapes Constraint Language (SHACL) resource that can be used to check the conformance of RDF data to the Address Model (<https://linked.data.gov.au/def/addr>). It only check for 3 things which are described in individual shapes within this validator"@en ;
+    skos:prefLabel "Address Model Validator"@en ;
+    sdo:codeRepository "https://github.com/Spatial-Information-QLD/address-model/"^^xsd:anyURI ;
+    sdo:copyrightHolder <https://linked.data.gov.au/org/qsi> ;
+    sdo:copyrightNotice "(c) The State of Queensland (Department of Resources) 2020-2023" ;
+    sdo:creator <https://orcid.org/0000-0002-8742-7730> ;
+    sdo:dateCreated "2021-12-16"^^xsd:date ;
+    sdo:dateIssued "2023-06-30"^^xsd:date ;
+    sdo:dateModified "2022-07-04"^^xsd:date ;
+    sdo:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
+    sdo:publisher <https://linked.data.gov.au/org/qsi> ;
+.
+
+<https://linked.data.gov.au/org/qsi>
+    a sdo:Organization ;
+    sdo:name "Spatial Information Queensland"@en ;
+    sdo:url "https://qldspatial.information.qld.gov.au"^^xsd:anyURI ;
+.
+
+<https://orcid.org/0000-0002-8742-7730>
+    a sdo:Person ;
+    sdo:email "nick@kurrawong.ai"^^xsd:anyURI ;
+    sdo:name "Nicholas J. Car"@en ;
+    sdo:memberOf <https://kurrawong.ai> ;
+.
+
+:addressable-object-present
+    a sh:NodeShape ;
+    sh:targetClass addr:Address ;
+    sh:property [
+        sh:path cn:isNameFor ;
+        sh:nodeKind sh:IRI ;
+        sh:maxCount 1;
+        sh:minCount 1;
+    ] ;
+    sh:message "Each Address must indicate an IRI with the property cn:isNameFor" ;
+.
+
+:geocode-present
+    a sh:NodeShape ;
+    sh:targetClass addr:Address ;
+    sh:property [
+        sh:path addr:hasGeocode ;
+        sh:class addr:Geocode ;
+        sh:minCount 1;
+    ] ;
+    sh:message "Each Address must indicate at least one Geocode with the property addr:hasGeocode" ;
+.
+
+:address-parts-1
+    a sh:NodeShape ;
+    sh:targetClass addr:Address ;
+    sh:property [
+        sh:path sdo:hasPart ;
+        sh:class cn:CompoundName ;
+        sh:minCount 1;
+    ] ;
+    sh:message "Each Address must have at least one part which must be Compound Names, indicated with sdo:hasPart" ;
+.
