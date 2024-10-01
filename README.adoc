@@ -41,9 +41,28 @@ All content here is available for reuse under the https://creativecommons.org/li
 
 Note that much of the content in this model is reused from other models that have their own copyright and ruse information but all implement permissive open source Apache or BSD or W3C licenses that are similar to Creative Commons licenses.
 
+== Contributing
+
+ICSM welcomes contributions to this open source standard. Anybody may contribute and ICSM will apply serious consideration to all proposals.
+
+The process for adoption and release of normative changes has not yet been established, but will likely be via voting within the ICSM Addressing Working Group.
+
+=== Raising Issues
+
+Optimally, please rais any issues with any part of the model by creating a ticket in this model's repository's issue tracker at:
+
+* https://github.com/icsm-au/address-model/issues
+
+If you are able to propose a specific issue fix or improvement, please consider raising a Pull Request, that is a version-controlled change request, at
+* https://github.com/icsm-au/address-model/pulls. If you would like help in doing this, please contact this model's technical supporter listed in the Contacts section below.
+
+If you are not able to lodge an Issue or raise a Pull Request, please describe your suggested issue/changes in an email to the model owner as listed in the Contacts section below. You can also raise issues within the Addressing Working Group.
+
 == Contacts
 
 For more information about this model, contact:
+
+Owner:
 
 *Chairperson of the Addressing Working Group* +
 via ICSM at ICSM@ga.gov.au
@@ -55,7 +74,7 @@ Department of Resources +
 Queensland Government +
 CadastralAdminDataHelp@resources.qld.gov.au
 
-For technical model implementation questions, contact:
+Technical supporter:
 
 *Nicholas Car* +
 https://kurrawong.ai[KurrawongAI] +
