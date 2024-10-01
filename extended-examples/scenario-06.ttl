@@ -18,7 +18,7 @@ PREFIX geo: <http://www.opengis.net/ont/geosparql#>
 PREFIX actiso: <http://def.isotc211.org/iso19160/-1/2015/Address/code/AddressComponentType/>
 PREFIX pn: <https://linked.data.gov.au/def/placenames/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX sdo: <https://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 # An address for a property called Girraween National Park
@@ -88,9 +88,9 @@ as:157942023
 .
 
 <https://linked.data.gov.au/org/qld>
-    a pn:PlaceNamingAuthority , sdo:Organization ;
-    sdo:name "Government of Queensland" ;
-    sdo:url "https://www.qld.gov.au"^^xsd:anyURI ;
+    a pn:PlaceNamingAuthority , schema:Organization ;
+    schema:name "Government of Queensland" ;
+    schema:url "https://www.qld.gov.au"^^xsd:anyURI ;
 .
 
 # Here the subplace of the Place is defined as another Place

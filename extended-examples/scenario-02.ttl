@@ -37,6 +37,6 @@ a:GAQLD156784285
     addr:hasAlias
         [
             dcterms:type aat:SYN ;
-            rdf:value a:GAQLD162885717  ;
+            schema:value a:GAQLD162885717  ;
         ] ;
 .

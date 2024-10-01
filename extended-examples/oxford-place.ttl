@@ -50,7 +50,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     addr:isAliasOf
         [
             dcterms:type <https://linked.data.gov.au/dataset/gnaf/code/addressAliasType/SYN> ;
-            rdf:value a:GAQLD161268186 ;
+            schema:value a:GAQLD161268186 ;
         ] ;
 .
 
@@ -95,6 +95,6 @@ a:GAQLD161268186
     addr:hasAlias
         [
             dcterms:type <https://linked.data.gov.au/dataset/gnaf/code/addressAliasType/SYN> ;
-            rdf:value <http://example.com/oxford> ;
+            schema:value <http://example.com/oxford> ;
         ] ;
 .

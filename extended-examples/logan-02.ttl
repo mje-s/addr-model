@@ -62,7 +62,7 @@ a:GAQLD162861329
     addr:hasAlias
         [
             dcterms:type <https://linked.data.gov.au/dataset/gnaf/code/addressAliasType/SYN> ;
-            rdf:value a:GAQLD720871566  ;
+            schema:value a:GAQLD720871566  ;
         ] ;
 .
 

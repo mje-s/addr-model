@@ -11,7 +11,7 @@
 @prefix pn: <https://linked.data.gov.au/def/placenames/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sdo: <https://schema.org/> .
+@prefix schema: <https://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:40augustus a addr:Address ;
@@ -90,7 +90,7 @@ a:GAQLD162861329 a addr:Address ;
             addr:hasValueText "Springlands Park" ;
             addr:hasValue "Springlands Park" ] ;
     addr:hasAlias [ dcterms:type aat:SYN ;
-            rdf:value a:GAQLD720871566 ] .
+            schema:value a:GAQLD720871566 ] .
 
 a:GAQLD163023823 a addr:Address ;
     addr:hasAddressComponent [ dcterms:type actiso:propertyName ;
@@ -200,7 +200,7 @@ ex:oxford a addr:Address ;
             geo:asWKT "POINT(153.08468369 -27.32703398)"^^geo:wktLiteral ] ;
     addr:isAddressFor as:161162441 ;
     addr:isAliasOf [ dcterms:type aat:SYN ;
-            rdf:value a:GAQLD161268186 ] .
+            schema:value a:GAQLD161268186 ] .
 
 <http://example.com/parcel/23456789> a cad:Parcel .
 
@@ -233,7 +233,7 @@ a:GAQLD155231408 a addr:Address ;
 
 a:GAQLD156784285 a addr:Address ;
     addr:hasAlias [ dcterms:type aat:SYN ;
-            rdf:value a:GAQLD162885717 ] .
+            schema:value a:GAQLD162885717 ] .
 
 a:GAQLD157309481 addr:hasAddressComponent [ dcterms:type actiso:propertyName ;
             addr:hasValueText "Waterford Heights" ;
@@ -293,7 +293,7 @@ a:GAQLD161268186 a addr:Address ;
             addr:hasValueText "18" ;
             addr:hasValue 18 ] ;
     addr:hasAlias [ dcterms:type aat:SYN ;
-            rdf:value ex:oxford ] ;
+            schema:value ex:oxford ] ;
     addr:hasGeocode [ dcterms:type geocodeType:PC ;
             geo:asWKT "POINT(153.08468369 -27.32703398)"^^geo:wktLiteral ] ;
     addr:isAddressFor as:161162441 .
@@ -343,7 +343,7 @@ a:GAQLD720181124 a addr:Address ;
 
 a:GAQLD720735932 a addr:Address ;
     addr:hasAlias [ dcterms:type aat:SYN ;
-            rdf:value a:GAQLD159419153 ] .
+            schema:value a:GAQLD159419153 ] .
 
 a:GAQLD720868711 a addr:Address ;
     addr:hasPrimary a:GAQLD159419153 .
@@ -365,7 +365,7 @@ a:GAQLD720871566 a addr:Address ;
 a:GAQLD159419153 a addr:Address ;
     addr:hasSecondary a:GAQLD720868711 ;
     addr:isAliasOf [ dcterms:type aat:SYN ;
-            rdf:value a:GAQLD720735932 ] .
+            schema:value a:GAQLD720735932 ] .
 
 a:GAQLD162885717 a addr:Address .
 
@@ -375,9 +375,9 @@ a:GAQLD163304422 a addr:Address ;
     addr:hasSecondary a:GAQLD719931625 .
 
 <https://linked.data.gov.au/org/qld> a pn:PlaceNamingAuthority,
-        sdo:Organization ;
-    sdo:name "Government of Queensland" ;
-    sdo:url "https://www.qld.gov.au"^^xsd:anyURI .
+        schema:Organization ;
+    schema:name "Government of Queensland" ;
+    schema:url "https://www.qld.gov.au"^^xsd:anyURI .
 
 ex:subplace-1 a pn:Place ;
     dcterms:isPartOf as:157942023 ;

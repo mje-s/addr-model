@@ -8,6 +8,8 @@
 
 [[GEO]] GEO:: Open Geospatial Consortium, _OGC GeoSPARQL - A Geographic Query Language for RDF Data, Version 1.1_ (2021). OGC Implementation Specification. http://www.opengis.net/doc/IS/geosparql/1.1
 
+[[GEOJSON]] GEOJSON:: Internet Engineering Task Force (IETF), _RFC7946: The GeoJSON Format_ (2016). https://datatracker.ietf.org/doc/html/rfc7946
+
 [[GNAF]] GNAF:: Geoscape Australia. _Geocoded National Address File, G-NAF_ (2023). https://data.gov.au/dataset/ds-dga-19432f89-dc3a-4ef3-b943-5326ef1dbecc
 
 [[GN]] GN:: Queensland Spatial Information. _Geographical Names Model_ (2023). https://linked.data.gov.au/def/gn
@@ -36,7 +38,7 @@
 
 [[ROADS]] ROADS:: Queensland Spatial Information. _Roads Model_ (2023). https://linked.data.gov.au/def/roads
 
-[[SDO]] SDO:: W3C Schema.org Community Group, _schema.org_. Community ontology (2015). https://schema.org
+[[SDO]] schema:: W3C Schema.org Community Group, _schema.org_. Community ontology (2015). https://schema.org
 
 [[SHACL]] SHACL:: World Wide Web Consortium, _Shapes Constraint Language (SHACL)_, W3C Recommendation (20 July 2017). https://www.w3.org/TR/shacl/
 
