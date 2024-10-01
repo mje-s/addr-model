@@ -71,7 +71,7 @@ Some elements of addresses must be subclassified by, or in some other way associ
 
 Where such vocabularies are used, they are not directly published _within_ this model but externally and this model is expected to be used with them. In this way, vocabularies may be extended without extending this model and different users may implement their own vocabularies to suite their business needs, for example, perhaps not all model users allow all address part types Queensland does, such as _water feature number_ so, they should use this model with a vocabulary that excludes that term.
 
-See the <<Supporting Vocabularies>> section for mode information.
+See the <<Vocabularies>> section for mode information.
 
 
 ==== Feature / Feature Naming differentiation
@@ -128,7 +128,7 @@ A model of streets - both naming and some physical presentation of them - has be
 
 There are various given name parts of addresses which have previously been shoved into inappropriate data fields legacy address models and systems. For example, some models have contained _building_ but not _property_ names, so both types have been combined into the field for the former.
 
-In this model, all address parts are just parts with a specialised type indicated with a reference to a concept within a vocabulary such as the Address Parts vocabulary (see <<Supporting Vocabularies>>). Implementations _MUST_ allow for this type of "soft typing" (where a data object's type is selectable from an external list) so that no field limitations such as the above occur.
+In this model, all address parts are just parts with a specialised type indicated with a reference to a concept within a vocabulary such as the Address Parts vocabulary (see <<Vocabularies>>). Implementations _MUST_ allow for this type of "soft typing" (where a data object's type is selectable from an external list) so that no field limitations such as the above occur.
 
 Implementers can limit the part type vocabulary of course and will have to handel all the types they allow in the vocabulary, but implementers should not "make do" with inappropriate field (part type) reuse.
 
@@ -150,7 +150,7 @@ The ability to cater for addresses reachable by watercraft was a requirement of 
 
 This model indicates the use of a typed reference from an Address to a Water Feature object, just as Addresses reference Street or Locality objects, and then the Water Feature itself supplies the format of its name, including typing, e.g. Lord Howe _Island_ or Slacks _Creek_ any abbreviations or other name variants, e.g. _Wop pa_ as an indigenous name variant of Great Keppel Island.
 
-This model does not supply the logic for water number generation, just as it does not supply the logic for street number assignment, however it does provide address part types for water-based addressing, see the <<Address Part Types>> in the <<Supporting Vocabularies>> section.
+This model does not supply the logic for water number generation, just as it does not supply the logic for street number assignment, however it does provide address part types for water-based addressing, see the <<Address Part Types>> in the <<Vocabularies>> section.
 
 This model does not provide templating or application logic to show how a water-based address should order water address parts or perhaps use water addressing parts and not street addressing parts: templating logic is exemplified in the templating annex <<AnnexC>> and appropriate part usage logic is left to implementers.
 
@@ -349,7 +349,7 @@ This document is this model's "Specification" which is its authoritative, human-
 | Resource | Role | Notes
 
 | https://linked.data.gov.au/def/addr.ttl[Ontology] | _Schema_ | The technical, machine-readable, version of this model
-| <<Supporting Vocabularies>> | _Vocabulary_ | The codelist vocabularies developed for this model and links to others defined elsewhere but expected to be used by this model
+| <<Vocabularies>> | _Vocabulary_ | The codelist vocabularies developed for this model and links to others defined elsewhere but expected to be used by this model
 | <<AnnexA>> | _Guidance_ | The Requirements formally addressed by this model
 | <<AnnexB>> & https://github.com/Spatial-Information-QLD/address-model/blob/main/validator.ttl[Validator] | _Validation_ | The machine-readable validator file used to validate data claiming conformance to this model
 | <<AnnexC>> | _Guidance_ | Suggestions and examples of templating for address presentation
