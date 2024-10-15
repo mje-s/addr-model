@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.16">
-<title>Spatial Information Queensland - Address Model</title>
+<meta name="generator" content="Asciidoctor 2.0.20">
+<title>ICSM Address Model</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -84,10 +84,10 @@ code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;
 ul,ol,dl{line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
 ul,ol{margin-left:1.5em}
 ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0}
-ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
-ul.square{list-style-type:square}
 ul.circle{list-style-type:circle}
 ul.disc{list-style-type:disc}
+ul.square{list-style-type:square}
+ul.circle ul:not([class]),ul.disc ul:not([class]),ul.square ul:not([class]){list-style:inherit}
 ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
 dl dt{margin-bottom:.3125em;font-weight:bold}
 dl dd{margin-bottom:1.25em}
@@ -193,7 +193,8 @@ body.toc2.toc-right{padding-left:0;padding-right:20em}}
 #content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
 details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
 details{margin-left:1.25rem}
-details>summary{cursor:pointer;display:block;position:relative;line-height:1.6;margin-bottom:.625rem;-webkit-tap-highlight-color:transparent}
+details>summary{cursor:pointer;display:block;position:relative;line-height:1.6;margin-bottom:.625rem;outline:none;-webkit-tap-highlight-color:transparent}
+details>summary::-webkit-details-marker{display:none}
 details>summary::before{content:"";border:solid transparent;border-left:solid;border-width:.3em 0 .3em .5em;position:absolute;top:.5em;left:-1.25rem;transform:translateX(15%)}
 details[open]>summary::before{border:solid transparent;border-top:solid;border-width:.5em .3em 0;transform:translateY(15%)}
 details>summary::after{content:"";width:1.25rem;height:1em;position:absolute;top:.3em;left:-1.25rem}
@@ -207,13 +208,10 @@ table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
 .admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
 .admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
 .exampleblock>.content{border:1px solid #e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;border-radius:4px}
-.exampleblock>.content>:first-child{margin-top:0}
-.exampleblock>.content>:last-child{margin-bottom:0}
 .sidebarblock{border:1px solid #dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;border-radius:4px}
-.sidebarblock>:first-child{margin-top:0}
-.sidebarblock>:last-child{margin-bottom:0}
 .sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
-.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content>:first-child,.sidebarblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child,.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
 .literalblock pre,.listingblock>.content>pre{border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
 @media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
 @media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
@@ -235,9 +233,8 @@ pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
 table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
 table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
 table.linenotable td.code{padding-left:.75em}
-table.linenotable td.linenos{border-right:1px solid;opacity:.35;padding-right:.5em}
-pre.pygments .lineno{border-right:1px solid;opacity:.35;display:inline-block;margin-right:.75em}
-pre.pygments .lineno::before{content:"";margin-right:-.125em}
+table.linenotable td.linenos,pre.pygments .linenos{border-right:1px solid;opacity:.35;padding-right:.5em;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+pre.pygments span.linenos{display:inline-block;margin-right:.75em}
 .quoteblock{margin:0 1em 1.25em 1.5em;display:table}
 .quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
 .quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
@@ -274,7 +271,7 @@ table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-c
 table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
 table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
 table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
-table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
+table.stripes-all>*>tr,table.stripes-odd>*>tr:nth-of-type(odd),table.stripes-even>*>tr:nth-of-type(even),table.stripes-hover>*>tr:hover{background:#f8f8f7}
 th.halign-left,td.halign-left{text-align:left}
 th.halign-right,td.halign-right{text-align:right}
 th.halign-center,td.halign-center{text-align:center}
@@ -290,10 +287,11 @@ ol{margin-left:1.75em}
 ul li ol{margin-left:1.5em}
 dl dd{margin-left:1.125em}
 dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
-ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
 ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
 ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
 ul.unstyled,ol.unstyled{margin-left:0}
+li>p:empty:only-child::before{content:"";display:inline-block}
 ul.checklist>li>p:first-child{margin-left:-1em}
 ul.checklist>li>p:first-child>.fa-square-o:first-child,ul.checklist>li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
 ul.checklist>li>p:first-child>input[type=checkbox]:first-child{margin-right:.25em}
@@ -336,8 +334,6 @@ sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
 #footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
 #footnotes .footnote:last-of-type{margin-bottom:0}
 #content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
-.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
-.gist .file-data>table td.line-data{width:99%}
 div.unbreakable{page-break-inside:avoid}
 .big{font-size:larger}
 .small{font-size:smaller}
@@ -394,7 +390,7 @@ b.conum *{color:inherit!important}
 dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
 h1,h2,p,td.content,span.alt,summary{letter-spacing:-.01em}
 p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
-p,blockquote,dt,td.content,span.alt,summary{font-size:1.0625rem}
+p,blockquote,dt,td.content,td.hdlist1,span.alt,summary{font-size:1.0625rem}
 p{margin-bottom:1.25rem}
 .sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
 .exampleblock>.content{background:#fffef7;border-color:#e0e0dc;box-shadow:0 1px 4px #e0e0dc}
@@ -439,16 +435,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>Spatial Information Queensland - Address Model</h1>
+<h1>ICSM Address Model</h1>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>The national for address information for Australian &amp; New Zealand, realised in Semantic Web form.</p>
+<p>This repository contains the source files for the <a href="https://www.icsm.gov.au">ICSM</a> Address Model for Australian &amp; New Zealand.</p>
 </div>
 <div class="paragraph">
-<p>This model&#8217;s specification document is auto-built from the source file <code>00-master.adoc</code> and is viewable online at the following persistent web address:</p>
+<p>To view the model, go to its permanent online location:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -457,18 +453,49 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_status">Status</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>The repository is at:</p>
+<p>This model was developed by Spatial Information Queensland in response to the ICSM&#8217;s Addressing 2035 Strategy and was voted in as the ICSM Address Model for all jurisdictions and data exchange by the ICSM Addressing Working Group in June, 2024.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_model_technical_details">Model technical details</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_documentation">Documentation</h3>
+<div class="paragraph">
+<p>The model documentation, online at the above location, is created using <a href="https://asciidoc.org/">ASCIIDOC</a>, the documentation system also used by many ISO and OGC standards.</p>
+</div>
+<div class="paragraph">
+<p>The source files used are in this repository with the master document being <code>00-master.adoc</code>.</p>
+</div>
+<div class="paragraph">
+<p>This repository is directly accessible at:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/Spatial-Information-QLD/address-model" class="bare">https://github.com/Spatial-Information-QLD/address-model</a></p>
+<p><a href="https://github.com/icsm-au/addr-model" class="bare">https://github.com/icsm-au/addr-model</a></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>To contribute to this model, see the <a href="https://github.com/Spatial-Information-QLD/address-model/blob/main/Contributing.adoc">notes on contributing</a> which describe both technical aspects of editing and community processes.</p>
+<p>To contribute to this model, see the <a href="https://github.com/icsm-au/addr-model/blob/main/Contributing.adoc">notes on contributing</a> which describes both technical aspects of editing and community processes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_machine_readable_schema">Machine-readable schema</h3>
+<div class="paragraph">
+<p>The schema of this model in machine-readable form is presented as an <a href="https://www.w3.org/RDF/">RDF</a> / <a href="https://www.w3.org/OWL/">OWL</a> model in the file <code>model.ttl</code> in this repository which is online at <a href="https://linked.data.gov.au/def/addr.ttl" class="bare">https://linked.data.gov.au/def/addr.ttl</a> and at <a href="https://linked.data.gov.au/def/addr" class="bare">https://linked.data.gov.au/def/addr</a> via <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation">Content Negotiation</a> for Turtle data.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, there is a <a href="https://www.w3.org/TR/shacl/">SHACL</a> validator for this model available online at <a href="https://linked.data.gov.au/def/addr/validator" class="bare">https://linked.data.gov.au/def/addr/validator</a>.</p>
+</div>
 </div>
 </div>
 </div>
@@ -476,16 +503,48 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_rights_and_license">Rights and License</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Content generated by Spatial Information Queensland is copyright as follows:</p>
+<p>The content of this repository and the Address Model overall have the following copyright notices:</p>
 </div>
 <div class="paragraph">
-<p>&copy; The State of Queensland (Department of Resources), 2023</p>
+<p>&copy; The State of Queensland (Department of Resources), 2020 - 2023<br>
+&copy; Commonwealth of Australia on behalf of ICSM, 2024</p>
 </div>
 <div class="paragraph">
-<p>This information is available for reuse under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons 4.0 license</a>, see the LICENSE file for the deed.</p>
+<p>All content here is available for reuse under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons 4.0 license</a>, see the LICENSE file for the deed.</p>
 </div>
 <div class="paragraph">
-<p>Much of the vocabulary content here is copied from elsewhere and, where this has occurred, the vocabulary source is noted so that the source information licensing and rights may be discovered.</p>
+<p>Note that much of the content in this model is reused from other models that have their own copyright and ruse information but all implement permissive open source Apache or BSD or W3C licenses that are similar to Creative Commons licenses.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_contributing">Contributing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>ICSM welcomes contributions to this open source standard. Anybody may contribute and ICSM will apply serious consideration to all proposals.</p>
+</div>
+<div class="paragraph">
+<p>The process for adoption and release of normative changes has not yet been established, but will likely be via voting within the ICSM Addressing Working Group.</p>
+</div>
+<div class="sect2">
+<h3 id="_raising_issues">Raising Issues</h3>
+<div class="paragraph">
+<p>Optimally, please rais any issues with any part of the model by creating a ticket in this model&#8217;s repository&#8217;s issue tracker at:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/icsm-au/address-model/issues" class="bare">https://github.com/icsm-au/address-model/issues</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If you are able to propose a specific issue fix or improvement, please consider raising a Pull Request, that is a version-controlled change request, at
+* <a href="https://github.com/icsm-au/address-model/pulls" class="bare">https://github.com/icsm-au/address-model/pulls</a>. If you would like help in doing this, please contact this model&#8217;s technical supporter listed in the Contacts section below.</p>
+</div>
+<div class="paragraph">
+<p>If you are not able to lodge an Issue or raise a Pull Request, please describe your suggested issue/changes in an email to the model owner as listed in the Contacts section below. You can also raise issues within the Addressing Working Group.</p>
+</div>
 </div>
 </div>
 </div>
@@ -493,24 +552,26 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_contacts">Contacts</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For more information about these vocabularies, contact:</p>
+<p>For more information about this model, contact:</p>
+</div>
+<div class="paragraph">
+<p>Owner:</p>
+</div>
+<div class="paragraph">
+<p><strong>Chairperson of the Addressing Working Group</strong><br>
+via ICSM at <a href="mailto:icsm@ga.gov.au">icsm@ga.gov.au</a></p>
+</div>
+<div class="paragraph">
+<p>or</p>
 </div>
 <div class="paragraph">
 <p><strong>Spatial Information</strong><br>
-GeoResources Division<br>
 Department of Resources<br>
 Queensland Government<br>
 <a href="mailto:CadastralAdminDataHelp@resources.qld.gov.au">CadastralAdminDataHelp@resources.qld.gov.au</a></p>
 </div>
 <div class="paragraph">
-<p>For further information, please visit:</p>
-</div>
-<div class="paragraph">
-<p><a href="https://www.resources.qld.gov.au/data-mapping" class="bare">https://www.resources.qld.gov.au/data-mapping</a><br>
-<a href="https://qldspatial.information.qld.gov.au/" class="bare">https://qldspatial.information.qld.gov.au/</a></p>
-</div>
-<div class="paragraph">
-<p>For technical model implementation questions, contact:</p>
+<p>Technical supporter:</p>
 </div>
 <div class="paragraph">
 <p><strong>Nicholas Car</strong><br>
@@ -523,7 +584,7 @@ Queensland Government<br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-10-01 00:00:41 UTC
+Last updated 2024-10-15 02:45:45 UTC
 </div>
 </div>
 </body>
