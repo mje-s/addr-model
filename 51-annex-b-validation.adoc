@@ -1,28 +1,53 @@
 [[AnnexB]]
 == Annex B: Validation
 
-This model is a conceptual model for addressing (see <<Address part templating>> for model type details) and implementers of it are expected to create validators for use with it that test data according to their business rules. Implementers may, for example, test to see whether their data uses particular values for particular vocabularies or that geocodes are within a certain distance of the boundary of the Addressable Object.
+This model is a conceptual model for addressing data and implementers of it are expected to create validators for use with it that test that data claiming conformance to it. Implementers may also create their own validators that build on the core rules of this model to cater for their individual their business rules. Implementers may, for example, test to see whether their data uses particular values for particular vocabularies, that addresses contain or do not contain certain Address Parts or that the addresses are within their own localities.
 
-The validation system proposed for use with this model is the _Shapes Constraint Language (SHACL)_ <<SHACL>> which implements validators for <<RDF>> data.
+The validation system for use with this model is the _Shapes Constraint Language (SHACL)_ <<SHACL>> which implements validators for <<RDF>> data and thus any data exchanged claiming conformance to this model must be RDF data. Validators for other forms of data are not provided.
 
-=== B.1 Example Validators
+=== B.1 Known Validators
 
-Two example validators are provided with this model:
+Currently, two validators for this model are known:
 
-. https://github.com/Spatial-Information-QLD/address-model/validator.ttl[validator.ttl] - a canonical validator for this model
-.. Test that every Address indicates: an Addressable Object with `cn:isNameFor`; a Geocode with `addr:hasGeocode`; at least one part, that is a Compound Name, with `schema:hasPart`
-. https://github.com/Spatial-Information-QLD/address-model/blob/main/validator-qld.ttl[validator-qld.ttl] a validator for a jurisdiction - Queensland
-.. Test that every Address indicates at least 3 parts
+1. *Core* validator
+.. testing for minimum conformance to this model
+2. *Queensland profile* validator
+.. providing additional rules for Queensland address data
+.. building on the core validator - it is imported and reused
+
+Other jurisdictions may, and are expected to, create their own validators.
+
+==== B.1.1 Core
+
+The core validator is available:
+
+* online at `https://linked.data.gov.au/def/addr/validator/core`
+* within this model's repository at `validators/core.ttl`
+
+The individual aspects of Address data tested for are describe per _Shape_, or data rule, within the validator.
+
+==== B.1.2 Queensland profile
+
+The Queensland profile validator is available:
+
+* online at `https://linked.data.gov.au/def/addr/validator/qld`
+* within this model's repository at `validators/qld.ttl`
+
+Currently, this validator just tests to ensure that each Address contains at least 3 parts, but this will grow as Queensland works on their internal requirements.
 
 === B.2 Performing validation
 
-The validators given above may be applied to RDF data implementations of this model using any one of a number of tools such as any in this list:
+The validators given above may be applied to RDF data claiming conformance to this model using any one of a number of SHACL tools such:
 
 * https://pypi.org/project/pyshacl/[pySHACL]
 ** free and open source Python SHACL validator
 * https://shacl.org/playground/[SHACL Playground]
-** online Javascript-based validator
-* http://rdftools.kurrawong.net/validate[RDFTools Validator]
-** online pySHACL-based validator
+** online, free-to-use validator
+** based on an independent SHACL library
+* https://tools.kurrawong.net/validate[KurrawongAI's Online Validator]
+** online, free-to-use validator
+** based on pySHACL
 ** preloaded with these validators
+* https://github.com/dotnetrdf/dotnetrdf[dotNetRDF]
+** a free .NET-based SHACL validation library
 

@@ -10,28 +10,47 @@ PREFIX time: <http://www.w3.org/2006/time#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 
-<https://linked.data.gov.au/def/addr/validator>
+<https://linked.data.gov.au/def/addr/validator/core>
     a owl:Ontology ;
-    skos:historyNote "This model validator was made for the Queensland Department of Resources, Spatial Information unit to assist with future Address database design."@en ;
+    skos:historyNote "This validator was made for for the initial release of the Address Model and will be updated as the model is"@en ;
     owl:versionIRI addr:1.0.0 ;
     owl:versionInfo "1.0.0" ;
-    skos:definition "This validator is a Shapes Constraint Language (SHACL) resource that can be used to check the conformance of RDF data to the Address Model (<https://linked.data.gov.au/def/addr>). It only check for 3 things which are described in individual shapes within this validator"@en ;
-    skos:prefLabel "Address Model Validator"@en ;
-    schema:codeRepository "https://github.com/Spatial-Information-QLD/address-model/"^^xsd:anyURI ;
-    schema:copyrightHolder <https://linked.data.gov.au/org/qsi> ;
-    schema:copyrightNotice "(c) The State of Queensland (Department of Resources) 2020-2023" ;
+    skos:definition "This validator is a Shapes Constraint Language (SHACL) resource that can be used to check the conformance of RDF data to the Address Model (<https://linked.data.gov.au/def/addr>). It currently only checks for 3 things which are described in individual shapes within this validator"@en ;
+    skos:prefLabel "Address Model Core Validator"@en ;
+    schema:codeRepository "https://github.com/icsm-au/address-model/"^^xsd:anyURI ;
+    schema:copyrightHolder <https://linked.data.gov.au/org/icsm> ;
+    schema:copyrightNotice "(c) The State of Queensland (Department of Resources) 2020-2023" , "Intergovernmental Committee on Surveying & Mapping, 2024" ;
     schema:creator <https://orcid.org/0000-0002-8742-7730> ;
     schema:dateCreated "2021-12-16"^^xsd:date ;
-    schema:dateIssued "2023-06-30"^^xsd:date ;
-    schema:dateModified "2022-07-04"^^xsd:date ;
+    schema:dateIssued "2024-07-01"^^xsd:date ;
+    schema:dateModified "2024-11-20"^^xsd:date ;
     schema:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
-    schema:publisher <https://linked.data.gov.au/org/qsi> ;
+    schema:publisher <https://linked.data.gov.au/org/icsm> ;
+    schema:hasPart
+        :addressable-object-present ,
+        :geocode-present ,
+        :address-parts-1 ;
+    owl:imports
+        [
+            schema:name "GeoSPARQL" ;
+            schema:url
+                "file://geo.ttl" ,
+                "http://www.opengis.net/def/geosparql/validator" ;
+            schema:identifier "http://www.opengis.net/def/geosparql/validator" ;
+        ] ,
+        [
+            schema:name "VocPub" ;
+            schema:url
+                "file://vocpub.ttl" ,
+                "https://w3id.org/profile/vocpub/validator" ;
+            schema:identifier "https://w3id.org/profile/vocpub/validator" ;
+        ] ;
 .
 
-<https://linked.data.gov.au/org/qsi>
+<https://linked.data.gov.au/org/icsm>
     a schema:Organization ;
-    schema:name "Spatial Information Queensland"@en ;
-    schema:url "https://qldspatial.information.qld.gov.au"^^xsd:anyURI ;
+    schema:name "Intergovernmental Committee on Surveying & Mapping"@en ;
+    schema:url "https://www.icsm.gov.au"^^xsd:anyURI ;
 .
 
 <https://orcid.org/0000-0002-8742-7730>
