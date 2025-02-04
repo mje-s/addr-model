@@ -155,7 +155,7 @@ This model does not supply the logic for water number generation, just as it doe
 This model does not provide templating or application logic to show how a water-based address should order water address parts or perhaps use water addressing parts and not street addressing parts: templating logic is exemplified in the templating annex <<AnnexC>> and appropriate part usage logic is left to implementers.
 
 [NOTE]
-For address number generation see the address creation and maintenance standard: https://icsm-au.github.io/addr-creation-maintenance/doc.html#_thoroughfare_class_addresses
+For address number generation see the Address Creation and Maintenance Standard: https://icsm-au.github.io/addr-creation-maintenance/doc.html#_thoroughfare_class_addresses
 
 ==== Related Addresses
 

@@ -3,7 +3,7 @@
 === Abstract
 
 [NOTE]
-This model was adopted by ICSM's Address Working Group in mid-2024 as the national model for address information in Australia. Various State/Territory agencies are working to implement the model in their respective jurisdictions.
+This model was adopted by ICSM's Address Working Group in June 2024 as the national model for address information in Australia. Various State/Territory agencies are working to implement the model in their respective jurisdictions.
 
 A Semantic Web data model of address information that caters specifically for Australian & New Zealand's address modelling needs.
 
