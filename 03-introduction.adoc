@@ -8,7 +8,7 @@ Shorncliffe QLD
 4017 Australia
 ----
 
-is a form of name for the cadastral parcel that defines a particular property's extend - a 'lot'.
+is a form of name for the cadastral parcel that defines a particular property's extent - a 'lot'.
 
 Addresses modelled according to this model do more than just name things though: they are linked to geocodes - spatial points - allowing for map-based locating and route planning, sometimes other addresses for the same spatial object, sometimes parent/child addresses for dwelling compounds and management information such as lifecycle stages.
 
@@ -23,7 +23,7 @@ This model makes no attempt to model the things to which addresses are assigned.
 
 In 2021, the Australia and New Zealand https://www.icsm.gov.au/[Intergovernmental Committee on Surveying and Mapping] established an https://www.icsm.gov.au/publications/addressing-2035[Addressing 2035 Strategy] that aimed to "provide leadership, coordination and standards for assembling, delivering and maintaining address datasets". The Strategy listed "Strategic Pillars", such as "Jurisdictional flexibility" - things for Strategy implementers to aim for - "Guiding Principles", "Overarching Pain Points" and other system/model/situation requirements. While the Strategy did not present an address model, it had an addendum that listed 10 requirements for a future address data model: https://www.icsm.gov.au/publications/addressing-strategy-information-addendum[Addendum to the Strategy]. These 10 requirements are a major source of this Address Models requirements.
 
-These ICSM requirements include both specific requirements, for example to cater for "Multi-lingual and alternate name addressing", and also requirements to align with other address-related initiative which might be a source of multiple individual requirements, for example "Model interoperability" which, in its detailed description, indicates a requirement for an address model to align with a baseline set of spatial data standards that ICSM might create.
+These ICSM requirements include both specific requirements, for example to cater for "Multi-lingual and alternate name addressing", and also requirements to align with other address-related initiatives which might be a source of multiple individual requirements, for example "Model interoperability" which, in its detailed description, indicates a requirement for an address model to align with a baseline set of spatial data standards that ICSM might create.
 
 <<AnnexA>> lists the ICSM Addressing 2035 Strategy Addendum's 10 requirements and indicates how this model implements solutions for them.
 
@@ -71,7 +71,7 @@ Some elements of addresses must be subclassified by, or in some other way associ
 
 Where such vocabularies are used, they are not directly published _within_ this model but externally and this model is expected to be used with them. In this way, vocabularies may be extended without extending this model and different users may implement their own vocabularies to suite their business needs, for example, perhaps not all model users allow all address part types Queensland does, such as _water feature number_ so, they should use this model with a vocabulary that excludes that term.
 
-See the <<Vocabularies>> section for mode information.
+See the <<Vocabularies>> section for more information.
 
 
 ==== Feature / Feature Naming differentiation
@@ -126,11 +126,11 @@ A model of streets - both naming and some physical presentation of them - has be
 
 ==== Address part typing
 
-There are various given name parts of addresses which have previously been shoved into inappropriate data fields legacy address models and systems. For example, some models have contained _building_ but not _property_ names, so both types have been combined into the field for the former.
+There are various given name parts of addresses which have previously been shoved into inappropriate data fields in legacy address models and systems. For example, some models have contained _building_ but not _property_ names, so both types have been combined into the field for the former.
 
 In this model, all address parts are just parts with a specialised type indicated with a reference to a concept within a vocabulary such as the Address Parts vocabulary (see <<Vocabularies>>). Implementations _MUST_ allow for this type of "soft typing" (where a data object's type is selectable from an external list) so that no field limitations such as the above occur.
 
-Implementers can limit the part type vocabulary of course and will have to handel all the types they allow in the vocabulary, but implementers should not "make do" with inappropriate field (part type) reuse.
+Implementers can limit the part type vocabulary of course and will have to handle all the types they allow in the vocabulary, but implementers should not "make do" with inappropriate field (part type) reuse.
 
 
 ==== Address part templating
@@ -154,6 +154,8 @@ This model does not supply the logic for water number generation, just as it doe
 
 This model does not provide templating or application logic to show how a water-based address should order water address parts or perhaps use water addressing parts and not street addressing parts: templating logic is exemplified in the templating annex <<AnnexC>> and appropriate part usage logic is left to implementers.
 
+[NOTE]
+For address number generation see the address creation and maintenance standard: https://icsm-au.github.io/addr-creation-maintenance/doc.html#_thoroughfare_class_addresses
 
 ==== Related Addresses
 
@@ -164,7 +166,7 @@ This model does not implement any such logic for several reasons:
 . Representing relations characterised outside of addressing data within addressing data fails to use point-of-truth information
 .. As per the introductory sentence above, logic for "parent" and "child" addressing or aliases is held in topological relationships or object identity, not addressing data
 . Addressing information is almost always managed alongside information about the objects addressed
-.. This follows from the previous point: if object relations that an be used to infer address relations are available to address database implementers, they should be used directly, not re-implemented
+.. This follows from the previous point: if object relations that can be used to infer address relations are available to address database implementers, they should be used directly, not re-implemented
 . Previous Address models provide other properties for addresses that impact on address relations
 .. for example, two related addresses might only be fully understood when the authority of the addresses is also known
 .. this means properties are not independent and this is a data modelling anti-pattern as it introduced maintenance issues
@@ -204,7 +206,7 @@ AddressXY
     isPrimary False
 ----
 
-If aliasing logic is that Addresses are aliases when they are both assigned to the same Addressable Object, then we can determine whether Addresses have aliases by just inspecting the identify of the thing they are addresses for. This would be implemented like this:
+If aliasing logic is that Addresses are aliases when they are both assigned to the same Addressable Object, then we can determine whether Addresses have aliases by just inspecting the identity of the thing they are addresses for. This would be implemented like this:
 
 ----
 AddressX

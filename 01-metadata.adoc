@@ -12,9 +12,9 @@
 |*Publisher* | https://linked.data.gov.au/org/icsm[Intergovernmental Committee  on Surveying & Mapping (ICSM)]
 |*Provenance* | This model is https://www.anzlic.gov.au[ANZLIC]'s https://icsm.gov.au[Intergovernmental Committee on Surveying & Mapping (ICSM)]'s model for addressing information in Australian & New Zealand.
 
-It was originally developed between 2021 and 2023 for Queensland Spatial Information, a unit of the Queensland Department of Resources, to assist with their future address database design, and presented to ICSM for national adoption in early 2024.
+It was originally developed between 2021 and 2023 for Queensland Spatial Information, a unit of the then Queensland Department of Resources, to assist with their future address database design, and presented to ICSM for national adoption in early 2024.
 
-It is informed by the ICSM's Addressing 2035: Addressing Reform and Innovation for Australia and New Zealand, published in late 2021, which listed 'pain points' with current ANZ address models and considered future address modelling needs. This model tries to address the 10 main requirements established by the Strategy.
+It is informed by the ICSM's Addressing 2035: Addressing Reform and Innovation for Australia and New Zealand, published in late 2021, which listed 'pain points' with current ANZ address models and considered future address modelling needs. This model tries to address the 10 main Requirements established by the Strategy.
 
 This model is also informed by both the relational database model used for the https://data.gov.au/data/dataset/geocoded-national-address-file-g-naf[G-NAF], Australia's Geocoded National Address File, and work by https://www.csiro.au[CSIRO] in 2018 to characterise the G-NAF in Semantic Web form, the ontology for which is online at https://linked.data.gov.au/def/gnaf, as well as the https://www.iso.org[ISO]'s https://www.iso.org/standard/61710.html[ISO19160-1 Addressing Part 1: Conceptual model].
 

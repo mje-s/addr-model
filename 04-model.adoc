@@ -32,10 +32,10 @@ image::img/upper-classes.png[]
 
 | IRI | `addr:Address`
 | Preferred Label | Address
-| Definition | The Address class represents structured information that allows unambiguous identified of an object for the purposes of identification and location
+| Definition | The Address class represents structured information that allows unambiguous identification of an object for the purposes of identification and location
 | Is Defined By | This model
 | Subclass Of | <<CompoundName>>
-| Provenance | Derived from <<ISO19160-1>>'s `Address` class
+| Provenance | Derived from <<ISO19160-1>>'s `Address class`
 | Expected Properties | <<isNameFor>>, <<hasPart>>, <<hasGeocode>>, <<hasLifecycleStage>>,
 | Example 
 a| [source,turtle]
@@ -58,7 +58,7 @@ PREFIX schema: <https://schema.org/>
         schema:value 20
     ] ,
     [
-        schema:additionalType apt:street ;
+        schema:additionalType apt:road ;
         schema:value <https://linked.data.gov.au/dataset/qldaddr/streetLocality/QLD140492> ; # "Oxford Place"
     ] ,
     [
@@ -140,7 +140,7 @@ ex:cadastral-parcel-x
 | Is Defined By | This model
 | Subclass Of | <<Geometry>>
 | Provenance | Derived from the G-NAF's expression of Address position
-| Scope note | Indicating a Geocode for an Address is a direct method of positioning the Address on the earth. Addresses may also be located by reference to an Addressable Object whc=ich is an indirect method. This model does not indicate any Geocode / Addressable Object geometry relations, although they may exist
+| Scope note | Indicating a Geocode for an Address is a direct method of positioning the Address on the earth. Addresses may also be located by reference to an Addressable Object which is an indirect method. This model does not indicate any Geocode / Addressable Object geometry relations, although they may exist
 | Expected Properties | <<additionalType>> - use to indicate the specialised type of a Geocode, <<hasSerialization, hasSerialization>> - use to indicate the position information of the Geocode
 
 `geo:hasGeometry` - to indicate the position of the Geocode. A GeoSPARQL `Geometry`.
@@ -190,8 +190,8 @@ ex:addr-1
 | Property | Value
 
 | IRI | `lm:LifecycleStage`
-| Preferred Label | Compound Name
-| Definition | A Compound Name is a literal value, or objects that can be interpreted as literal values, that describe or name a Feature
+| Preferred Label | Lifecycle Stage
+| Definition | A distinct part of a resource's lifecycle
 | Is Defined By | <<LM>>
 | Scope Note | Used to indicate the lifecycle stage of any Address model part. Different stage types may be necessary for different class instances such as Road Name and Road Object and may be sourced from different vocabularies
 |===
@@ -439,7 +439,7 @@ ex:street-name-x
 | Preferred Label | has part
 | Definition | Indicates a part of a whole
 | Is Defined By | <<SDO>>
-| Scope Note | Used to indicate the parts of a Address
+| Scope Note | Used to indicate the parts of an Address
 |===
 
 [[hasGeometry]]
@@ -471,7 +471,7 @@ ex:street-name-x
 | Is Defined By | <<GEO>>
 | Domain | <<Geometry>>
 | Range | <<Literal>>
-| Scope Note | Do not use this predicate directly, instead use one of the <<GEO, GeoSPARQL>> specialised sub-properties, such as `geo:asWKT` or `gro:asGeoJSON` to indicate Well-Known Text (see <<ISO19125-1>>) or <<GEOJSON, GeoJSON>> literal values.
+| Scope Note | Do not use this predicate directly, instead use one of the <<GEO, GeoSPARQL>> specialised sub-properties, such as `geo:asWKT` or `geo:asGeoJSON` to indicate Well-Known Text (see <<ISO19125-1>>) or <<GEOJSON, GeoJSON>> literal values.
 |===
 
 https://docs.ogc.org/is/22-047r1/22-047r1.html#_property_geohasserialization
