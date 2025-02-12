@@ -24,14 +24,14 @@ The "print out" format is as above where the Address parts, as per Queensland's 
 
 | Unit | "4B"
 | StreetNumber | "72"
-| Street | reference to the Yundah Street, street object
+| Street | reference to the Yundah Street, road object
 | Locality | reference to the Shorncliffe locality object
 | StateOrTerritory | reference to the Queensland state object
 | Postcode | "4017"
-| Country | reference to the Australia state object
+| Country | reference to the Australia country object
 |===
 
-Using Feature Naming recursive logic - generating names for the Street, Locality, State & Country objects elsewhere, the address model sees the following:
+Using Feature Naming recursive logic - generating names for the Road, Locality, State & Country objects elsewhere, the address model sees the following:
 
 [width="50%", cols="1,3"]
 |===

@@ -4,29 +4,30 @@
 |===
 |*IRI* | `https://linked.data.gov.au/def/addr`
 |*Preferred Label* | Address Model
-|*Definition* | The national for address information for Australian & New Zealand, realised in Semantic Web form
+|*Definition* | The national model for address information for Australian & New Zealand, realised in Semantic Web form
 |*Created* | 2021-12-16
-|*Modified* | 2024-09-25
+|*Modified* | 2025-02-04
 |*Issued* | 2023-06-30
 |*Creator* | https://orcid.org/0000-0002-8742-7730[Nicholas J. Car]
 |*Publisher* | https://linked.data.gov.au/org/icsm[Intergovernmental Committee  on Surveying & Mapping (ICSM)]
-|*Provenance* | This model is https://www.anzlic.gov.au[ANZLIC]'s https://icsm.gov.au[Intergovernmental Committee  on Surveying & Mapping (ICSM)]'s models for addressing information in Australian & New Zealand.
+|*Provenance* | This model is https://www.anzlic.gov.au[ANZLIC]'s https://icsm.gov.au[Intergovernmental Committee on Surveying & Mapping (ICSM)]'s model for addressing information in Australian & New Zealand.
 
-It was originally developed between 2021 and 2023 for Queensland Spatial Information, a unit of the Queensland Department of Resources, to assist with their future address database design, and presented to ICSM for national adoption in early 2024.
+It was originally developed between 2021 and 2023 for Queensland Spatial Information, a unit of the then Queensland Department of Resources, to assist with their future address database design, and presented to ICSM for national adoption in early 2024.
 
 It is informed by the ICSM's Addressing 2035: Addressing Reform and Innovation for Australia and New Zealand, published in late 2021, which listed 'pain points' with current ANZ address models and considered future address modelling needs. This model tries to address the 10 main Requirements established by the Strategy.
 
-This model is also informed by both the relational database model used for the https://data.gov.au/data/dataset/geocoded-national-address-file-g-naf[G-NAF], Australia's Geocoded National Address File, and work by https://www.csiro.au[CSIRO] in 2018 to characterise the GNAF in Semantic Web form, the ontology for which is online at https://linked.data.gov.au/def/gnaf, as well as the https://www.iso.org[ISO]'s https://www.iso.org/standard/61710.html[ISO19160-1 Addressing Part 1: Conceptual model].
+This model is also informed by both the relational database model used for the https://data.gov.au/data/dataset/geocoded-national-address-file-g-naf[G-NAF], Australia's Geocoded National Address File, and work by https://www.csiro.au[CSIRO] in 2018 to characterise the G-NAF in Semantic Web form, the ontology for which is online at https://linked.data.gov.au/def/gnaf, as well as the https://www.iso.org[ISO]'s https://www.iso.org/standard/61710.html[ISO19160-1 Addressing Part 1: Conceptual model].
 
-In 2023, several parts of this model covering general modelling and spatial modelling issues, such as lifecycle representation, spatiality itself & compound naming, were extracted out into a series of mini-models that are also used by other candidate ICSM models for Place (Geographic) Names, Roads, Administrative Areas. Also, alignment to the ICSM's national https://linked.data.gov.au/def/csdm[Cadastral Survey Data Model (CSDM)] was made and, as a result, this model is both much reduced in complexity, a re-users of fundamental background models used by other, related, models and aligned with the only other ICSM national Semantic Web model.
+In 2023, several parts of this model covering general modelling and spatial modelling issues, such as lifecycle representation, spatiality itself & compound naming, were extracted out into a series of mini-models that are also used by other candidate ICSM models for Place (Geographic) Names, Roads and Administrative Areas. Also, alignment to the ICSM's national https://linked.data.gov.au/def/csdm[Cadastral Survey Data Model (CSDM)] was made and, as a result, this model is both much reduced in complexity, and re-uses fundamental background models used by other, related models and aligned with the only other ICSM national Semantic Web model.
 |*Status* | First stable version
 |*Version* |
-*1.0.3*: 2025-01 Extended Examples - table added
+*1.0.4*: 2025-02 Minor corrections +
+*1.0.3*: 2025-01 Extended Examples - table added +
 *1.0.2*: 2024-09 Support Vocabularies section updated to use ICSM vocabs +
 *1.0.1*: 2024-09 Geocode move to subclass of Geometry +
 *1.0.0*: 2024-06 As approved by ICSM for national use +
 |*Code Repository* | https://github.com/icsm-au/addr-model
 |*License* | https://creativecommons.org/licenses/by/4.0/[Creative Commons Attribution 4.0 International (CC BY 4.0)]
-|*Copyright* | &copy; The State of Queensland (Department of Resources) 2020-2023, Intergovernmental Committee on Surveying & Mapping, 2024
+|*Copyright* | &copy; The State of Queensland (Department of Natural Resources and Mines, Manufacturing, and Regional and Rural Development) 2020-2023, Intergovernmental Committee on Surveying & Mapping, 2025
 |*Machine-readable form (RDF)* | https://linked.data.gov.au/def/addr.ttl
 |===

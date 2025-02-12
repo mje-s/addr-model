@@ -34,12 +34,12 @@ Additionally, there is a https://www.w3.org/TR/shacl/[SHACL] validator for this 
 
 The content of this repository and the Address Model overall have the following copyright notices:
 
-&copy; The State of Queensland (Department of Resources), 2020 - 2023 +
-&copy; Commonwealth of Australia on behalf of ICSM, 2024
+&copy; The State of Queensland (Department of Natural Resources and Mines, Manufacturing, and Regional and Rural Development), 2020 - 2023 +
+&copy; Commonwealth of Australia on behalf of ICSM, 2025
 
 All content here is available for reuse under the https://creativecommons.org/licenses/by/4.0/[Creative Commons 4.0 license], see the LICENSE file for the deed.
 
-Note that much of the content in this model is reused from other models that have their own copyright and ruse information but all implement permissive open source Apache or BSD or W3C licenses that are similar to Creative Commons licenses.
+Note that much of the content in this model is reused from other models that have their own copyright and reuse information but all implement permissive open source Apache or BSD or W3C licenses that are similar to Creative Commons licenses.
 
 == Contributing
 
@@ -49,7 +49,7 @@ The process for adoption and release of normative changes has not yet been estab
 
 === Raising Issues
 
-Optimally, please rais any issues with any part of the model by creating a ticket in this model's repository's issue tracker at:
+Optimally, please raise any issues with any part of the model by creating a ticket in this model's repository's issue tracker at:
 
 * https://github.com/icsm-au/address-model/issues
 
@@ -70,9 +70,9 @@ via ICSM at icsm@ga.gov.au
 or
 
 *Spatial Information* +
-Department of Resources +  
+Department of Natural Resources and Mines, Manufacturing, and Regional and Rural Development +
 Queensland Government +
-CadastralAdminDataHelp@resources.qld.gov.au
+AddressQueensland@resources.qld.gov.au
 
 Technical supporter:
 

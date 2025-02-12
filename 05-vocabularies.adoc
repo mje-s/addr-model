@@ -55,7 +55,7 @@ The original 8 concepts from <<ISO19160-1, ISO19160-1>> are:
 | `aptiso:localityName` | locality name | Name of a locality | Use `apt:locality` to refer to a Locality object
 | `aptiso:postOfficeName` | post office name | Name of a post office | Not in current Australian address use
 | `aptiso:postcode` | postcode | Code used for the sorting of mail | Use `apt:postcode`
-| `aptiso:thoroughfareName` | thoroughfare name | Name of a thoroughfare | Use `apt:street` to refer to a street object
+| `aptiso:thoroughfareName` | thoroughfare name | Name of a thoroughfare | Use `apt:road` to refer to a road object
 |===
 
 These concepts have all been modified or completely replaced, except `postcode`. Replacements preference links to other complex objects, rather than simple literal data types, for example ISO19160-1's `countryCode` which indicates a text code value for a country has been replaced with `apt:country` which indicates a country object. The use of object references rather than literal values allows for element labelling variation, such as use of abbreviated forms of a name, e.g. "USA" instead of "United Stated of America" , or different language variants, e.g. "Deutschland" instead of "Germany", where the variant information is stored as part of the object referred to.
@@ -94,14 +94,14 @@ The Persistent web identifier for this vocabulary is:
 | `als:retired` | retired | The address was recognised by the authoritative jurisdiction but is no longer in use
 | `als:proposed` | proposed | The address has been suggested for use but not yet accepted
 | `als:rejected` | rejected | The address has been ruled not for use
-| `als:unknown` | unknown | The stage of this Address' life is unknown therefore it is assumes as a form of unofficial
+| `als:unknown` | unknown | The stage of this Address' life is unknown therefore it is assumed as a form of unofficial
 |===
 
 ==== Geocode Type
 
 This vocabulary was derived from the geocode types given as reference values in the <<GNAF>>.
 
-This is only a partial rendering of the vocabulary - a static list of the top concepts as they were in June, 2023 - provided to give an indicate of values, not to be an exhaustive list of values.
+This is only a partial rendering of the vocabulary - a static list of the top concepts as they were in June, 2023 - provided to give an indication of values, not to be an exhaustive list of values.
 
 The Persistent web identifier for this vocabulary is:
 

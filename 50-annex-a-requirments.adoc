@@ -1,7 +1,7 @@
 [[AnnexA]]
 == Annex A: Requirements
 
-the 10 major requirements for Australian and New Zealand address models, as per the https://www.icsm.gov.au/[Intergovernmental Committee on Surveying and Mapping] established an https://www.icsm.gov.au/publications/addressing-2035[Addressing 2035 Strategy]'s https://www.icsm.gov.au/publications/addressing-strategy-information-addendum[Addendum] are:
+The 10 major requirements for Australian and New Zealand address models, as per the https://www.icsm.gov.au/[Intergovernmental Committee on Surveying and Mapping] established an https://www.icsm.gov.au/publications/addressing-2035[Addressing 2035 Strategy]'s https://www.icsm.gov.au/publications/addressing-strategy-information-addendum[Addendum] are:
 
 . <<req-1, Better complex / multi address representation>>
 . <<req-2, Shared addressable object / address conception>>
@@ -31,16 +31,16 @@ This Model inherits the Address / Addressable Object pattern from the Compound N
 
 The Model is implemented in the general-purpose Web Ontology Language and is thus compatible with all RDF & SPARQL systems.
 
-The model profiles a number of common, general-purpose, Semantic Web models, such as GeoSPARQL (spatiality), OWL-TIME (temporality), PROV (provenance / process flow), schema.org (general-purpose description) and thus is compatible with other models that profile these too.
+The Model profiles a number of common, general-purpose, Semantic Web models, such as GeoSPARQL (spatiality), OWL-TIME (temporality), PROV (provenance / process flow), schema.org (general-purpose description) and thus is compatible with other models that profile these too.
 
 Some of this Model’s key patterns are inherited from the stand-alone Compound Naming <<CNM>> and Lifecycle <<LM>> models which other models may also inherit from leading to interoperability on those patterns.
 
 [[req-4]]
 === A.4 Model profiling and mapping
 
-The profiling mechanism this Model uses to inherit from well-known international standard models and also special-purpose models may be reused for other models to profile this model.
+The profiling mechanism this Model uses to inherit from well-known international standard models and also special-purpose models may be reused for other models to profile this Model.
 
-The model is published as a Profiles Vocabulary profile with profile elements that assist with the development of profiles of this model, for example, separately-published codelists as vocabularies which may be extended or constrained.
+The Model is published as a Profiles Vocabulary profile with profile elements that assist with the development of profiles of this Model, for example, separately-published codelists as vocabularies which may be extended or constrained.
 
 Due to this model inheriting from standard models, it may adopt mapping from them to others, for example, GeoSPARQL’s mapping to the ISO Simple Features model <<ISO19125-1>>.
 
